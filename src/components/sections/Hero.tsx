@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown, Calendar, Play, Star } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
     return (
@@ -10,12 +11,16 @@ export default function Hero() {
             className="relative min-h-screen flex items-center justify-center overflow-hidden"
         >
             {/* Background Image with Overlay */}
-            <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-                style={{
-                    backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDyMdAN-7MxuazKKmMGBRb7aHbTT2PJAgE5MfKIpYJXZ2KP-3Jw07qxq2dWxHVTv-kanwcivOPyFVvXmf9eHgKkhhiSmo6XzXB-Wt4DNj1IYn-lutujl8ex5rxFaF-5CsWs9ola6npfoXpusyvkl7iHi7L2BLxHbtj5A-BQ9XKt4vvS2JqnYplJrM6UuIJHurzy8uRlsDzgyy6jVHqFu_OR9HDTk9pT3iUP8MptED-0LrmkbjUuL94AjDn15Z1pij-PYlKXAfeUqOAK")`,
-                }}
-            />
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0">
+                <Image
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyMdAN-7MxuazKKmMGBRb7aHbTT2PJAgE5MfKIpYJXZ2KP-3Jw07qxq2dWxHVTv-kanwcivOPyFVvXmf9eHgKkhhiSmo6XzXB-Wt4DNj1IYn-lutujl8ex5rxFaF-5CsWs9ola6npfoXpusyvkl7iHi7L2BLxHbtj5A-BQ9XKt4vvS2JqnYplJrM6UuIJHurzy8uRlsDzgyy6jVHqFu_OR9HDTk9pT3iUP8MptED-0LrmkbjUuL94AjDn15Z1pij-PYlKXAfeUqOAK"
+                    alt="Royal Grandeur Banquet Hall Interior"
+                    fill
+                    priority
+                    className="object-cover object-center scale-105"
+                />
+            </div>
 
             {/* Dark Gradient Overlays - neutral, no gold tint */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />

@@ -19,7 +19,8 @@ export default function FloatingParticles() {
                     className="absolute text-gold-400/20"
                     style={{
                         left: `${particle.x}%`,
-                        fontSize: `${particle.size}px`,
+                        width: particle.size,
+                        height: particle.size,
                     }}
                     initial={{ y: "100vh", opacity: 0 }}
                     animate={{
@@ -33,7 +34,7 @@ export default function FloatingParticles() {
                         ease: "linear",
                     }}
                 >
-                    ✦
+                    <div className="w-full h-full rounded-full bg-gold-400" />
                 </motion.div>
             ))}
         </div>
