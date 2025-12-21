@@ -281,3 +281,191 @@
   content: '';
   @apply absolute inset-0 bg-shimmer bg-[length:200%_100%] animate-shimmer;
 }
+
+/* Royal Shimmer Effect */
+@keyframes royalShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.royal-shimmer {
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.3) 50%,
+      transparent 100%);
+  background-size: 200% 100%;
+  animation: royalShimmer 3s infinite;
+}
+
+/* Sparkle Animation */
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Floating Animation */
+@keyframes royalFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+
+  75% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+
+.royal-float {
+  animation: royalFloat 6s ease-in-out infinite;
+}
+
+/* Glow Pulse */
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Gradient Flow */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-flow {
+  background-size: 200% 200%;
+  animation: gradientFlow 5s ease infinite;
+}
+
+/* Text Shine Effect */
+@keyframes textShine {
+  0% {
+    background-position: -100% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.text-shine {
+  background: linear-gradient(90deg,
+      #D4AF37 0%,
+      #FFFFFF 40%,
+      #FFFFFF 60%,
+      #D4AF37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 4s linear infinite;
+}
+
+/* Border Glow */
+@keyframes borderGlow {
+
+  0%,
+  100% {
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+
+  50% {
+    border-color: rgba(212, 175, 55, 0.8);
+  }
+}
+
+.border-glow {
+  animation: borderGlow 2s ease-in-out infinite;
+}
+
+/* Rotate Slow */
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-slow {
+  animation: rotateSlow 20s linear infinite;
+}
+
+/* Scale Pulse */
+@keyframes scalePulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.scale-pulse {
+  animation: scalePulse 3s ease-in-out infinite;
+}
+
+/* Sparkle particles */
+.sparkle-container::before,
+.sparkle-container::after {
+  content: '✦';
+  position: absolute;
+  color: #D4AF37;
+  font-size: 12px;
+  animation: sparkle 2s infinite;
+}
+
+.sparkle-container::before {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.sparkle-container::after {
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 1s;
+}

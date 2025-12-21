@@ -12,10 +12,12 @@ import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
 import CTA from "@/components/sections/CTA";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
+import FloatingParticles from "@/components/shared/FloatingParticles";
 
 export default function Home() {
     return (
         <main className="relative">
+            <FloatingParticles />
             <Header />
             <Hero />
             <About />
