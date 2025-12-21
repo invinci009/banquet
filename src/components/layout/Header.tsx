@@ -39,22 +39,22 @@ export default function Header() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-3 group">
+                        <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
                             <div className="relative">
-                                <div className="w-12 h-12 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold group-hover:shadow-gold-lg transition-shadow duration-300">
-                                    <Sparkles className="w-6 h-6 text-navy-900" />
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold group-hover:shadow-gold-lg transition-shadow duration-300">
+                                    <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-navy-900" />
                                 </div>
                                 <div className="absolute -inset-1 bg-gold-gradient rounded-full blur opacity-30 group-hover:opacity-50 transition-opacity" />
                             </div>
                             <div className="flex flex-col">
                                 <span
-                                    className={`font-display text-xl font-bold tracking-tight transition-colors ${isScrolled ? "text-navy-800" : "text-white"
+                                    className={`font-display text-lg sm:text-xl font-bold tracking-tight transition-colors ${isScrolled ? "text-navy-800" : "text-white"
                                         }`}
                                 >
                                     Royal Grandeur
                                 </span>
                                 <span
-                                    className={`text-xs uppercase tracking-[0.2em] ${isScrolled ? "text-gold-600" : "text-gold-300"
+                                    className={`hidden sm:block text-xs uppercase tracking-[0.2em] ${isScrolled ? "text-gold-600" : "text-gold-300"
                                         }`}
                                 >
                                     Banquet Hall

@@ -190,7 +190,7 @@ export default function Footer() {
                     <p className="text-gray-500 text-sm flex items-center gap-1 flex-wrap justify-center">
                         © 2024 Royal Grandeur Banquet Hall. Made with{" "}
                         <Heart className="w-4 h-4 text-red-500 fill-red-500" />{" "}
-                        by <a href="https://ignuisstudios.com" target="_blank" rel="noopener noreferrer" className="text-gold-400 hover:text-gold-300 font-medium">Ignius Studios</a>
+                        by <a href="https://ignius-olive.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-gold-400 hover:text-gold-300 font-medium">Ignius Studios</a>
                     </p>
                     <div className="flex gap-6 text-sm text-gray-500">
                         <Link href="#" className="hover:text-gold-400 transition-colors">
