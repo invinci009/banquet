@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Patna Banquet Hall</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { primary: "#1152d4", "background-light": "#f6f6f8", "background-dark": "#101622" }, fontFamily: { display: "Manrope" }, borderRadius: { DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem" } } } };</script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-x-hidden">
+    <div class="relative flex flex-col min-h-screen">
+        <header
+            class="sticky top-0 z-50 bg-white dark:bg-[#1a2230] border-b border-[#f0f2f4] dark:border-[#2a3441] shadow-sm">
+            <div class="px-4 md:px-10 py-3 flex items-center justify-between mx-auto max-w-[1280px] w-full">
+                <div class="flex items-center gap-4 text-[#111318] dark:text-white">
+                    <div class="size-8 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined text-3xl">diamond</span>
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Patna Banquet Hall</h2>
+                </div>
+                <div class="hidden lg:flex flex-1 justify-end gap-8 items-center">
+                    <div class="flex items-center gap-9">
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors"
+                            href="#services">Services</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors"
+                            href="#features">Amenities</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#gallery">Gallery</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#contact">Contact</a>
+                    </div>
+                    <button
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-blue-700 transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                        <span class="truncate">Book a Visit</span>
+                    </button>
+                </div>
+                <button class="lg:hidden text-[#111318] dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+        <section class="relative w-full h-[600px] flex items-center justify-center">
+            <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+                data-alt="Luxurious banquet hall interior with chandeliers and elegant table settings"
+                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDyMdAN-7MxuazKKmMGBRb7aHbTT2PJAgE5MfKIpYJXZ2KP-3Jw07qxq2dWxHVTv-kanwcivOPyFVvXmf9eHgKkhhiSmo6XzXB-Wt4DNj1IYn-lutujl8ex5rxFaF-5CsWs9ola6npfoXpusyvkl7iHi7L2BLxHbtj5A-BQ9XKt4vvS2JqnYplJrM6UuIJHurzy8uRlsDzgyy6jVHqFu_OR9HDTk9pT3iUP8MptED-0LrmkbjUuL94AjDn15Z1pij-PYlKXAfeUqOAK");'>
+            </div>
+            <div class="relative z-10 px-4 text-center max-w-4xl mx-auto flex flex-col items-center gap-6">
+                <h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                    Experience Elegance in the Heart of Patna
+                </h1>
+                <h2 class="text-white/90 text-base md:text-xl font-normal leading-relaxed max-w-2xl">
+                    The premier destination for weddings, corporate gatherings, and unforgettable celebrations. Where
+                    luxury meets tradition.
+                </h2>
+                <div class="flex gap-4 mt-4">
+                    <button
+                        class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-primary hover:bg-blue-700 transition-colors text-white text-base font-bold tracking-[0.015em]">
+                        Schedule a Tour
+                    </button>
+                    <button
+                        class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 transition-colors text-white text-base font-bold tracking-[0.015em]">
+                        View Gallery
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 md:py-24 px-4 bg-white dark:bg-[#1a2230]">
+            <div class="max-w-[960px] mx-auto text-center flex flex-col gap-4">
+                <span class="text-primary font-bold tracking-widest text-sm uppercase">About Us</span>
+                <h2 class="text-[#111318] dark:text-white tracking-tight text-3xl md:text-4xl font-bold leading-tight">
+                    Welcome to Patna's Premier Venue
+                </h2>
+                <p class="text-[#616f89] dark:text-gray-300 text-lg font-normal leading-relaxed pt-2">
+                    We define the legacy of hospitality in Patna. Our halls are designed to offer a luxurious and
+                    professionally managed environment for your special moments, ensuring every event is memorable. From
+                    intimate gatherings to grand receptions, we provide the perfect backdrop for your story.
+                </p>
+            </div>
+        </section>
+        <section class="py-16 px-4 bg-background-light dark:bg-background-dark" id="features">
+            <div class="max-w-[1280px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div
+                        class="flex flex-col items-start p-6 bg-white dark:bg-[#1a2230] rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-3xl">location_on</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Prime Location</h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm">Situated in the heart of Patna, easily
+                            accessible for all your guests with ample connectivity.</p>
+                    </div>
+                    <div
+                        class="flex flex-col items-start p-6 bg-white dark:bg-[#1a2230] rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-3xl">groups</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">500+ Capacity</h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm">Spacious halls that can comfortably
+                            accommodate large weddings and corporate conferences.</p>
+                    </div>
+                    <div
+                        class="flex flex-col items-start p-6 bg-white dark:bg-[#1a2230] rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Premium Catering</h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm">Exquisite multi-cuisine menus prepared by
+                            top chefs to delight your taste buds.</p>
+                    </div>
+                    <div
+                        class="flex flex-col items-start p-6 bg-white dark:bg-[#1a2230] rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div
+                            class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-3xl">garage_home</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Valet Parking</h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm">Hassle-free parking experience with
+                            dedicated valet service for your events.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 md:py-24 px-4 bg-white dark:bg-[#1a2230]" id="services">
+            <div class="max-w-[1280px] mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+                    <div class="max-w-2xl">
+                        <span class="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">Our
+                            Expertise</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#111318] dark:text-white leading-tight">
+                            Comprehensive Event Services
+                        </h2>
+                        <p class="text-[#616f89] dark:text-gray-400 mt-4 text-lg">
+                            We bring together the best professionals in the industry to offer you a seamless,
+                            stress-free event experience. From concept to execution, we handle it all.
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="flex flex-col gap-6 p-8 rounded-2xl bg-background-light dark:bg-[#252b36] hover:-translate-y-1 transition-transform duration-300">
+                        <div
+                            class="size-16 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-primary flex items-center justify-center">
+                            <span class="material-symbols-outlined text-4xl">skillet</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Premium Catering</h3>
+                            <p class="text-[#616f89] dark:text-gray-400 leading-relaxed mb-6">
+                                Indulge in a gastronomic journey with our diverse menu options. Our expert chefs ensure
+                                hygiene, taste, and presentation are world-class.
+                            </p>
+                            <ul class="flex flex-col gap-3">
+                                <li
+                                    class="flex items-center gap-3 text-sm font-medium text-[#111318] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-green-500 text-xl">check</span>
+                                    Live Food Stations
+                                </li>
+                                <li
+                                    class="flex items-center gap-3 text-sm font-medium text-[#111318] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-green-500 text-xl">check</span>
+                                    Customized Menus
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-col gap-6 p-8 rounded-2xl bg-background-light dark:bg-[#252b36] hover:-translate-y-1 transition-transform duration-300">
+                        <div
+                            class="size-16 rounded-xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-4xl">filter_vintage</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Exquisite Decoration</h3>
+                            <p class="text-[#616f89] dark:text-gray-400 leading-relaxed mb-6">
+                                Transform our venue to match your vision. Our decorators specialize in floral
+                                arrangements, lighting, and thematic stage setups.
+                            </p>
+                            <ul class="flex flex-col gap-3">
+                                <li
+                                    class="flex items-center gap-3 text-sm font-medium text-[#111318] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-green-500 text-xl">check</span>
+                                    Floral &amp; Drapery
+                                </li>
+                                <li
+                                    class="flex items-center gap-3 text-sm font-medium text-[#111318] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-green-500 text-xl">check</span>
+                                    Theme Concepts
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-col gap-6 p-8 rounded-2xl bg-background-light dark:bg-[#252b36] hover:-translate-y-1 transition-transform duration-300">
+                        <div
+                            class="size-16 rounded-xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-4xl">event_available</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Event Planning</h3>
+                            <p class="text-[#616f89] dark:text-gray-400 leading-relaxed mb-6">
+                                Our experienced planners manage every detail, from vendor coordination to guest
+                                hospitality, ensuring your event runs smoothly.
+                            </p>
+                            <ul class="flex flex-col gap-3">
+                                <li
+                                    class="flex items-center gap-3 text-sm font-medium text-[#111318] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-green-500 text-xl">check</span>
+                                    End-to-End Management
+                                </li>
+                                <li
+                                    class="flex items-center gap-3 text-sm font-medium text-[#111318] dark:text-gray-300">
+                                    <span class="material-symbols-outlined text-green-500 text-xl">check</span>
+                                    Logistics Support
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 md:py-24 px-4 bg-background-light dark:bg-background-dark">
+            <div class="max-w-[1280px] mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-2">Events &amp; Occasions</h2>
+                        <p class="text-[#616f89] dark:text-gray-400">Tailored solutions for every occasion</p>
+                    </div>
+                    <a class="text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                        View All Services <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] mb-4">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Beautifully decorated wedding mandap with flowers and lighting"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhFzMaEY1bazql25rnFq2JWY42XnYzea1LaxUTIvzbTqHe5tAWfOBlCD9EZ5nCwFf3GAgAsPh-o1Sz9XMCKY9Ve6G0aTVcBzPDPsKug1BGDvFXCo39KcT1ZDRfIlTK1qcmBAg4ga2fkNxRHgWfvhvOVo0Ef82RTLssnoAgo8Wn2C5DdRIh3_sEkduHVt2lifjER0KDW-C5WmAvV0XXJhCVB3-R9Kah543bcYqZwsjCIrKRp5Sa8jpVglSGbMm32RUGjSlbOcZHtQEx");'>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1 group-hover:text-primary transition-colors">Weddings</h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm">Plan your dream day with elegant decor and
+                            seamless management.</p>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] mb-4">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Professional corporate conference setup with rows of chairs and projector"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCg09UVJEfFVBh8BcvoNIkP0gVJBF206p2UIXIuH2zc_hQ81xROQXRoIgskTBtqP_Sf5Lz5UW9WYwr-_VhxC5pWuCj0qmXEFpZiwgBpin_i1QBt7G1e6LO0dGhKhgc5Emk0g_fNni006ENuxrtJ-c_SgdcZxXh1QMu5akYgQNYzp1j16oe0SC45ZjF4lhxrcNLqHFieXRsgsTnV2Stu9qht2C-WujRfiJ2iv-8QC_JaLzUS1Wtk61-z2n_FamjayJj-B-djcr5K9_AA");'>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1 group-hover:text-primary transition-colors">Corporate Events
+                        </h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm">Professional gatherings, seminars, and
+                            product launches.</p>
+                    </div>
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden rounded-xl aspect-[4/3] mb-4">
+                            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Intimate birthday party setup with balloons and cake table"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4vBJLslScJn0kq8iN-dlCeFFJxoDDviwUhK-dOEkFfniRrl9oF7Q-bsVbw3MVWtNt9Qz1Z2b2klUMyHy_n2-cgMRYLOOoPWAoiCXa265kx8i_A9aC7GER5GGrSe4g3Q3xj7D89Qcyj0ICw3jft55YJXioIoapjE9iclWs1ET5AC7V1nPuAIX3axfqXYEloUVtGM5IMW4oVun-oWa7B3_zeje9rZ624RMI06qwZWV06JmEBFd6jiO2VNSWTGyZurQybLEDRGgi4IvA");'>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1 group-hover:text-primary transition-colors">Private Parties
+                        </h3>
+                        <p class="text-[#616f89] dark:text-gray-400 text-sm">Intimate celebrations, anniversaries, and
+                            family get-togethers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 px-4 bg-white dark:bg-[#1a2230]" id="gallery">
+            <div class="max-w-[1280px] mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">A Glimpse Inside</h2>
+                    <p class="text-[#616f89] dark:text-gray-400">Explore the beauty and sophistication of our venues
+                        through our lens.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[500px] md:h-[600px]">
+                    <div class="col-span-2 row-span-2 rounded-xl overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                            data-alt="Grand entrance of the banquet hall with red carpet"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMOmsdP-QJAaW36RKBASM-Qa_UcbdwPWOdiFbrki3XIk9Ouh1hYkh_8ju3g1KWXtt5rR49JWfZHoGPPFjI-y-kA7dhfOk-YUhk5JI2cyUwbGxvw0m_ozABFGqcnxoD5wkWWF8I65z8MmdNfDSbp-tIK_Q1wUsWuoLAEGSYkjKcjUO4tTRBttQDfom4JDGpH5-dlu2OLFS4caZw0oLr-SsQHznsl0NbYioJUG6tCOL5sgKM3KzZeyZo1UsG-vfB0BqqpV2p01y4Hj_v");'>
+                        </div>
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <div class="col-span-1 row-span-1 rounded-xl overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                            data-alt="Delicious buffet spread with indian cuisine"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOb8DrVNfipQjr4TNr83MR7XFIlDUkgxbmT3GUJluM64CF5Y-OCI1dXtwHUiB42qc3XnpAHK6HbYg5GYMTGkOifFf5LnTYB1uv1ULJcZKU6hSMBNMPZUjHUP1PBr5xKVnwJm7wQjx6TnoJgeuSXDf6iAkfKhbznxgF5raI1roXotYBZiYA7CnNb-f2ClZOP5nvJ4f9EHB61SRGqzB_7BdAuTj-hQamKkPjjPqiNbEZy6WBi-7MEQys4gA170LjqkIbmFVuEVkuoJRW");'>
+                        </div>
+                    </div>
+                    <div class="col-span-1 row-span-1 rounded-xl overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                            data-alt="Floral table centerpiece detail"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBf2agsq7LJT2p2CZotOG3XroHvJYBxcLX9Y3ko_DrYN5kau_PtEnBcWQsPRbeltKxe9KigCvV-Xva8xDNxdWe8ht4FtMeFK7qtPlZ2fT4d55UH4e__8kYUICzXTqzazrp9sjuMlsZ82qDK1v3QL_MtFDid2fLw-chMmXd-FhQ_VQM1qQoun3zpdsTLAXAmaqFgXXTDXtJ-W4YwETXFoNym3HVeVgS3wxzjtstBvnxyQno42qgl_UVBBK6uBw-1gAxxbwvOcCL9Iq1Q");'>
+                        </div>
+                    </div>
+                    <div class="col-span-2 row-span-1 rounded-xl overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                            data-alt="Wide shot of the banquet hall ready for a reception"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8EulTIN23bHW59L3zbBOximTZqRcu_pBZ1O8XTe4yf3aAGPsOlDYnX84NYPBNToSFKVcW2ZTCP6GSPnH2rfXk1TUa2jkZmboz4bdJ6Jyd01I7qVVw6KbXBFW2AKLk-SiXGfvu8gLU1ctKaRRYUeVC-tiaD1tzEVeWCQS1R2Yw4KQms4lX1otdBI34m2mSVm95mO7oz8PWjLjwgH18QRKVU77Y4IZ_uhAI__-7Felrb94untetCtbnjCggJAVLhL106FRjNGOYKRji");'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 md:py-24 px-4 bg-background-light dark:bg-background-dark">
+            <div class="max-w-[1280px] mx-auto">
+                <h2 class="text-3xl font-bold mb-10 text-center">What Our Guests Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white dark:bg-[#252b36] p-8 rounded-xl flex flex-col gap-4 shadow-sm">
+                        <div class="flex items-center gap-1 text-yellow-500">
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                        </div>
+                        <p class="text-[#616f89] dark:text-gray-300 italic">"The team at Patna Banquet Hall made my
+                            daughter's wedding absolutely magical. The food was the talk of the town!"</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="size-10 rounded-full bg-gray-300 bg-cover bg-center"
+                                data-alt="Portrait of happy customer Amit Kumar"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDB3k8Z59SbIDh2BG59DRD057bAlOdolCevbw6KGrlZMjmHBRAfzvJhtmQlpVvFMdBiuDG_J82qbGNYxOPQt-p48HpzOrgi70a8lOOKlSZvmne3uvqREMp9CiWpExv24LfneJe7vXu3Wpfw__ZoYD0pZiDyM-yoXK3fAjOvegMd4s1xpMDEJZI-LWHzdT4S-_f_zkEgwoQ_L_bO5B4tkLQA4g8r6bEpFYyV_SAqwEJPD2qjB3vlJRhz422Hh41VJ_4gIXuoGZGBqccn");'>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Amit Kumar</p>
+                                <p class="text-xs text-gray-500">Wedding Event</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-[#252b36] p-8 rounded-xl flex flex-col gap-4 shadow-sm">
+                        <div class="flex items-center gap-1 text-yellow-500">
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                        </div>
+                        <p class="text-[#616f89] dark:text-gray-300 italic">"Excellent venue for corporate seminars. The
+                            AV setup was flawless and the staff was extremely professional."</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="size-10 rounded-full bg-gray-300 bg-cover bg-center"
+                                data-alt="Portrait of professional Priya Singh"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJUP-UHtZKn23_0I4lq2k1jN2hQuZewp7BSN_V4kmpxQiKXFlm1QtCNxNauu9KHJTVqKU1g9lBKVCjDNs-zPjV3Lm0QssHPUh9eDLzTFrZfZ0mYvxpLyGWIULRSeq2xSbj4It9rU66P5K73k1k-FtRYhhaC4pZozLT91FpdTdz2INzVPVqsoQFwGsFf2Zb5ej8ELm9Tnt6sIly--zuW_dQcY5hx8NWM9QA7gKMPgXknFwXTuW_I-_hI9fhwVXMk97HHdv5eDxdd1bg");'>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Priya Singh</p>
+                                <p class="text-xs text-gray-500">Corporate Meet</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-[#252b36] p-8 rounded-xl flex flex-col gap-4 shadow-sm">
+                        <div class="flex items-center gap-1 text-yellow-500">
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                            <span class="material-symbols-outlined text-sm fill-current">star</span>
+                        </div>
+                        <p class="text-[#616f89] dark:text-gray-300 italic">"A hidden gem in Patna. We hosted our
+                            anniversary party here and the decoration was exactly as we imagined."</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="size-10 rounded-full bg-gray-300 bg-cover bg-center"
+                                data-alt="Portrait of happy customer Rahul Verma"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJIooBQed3DDl-739xuUrlBN1nNnLcxLQj2EHcNrrRm8veG0FP65gmgjnDem6RefzYMW0c3VnyyiaPIZFhQnEg0P4jyRTmF41E8QJr33BPupCkeqWJ1x92Kz2YpI9BwfStDfZfTXrOL5fnb_S3JdxAA9Wphcu4PAHCYGGVtKeqAOlYpb_7dhQJuH68miRL3tdeJCtl9kda0kQf4jxKkXQtGPBjBuhvmFLkeZOdAXcEE8FFb4I4K6NuM7dAnNbwrP0k2jAMj4cv65wa");'>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Rahul Verma</p>
+                                <p class="text-xs text-gray-500">Anniversary Party</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 px-4 bg-primary text-white">
+            <div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
+                <h2 class="text-3xl md:text-5xl font-bold">Ready to plan your event?</h2>
+                <p class="text-blue-100 text-lg max-w-2xl">Contact us today to check availability or schedule a personal
+                    tour of our facilities.</p>
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <button
+                        class="bg-white text-primary hover:bg-gray-100 transition-colors px-8 py-3 rounded-lg font-bold">
+                        Book a Visit
+                    </button>
+                    <button
+                        class="bg-blue-800 hover:bg-blue-900 transition-colors px-8 py-3 rounded-lg font-bold border border-blue-700">
+                        Call +91 98765 43210
+                    </button>
+                </div>
+            </div>
+        </section>
+        <footer class="bg-[#101622] text-white pt-16 pb-8 border-t border-gray-800" id="contact">
+            <div class="max-w-[1280px] mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-2xl">diamond</span>
+                            <span class="font-bold text-xl">Patna Banquet Hall</span>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Patna's most trusted venue for creating timeless memories. Professional service, elegant
+                            ambiance, and central location.
+                        </p>
+                        <div class="flex gap-4 mt-2">
+                            <a class="text-gray-400 hover:text-primary" href="#"><span
+                                    class="material-symbols-outlined">public</span></a>
+                            <a class="text-gray-400 hover:text-primary" href="#"><span
+                                    class="material-symbols-outlined">share</span></a>
+                            <a class="text-gray-400 hover:text-primary" href="#"><span
+                                    class="material-symbols-outlined">mail</span></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-lg">Quick Links</h4>
+                        <ul class="flex flex-col gap-2 text-gray-400 text-sm">
+                            <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Venues</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Services</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Gallery</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-lg">Contact Us</h4>
+                        <ul class="flex flex-col gap-4 text-gray-400 text-sm">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary mt-0.5">location_on</span>
+                                <span>123 Exhibition Road, Near Gandhi Maidan, Patna, Bihar 800001</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">call</span>
+                                <span>+91 98765 43210</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">mail</span>
+                                <span>info@patnabanquet.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="rounded-lg overflow-hidden h-48 bg-gray-800 relative">
+                        <div class="w-full h-full bg-cover bg-center"
+                            data-alt="Map showing location of Patna Banquet Hall in Patna" data-location="Patna"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnPcX9BVVbS_hhF98TvA3fSaVXoE0ovNvMs_gtTRfTxWuyNBqJ83grFf3PQxDcsJlLpozDSdVgkzicmt11m6CWRKAZKUf_zs1JEEoCF6Tp5VtKSjyO8Z-WzS4ZtXdyUZYgLu_kIvYPVY5288F2COlQBWS-A5cYFNpSXgjLBwsnrR4gUfDnmIAKRi1W2xBw0yk5ORyMy68ePzXHjQOwlnJSwRlr0gg22DtAeOMNTsiRnRfrFGdseSS_734693m3-uOfjNBOCEKujnzu");'>
+                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                <button
+                                    class="bg-white text-black px-4 py-2 rounded shadow-lg text-sm font-bold flex items-center gap-2 hover:bg-gray-100">
+                                    <span class="material-symbols-outlined text-red-500">pin_drop</span>
+                                    View on Map
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                    <p>© 2023 Patna Banquet Hall. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a class="hover:text-white" href="#">Privacy Policy</a>
+                        <a class="hover:text-white" href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
