@@ -276,7 +276,7 @@ export default function Contact() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="h-[600px] rounded-3xl overflow-hidden border border-white/10"
+                        className="h-[350px] sm:h-[450px] lg:h-[600px] rounded-3xl overflow-hidden border border-white/10"
                     >
                         <ContactMap />
                     </motion.div>
