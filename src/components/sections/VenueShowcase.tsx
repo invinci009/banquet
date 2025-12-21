@@ -28,7 +28,7 @@ const venues = [
         tagline: "Intimate Elegance",
         capacity: "50-150",
         sqft: "4,000",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAMOmsdP-QJAaW36RKBASM-Qa_UcbdwPWOdiFbrki3XIk9Ouh1hYkh_8ju3g1KWXtt5rR49JWfZHoGPPFjI-y-kA7dhfOk-YUhk5JI2cyUwbGxvw0m_ozABFGqcnxoD5sgKM3KzZeyZo1UsG-vfB0BqqpV2p01y4Hj_v",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBf2agsq7LJT2p2CZotOG3XroHvJYBxcLX9Y3ko_DrYN5kau_PtEnBcWQsPRbeltKxe9KigCvV-Xva8xDNxdWe8ht4FtMeFK7qtPlZ2fT4d55UH4e__8kYUICzXTqzazrp9sjuMlsZ82qDK1v3QL_MtFDid2fLw-chMmXd-FhQ_VQM1qQoun3zpdsTLAXAmaqFgXXTDXtJ-W4YwETXFoNym3HVeVgS3wxzjtstBvnxyQno42qgl_UVBBK6uBw-1gAxxbwvOcCL9Iq1Q",
         features: ["Private Bar", "Luxury Seating", "Ambient Lighting", "Personal Butler"],
         color: "from-purple-500 to-purple-600",
     },
