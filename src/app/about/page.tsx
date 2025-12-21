@@ -55,7 +55,7 @@ export default function AboutPage() {
             </div>
 
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center bg-navy-900 overflow-hidden">
+            <section className="relative min-h-[100dvh] flex items-center justify-center bg-navy-900 overflow-hidden">
                 {/* Animated Pattern */}
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 pattern-dots opacity-20" />
@@ -94,21 +94,21 @@ export default function AboutPage() {
                     className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-burgundy-700/20 to-transparent rounded-full blur-3xl"
                 />
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-20">
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16 sm:pt-32 sm:pb-20">
                     {/* Animated Crown */}
                     <motion.div
                         initial={{ scale: 0, rotate: -180 }}
                         animate={{ scale: 1, rotate: 0 }}
                         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-                        className="relative inline-block mb-8"
+                        className="relative inline-block mb-6 sm:mb-8"
                     >
                         <motion.div
                             animate={{ rotate: 360 }}
                             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-0 w-24 h-24 rounded-full border-2 border-dashed border-gold-400/30"
+                            className="absolute inset-0 w-16 h-16 sm:w-24 sm:h-24 rounded-full border-2 border-dashed border-gold-400/30"
                         />
-                        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 flex items-center justify-center shadow-gold-lg">
-                            <Crown className="w-12 h-12 text-navy-900" />
+                        <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 flex items-center justify-center shadow-gold-lg">
+                            <Crown className="w-8 h-8 sm:w-12 sm:h-12 text-navy-900" />
                         </div>
                     </motion.div>
 
@@ -117,7 +117,7 @@ export default function AboutPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
-                        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                             Where Dreams Become
                             <br />
                             <span className="relative">
@@ -138,7 +138,7 @@ export default function AboutPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.5 }}
-                        className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12"
+                        className="text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-12 px-2"
                     >
                         For over 15 years, Royal Grandeur has been Patna&apos;s most trusted destination
                         for weddings, celebrations, and unforgettable moments.
@@ -149,7 +149,7 @@ export default function AboutPage() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.6 }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+                        className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
                     >
                         {stats.map((stat, index) => (
                             <motion.div
@@ -161,15 +161,15 @@ export default function AboutPage() {
                                 className="relative group"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-br from-gold-500/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                                <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 group-hover:border-gold-500/50 transition-colors">
+                                <div className="relative bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/10 group-hover:border-gold-500/50 transition-colors">
                                     <motion.div
                                         whileHover={{ rotate: 360 }}
                                         transition={{ duration: 0.5 }}
                                     >
-                                        <stat.icon className="w-8 h-8 text-gold-400 mx-auto mb-3" />
+                                        <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-gold-400 mx-auto mb-2 sm:mb-3" />
                                     </motion.div>
-                                    <div className="font-display text-3xl md:text-4xl font-bold text-white">{stat.number}</div>
-                                    <div className="text-gray-400 text-sm mt-1">{stat.label}</div>
+                                    <div className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">{stat.number}</div>
+                                    <div className="text-gray-400 text-xs sm:text-sm mt-1">{stat.label}</div>
                                 </div>
                             </motion.div>
                         ))}
@@ -180,7 +180,7 @@ export default function AboutPage() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.5 }}
-                        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 hidden sm:block"
                     >
                         <motion.div
                             animate={{ y: [0, 10, 0] }}
@@ -198,13 +198,13 @@ export default function AboutPage() {
             </section>
 
             {/* Timeline Section */}
-            <section className="py-24 lg:py-32 bg-gradient-to-b from-champagne-50 to-white relative">
+            <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-champagne-50 to-white relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-center mb-20"
+                        className="text-center mb-12 sm:mb-20"
                     >
                         <motion.span
                             initial={{ opacity: 0, scale: 0.8 }}
@@ -214,7 +214,7 @@ export default function AboutPage() {
                         >
                             Our Journey
                         </motion.span>
-                        <h2 className="font-display text-4xl md:text-5xl font-bold text-navy-800">
+                        <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-navy-800">
                             A Legacy of <span className="text-gold-600">Excellence</span>
                         </h2>
                     </motion.div>
@@ -238,14 +238,14 @@ export default function AboutPage() {
                                 transition={{ duration: 0.6, delay: index * 0.15 }}
                                 className={`relative flex items-center mb-16 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                             >
-                                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
+                                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8 lg:pr-16 md:text-right' : 'md:pl-8 lg:pl-16'}`}>
                                     <motion.div
                                         whileHover={{ scale: 1.02, y: -5 }}
-                                        className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all"
+                                        className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all"
                                     >
-                                        <span className="inline-block text-gold-500 font-display text-3xl font-bold bg-gold-50 px-4 py-1 rounded-lg">{item.year}</span>
-                                        <h3 className="text-navy-800 font-bold text-2xl mt-4">{item.title}</h3>
-                                        <p className="text-gray-600 mt-3 leading-relaxed">{item.description}</p>
+                                        <span className="inline-block text-gold-500 font-display text-xl sm:text-3xl font-bold bg-gold-50 px-3 sm:px-4 py-1 rounded-lg">{item.year}</span>
+                                        <h3 className="text-navy-800 font-bold text-lg sm:text-2xl mt-3 sm:mt-4">{item.title}</h3>
+                                        <p className="text-gray-600 mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed">{item.description}</p>
                                     </motion.div>
                                 </div>
 
@@ -270,7 +270,7 @@ export default function AboutPage() {
             </section>
 
             {/* Values Section */}
-            <section className="py-24 lg:py-32 bg-navy-900 relative overflow-hidden">
+            <section className="py-16 sm:py-24 lg:py-32 bg-navy-900 relative overflow-hidden">
                 {/* Animated Background */}
                 <div className="absolute inset-0">
                     <motion.div
@@ -290,17 +290,17 @@ export default function AboutPage() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-center mb-16"
+                        className="text-center mb-10 sm:mb-16"
                     >
                         <span className="inline-block text-gold-400 font-medium text-sm uppercase tracking-widest bg-gold-500/10 px-4 py-2 rounded-full mb-4">
                             What Drives Us
                         </span>
-                        <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
+                        <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white">
                             Our Core Values
                         </h2>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
                         {values.map((value, index) => (
                             <motion.div
                                 key={value.title}
@@ -312,16 +312,16 @@ export default function AboutPage() {
                                 className="group relative"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity rounded-3xl blur-xl" style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }} />
-                                <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 group-hover:border-gold-500/50 transition-all h-full">
+                                <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-white/10 group-hover:border-gold-500/50 transition-all h-full">
                                     <motion.div
                                         whileHover={{ rotate: 360, scale: 1.1 }}
                                         transition={{ duration: 0.5 }}
-                                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-6 shadow-lg`}
+                                        className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-4 sm:mb-6 shadow-lg`}
                                     >
-                                        <value.icon className="w-8 h-8 text-white" />
+                                        <value.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                                     </motion.div>
-                                    <h3 className="text-white font-bold text-xl mb-3">{value.title}</h3>
-                                    <p className="text-gray-400">{value.description}</p>
+                                    <h3 className="text-white font-bold text-base sm:text-xl mb-2 sm:mb-3">{value.title}</h3>
+                                    <p className="text-gray-400 text-xs sm:text-base">{value.description}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -330,18 +330,18 @@ export default function AboutPage() {
             </section>
 
             {/* Services Grid */}
-            <section className="py-24 lg:py-32 bg-gradient-to-b from-white to-champagne-50">
+            <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-champagne-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-center mb-16"
+                        className="text-center mb-10 sm:mb-16"
                     >
                         <span className="inline-block text-gold-600 font-medium text-sm uppercase tracking-widest bg-gold-100 px-4 py-2 rounded-full mb-4">
                             Complete Solutions
                         </span>
-                        <h2 className="font-display text-4xl md:text-5xl font-bold text-navy-800">
+                        <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-navy-800">
                             Everything Under One Roof
                         </h2>
                     </motion.div>
@@ -355,16 +355,16 @@ export default function AboutPage() {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.05, type: "spring" }}
                                 whileHover={{ y: -10, scale: 1.05 }}
-                                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-gold-300 transition-all text-center"
+                                className="group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-gold-300 transition-all text-center"
                             >
                                 <motion.div
                                     whileHover={{ rotate: 360 }}
                                     transition={{ duration: 0.5 }}
-                                    className="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-gold-100 to-gold-200 flex items-center justify-center mb-4 group-hover:from-gold-400 group-hover:to-gold-600 transition-all"
+                                    className="w-10 h-10 sm:w-14 sm:h-14 mx-auto rounded-lg sm:rounded-xl bg-gradient-to-br from-gold-100 to-gold-200 flex items-center justify-center mb-3 sm:mb-4 group-hover:from-gold-400 group-hover:to-gold-600 transition-all"
                                 >
-                                    <service.icon className="w-7 h-7 text-gold-600 group-hover:text-white transition-colors" />
+                                    <service.icon className="w-5 h-5 sm:w-7 sm:h-7 text-gold-600 group-hover:text-white transition-colors" />
                                 </motion.div>
-                                <h3 className="text-navy-800 font-bold text-sm">{service.title}</h3>
+                                <h3 className="text-navy-800 font-bold text-xs sm:text-sm">{service.title}</h3>
                             </motion.div>
                         ))}
                     </div>
@@ -372,7 +372,7 @@ export default function AboutPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 bg-navy-900 relative overflow-hidden">
+            <section className="py-16 sm:py-24 bg-navy-900 relative overflow-hidden">
                 <div className="absolute inset-0 pattern-dots opacity-20" />
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
 
@@ -399,14 +399,14 @@ export default function AboutPage() {
                             transition={{ duration: 2, repeat: Infinity }}
                             className="inline-block mb-8"
                         >
-                            <Sparkles className="w-12 h-12 text-gold-400" />
+                            <Sparkles className="w-8 h-8 sm:w-12 sm:h-12 text-gold-400" />
                         </motion.div>
 
-                        <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-                            Ready to Create Your <br />
+                        <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+                            Ready to Create Your <br className="hidden sm:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">Perfect Celebration</span>?
                         </h2>
-                        <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
+                        <p className="text-gray-300 text-sm sm:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto">
                             Let us help you plan an event that will be remembered for generations.
                         </p>
 
@@ -415,7 +415,7 @@ export default function AboutPage() {
                                 href="/contact"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="group px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-900 font-bold rounded-xl transition-all flex items-center gap-2 shadow-gold"
+                                className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-900 font-bold rounded-lg sm:rounded-xl transition-all flex items-center gap-2 shadow-gold text-sm sm:text-base"
                             >
                                 Schedule a Tour
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -424,7 +424,7 @@ export default function AboutPage() {
                                 href="tel:+916205708606"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="px-8 py-4 border-2 border-white/30 hover:border-gold-400 hover:bg-gold-400/10 text-white font-semibold rounded-xl transition-all"
+                                className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/30 hover:border-gold-400 hover:bg-gold-400/10 text-white font-semibold rounded-lg sm:rounded-xl transition-all text-sm sm:text-base"
                             >
                                 Call Us Now
                             </motion.a>
