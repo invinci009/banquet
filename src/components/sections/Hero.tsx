@@ -14,8 +14,8 @@ export default function Hero() {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0">
                 <Image
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyMdAN-7MxuazKKmMGBRb7aHbTT2PJAgE5MfKIpYJXZ2KP-3Jw07qxq2dWxHVTv-kanwcivOPyFVvXmf9eHgKkhhiSmo6XzXB-Wt4DNj1IYn-lutujl8ex5rxFaF-5CsWs9ola6npfoXpusyvkl7iHi7L2BLxHbtj5A-BQ9XKt4vvS2JqnYplJrM6UuIJHurzy8uRlsDzgyy6jVHqFu_OR9HDTk9pT3iUP8MptED-0LrmkbjUuL94AjDn15Z1pij-PYlKXAfeUqOAK"
-                    alt="Royal Grandeur Banquet Hall Interior"
+                    src="https://images.unsplash.com/photo-1519167758481-83f5a5d4aa0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+                    alt="Luxury Grand Banquet Hall Patna for Weddings with Chandelier"
                     fill
                     priority
                     className="object-cover object-center scale-105"
@@ -54,9 +54,11 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
                 >
-                    Patna&apos;s Grandest
+                    Royal Grandeur Banquet Hall
                     <br />
-                    <span className="text-gold-300">Celebration Venue</span>
+                    <span className="text-gold-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl block mt-2">
+                        Patna&apos;s Premier Luxury Wedding & Event Venue
+                    </span>
                 </motion.h1>
 
                 {/* Subheading */}
@@ -97,10 +99,10 @@ export default function Hero() {
                     className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
                 >
                     {[
-                        { number: "500+", label: "Events Hosted" },
-                        { number: "15+", label: "Years Experience" },
-                        { number: "1000+", label: "Happy Families" },
+                        { number: "50,000+", label: "Sq. Ft. Area" },
                         { number: "4", label: "Luxurious Halls" },
+                        { number: "800+", label: "Events Hosted" },
+                        { number: "15+", label: "Years of Excellence" },
                     ].map((stat, index) => (
                         <div key={index} className="text-center">
                             <div className="text-3xl md:text-4xl font-bold text-gold-300 mb-1">

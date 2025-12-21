@@ -5,24 +5,24 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
     {
-        name: "Amit Kumar",
-        role: "Wedding Event",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDB3k8Z59SbIDh2BG59DRD057bAlOdolCevbw6KGrlZMjmHBRAfzvJhtmQlpVvFMdBiuDG_J82qbGNYxOPQt-p48HpzOrgi70a8lOOKlSZvmne3uvqREMp9CiWpExv24LfneJe7vXu3Wpfw__ZoYD0pZiDyM-yoXK3fAjOvegMd4s1xpMDEJZI-LWHzdT4S-_f_zkEgwoQ_L_bO5B4tkLQA4g8r6bEpFYyV_SAqwEJPD2qjB3vlJRhz422Hh41VJ_4gIXuoGZGBqccn",
-        quote: "The team at Royal Grandeur made my daughter's wedding absolutely magical. The food was the talk of the town! Every detail was perfect.",
+        name: "Priya & Rohan Sharma",
+        role: "Wedding, Dec 2024",
+        image: "https://images.unsplash.com/photo-1623366302587-bdbd9a1f4c41?auto=format&fit=crop&w=150&q=80",
+        quote: "Outstanding venue! Our wedding in December was flawless. The hall decoration near the stage was breathtaking, and the food live counters were a huge hit with our guests.",
         rating: 5,
     },
     {
-        name: "Priya Singh",
-        role: "Corporate Meet",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJUP-UHtZKn23_0I4lq2k1jN2hQuZewp7BSN_V4kmpxQiKXFlm1QtCNxNauu9KHJTVqKU1g9lBKVCjDNs-zPjV3Lm0QssHPUh9eDLzTFrZfZ0mYvxpLyGWIULRSeq2xSbj4It9rU66P5K73k1k-FtRYhhaC4pZozLT91FpdTdz2INzVPVqsoQFwGsFf2Zb5ej8ELm9Tnt6sIly--zuW_dQcY5hx8NWM9QA7gKMPgXknFwXTuW_I-_hI9fhwVXMk97HHdv5eDxdd1bg",
-        quote: "Excellent venue for corporate seminars. The AV setup was flawless and the staff was extremely professional throughout.",
+        name: "Vikram Malhotra",
+        role: "Tech Summit, Patna",
+        image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=150&q=80",
+        quote: "We hosted our annual dealer meet here. The location near Gandhi Maidan made it easy for everyone to reach. Professional staff and excellent AC quality.",
         rating: 5,
     },
     {
-        name: "Rahul Verma",
-        role: "Anniversary Party",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJIooBQed3DDl-739xuUrlBN1nNnLcxLQj2EHcNrrRm8veG0FP65gmgjnDem6RefzYMW0c3VnyyiaPIZFhQnEg0P4jyRTmF41E8QJr33BPupCkeqWJ1x92Kz2YpI9BwfStDfZfTXrOL5fnb_S3JdxAA9Wphcu4PAHCYGGVtKeqAOlYpb_7dhQJuH68miRL3tdeJCtl9kda0kQf4jxKkXQtGPBjBuhvmFLkeZOdAXcEE8FFb4I4K6NuM7dAnNbwrP0k2jAMj4cv65wa",
-        quote: "A hidden gem in Patna. We hosted our anniversary party here and the decoration was exactly as we imagined.",
+        name: "Anjali Devi",
+        role: "Daughter's Ring Ceremony",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+        quote: "A hidden gem for luxury events. The garden area was perfect for the evening party. Highly recommended for anyone looking for class and elegance.",
         rating: 5,
     },
 ];

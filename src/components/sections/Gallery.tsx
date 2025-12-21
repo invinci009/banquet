@@ -3,27 +3,43 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X, ZoomIn } from "lucide-react";
+import Image from "next/image";
 
 const galleryImages = [
     {
-        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAMOmsdP-QJAaW36RKBASM-Qa_UcbdwPWOdiFbrki3XIk9Ouh1hYkh_8ju3g1KWXtt5rR49JWfZHoGPPFjI-y-kA7dhfOk-YUhk5JI2cyUwbGxvw0m_ozABFGqcnxoD5wkWWF8I65z8MmdNfDSbp-tIK_Q1wUsWuoLAEGSYkjKcjUO4tTRBttQDfom4JDGpH5-dlu2OLFS4caZw0oLr-SsQHznsl0NbYioJUG6tCOL5sgKM3KzZeyZo1UsG-vfB0BqqpV2p01y4Hj_v",
-        alt: "Grand entrance with red carpet",
+        src: "https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        alt: "Grand Banquet Hall Interior with Crystal Chandeliers",
         span: "col-span-2 row-span-2",
     },
     {
-        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCOb8DrVNfipQjr4TNr83MR7XFIlDUkgxbmT3GUJluM64CF5Y-OCI1dXtwHUiB42qc3XnpAHK6HbYg5GYMTGkOifFf5LnTYB1uv1ULJcZKU6hSMBNMPZUjHUP1PBr5xKVnwJm7wQjx6TnoJgeuSXDf6iAkfKhbznxgF5raI1roXotYBZiYA7CnNb-f2ClZOP5nvJ4f9EHB61SRGqzB_7BdAuTj-hQamKkPjjPqiNbEZy6WBi-7MEQys4gA170LjqkIbmFVuEVkuoJRW",
-        alt: "Delicious buffet spread",
+        src: "https://images.pexels.com/photos/169191/pexels-photo-169191.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        alt: "Luxury Wedding Stage Decoration with Floral Backdrop",
         span: "col-span-1 row-span-1",
     },
     {
-        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBf2agsq7LJT2p2CZotOG3XroHvJYBxcLX9Y3ko_DrYN5kau_PtEnBcWQsPRbeltKxe9KigCvV-Xva8xDNxdWe8ht4FtMeFK7qtPlZ2fT4d55UH4e__8kYUICzXTqzazrp9sjuMlsZ82qDK1v3QL_MtFDid2fLw-chMmXd-FhQ_VQM1qQoun3zpdsTLAXAmaqFgXXTDXtJ-W4YwETXFoNym3HVeVgS3wxzjtstBvnxyQno42qgl_UVBBK6uBw-1gAxxbwvOcCL9Iq1Q",
-        alt: "Floral table centerpiece",
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+        alt: "Elegant Event Hall Seating Arrangement",
+        span: "col-span-1 row-span-2",
+    },
+    {
+        src: "https://images.pexels.com/photos/2659878/pexels-photo-2659878.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        alt: "Traditional Indian Wedding Mandap Setup",
         span: "col-span-1 row-span-1",
     },
     {
-        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8EulTIN23bHW59L3zbBOximTZqRcu_pBZ1O8XTe4yf3aAGPsOlDYnX84NYPBNToSFKVcW2ZTCP6GSPnH2rfXk1TUa2jkZmboz4bdJ6Jyd01I7qVVw6KbXBFW2AKLk-SiXGfvu8gLU1ctKaRRYUeVC-tiaD1tzEVeWCQS1R2Yw4KQms4lX1otdBI34m2mSVm95mO7oz8PWjLjwgH18QRKVU77Y4IZ_uhAI__-7Felrb94untetCtbnjCggJAVLhL106FRjNGOYKRji",
-        alt: "Banquet hall ready for reception",
+        src: "https://images.unsplash.com/photo-1606216794076-2b3e3c7b667f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+        alt: "Royal Wedding Decor Details",
         span: "col-span-2 row-span-1",
+    },
+    {
+        src: "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        alt: "Premium Dining Experience Setup",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "https://images.unsplash.com/photo-1590524385516-13ff798cbbe5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+        alt: "Outdoor Garden Terrace for Evening Parties",
+        span: "col-span-1 row-span-1",
     },
 ];
 
@@ -42,13 +58,12 @@ export default function Gallery() {
                         transition={{ duration: 0.6 }}
                         className="text-center max-w-3xl mx-auto mb-16"
                     >
-                        <span className="section-subheading">Gallery</span>
+                        <span className="section-subheading">Our Gallery</span>
                         <h2 className="section-heading mb-6">
-                            A Glimpse <span className="text-gold-600">Inside</span>
+                            A Glimpse of <span className="text-gold-600">Royal Celebrations</span>
                         </h2>
-                        <p className="text-gold-700/70 text-lg">
-                            Explore the beauty and sophistication of our venues through our lens.
-                            Every corner tells a story of elegance.
+                        <p className="text-gray-600 text-lg">
+                            Witness the elegance and grandeur we bring to every event. From floral mandaps to gourmet catering.
                         </p>
                     </motion.div>
 
@@ -64,9 +79,11 @@ export default function Gallery() {
                                 className={`${image.span} rounded-2xl overflow-hidden relative group cursor-pointer`}
                                 onClick={() => setSelectedImage(image.src)}
                             >
-                                <div
-                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                                    style={{ backgroundImage: `url("${image.src}")` }}
+                                <Image
+                                    src={image.src}
+                                    alt={image.alt}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
 
                                 {/* Overlay */}
@@ -80,7 +97,7 @@ export default function Gallery() {
                                 </div>
 
                                 {/* Gold Border on Hover */}
-                                <div className="absolute inset-0 border-4 border-transparent group-hover:border-gold-400 rounded-2xl transition-colors duration-300" />
+                                <div className="absolute inset-0 border-4 border-transparent group-hover:border-gold-400 rounded-2xl transition-colors duration-300 pointer-events-none" />
                             </motion.div>
                         ))}
                     </div>

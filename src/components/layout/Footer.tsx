@@ -16,12 +16,12 @@ import {
 } from "lucide-react";
 
 const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
-    { name: "Our Venues", href: "#venues" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Our Services", href: "/services" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Testimonials", href: "/#testimonials" },
+    { name: "Contact", href: "/contact" },
 ];
 
 const services = [
@@ -151,8 +151,15 @@ export default function Footer() {
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
                                 <span className="text-gray-400 text-sm">
-                                    123 Exhibition Road, Near Gandhi Maidan,<br />
-                                    Patna, Bihar 800001
+                                    <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Royal+Grandeur+Banquet+Hall+Patna"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:text-gold-400 transition-colors"
+                                    >
+                                        Near Gandhi Maidan, Exhibition Road,<br />
+                                        Patna, Bihar 800001
+                                    </a>
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">

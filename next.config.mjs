@@ -14,6 +14,7 @@ const nextConfig = {
             { protocol: 'https', hostname: 'lookaside.fbsbx.com' },
             { protocol: 'https', hostname: 'img.weddingbazaar.com' },
             { protocol: 'https', hostname: 'media.weddingz.in' },
+            { protocol: 'https', hostname: 'images.pexels.com' },
         ],
     },
 };
