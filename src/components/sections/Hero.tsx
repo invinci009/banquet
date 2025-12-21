@@ -14,8 +14,8 @@ export default function Hero() {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0">
                 <Image
-                    src="https://images.unsplash.com/photo-1519167758481-83f5a5d4aa0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
-                    alt="Luxury Grand Banquet Hall Patna for Weddings with Chandelier"
+                    src="https://images-pw.pixieset.com/page/YLq0O6/SD_AllWedding-338_websize-a89308b0-1500.jpg"
+                    alt="Royal Grandeur Banquet Hall Patna luxury wedding venue with crystal chandeliers and floral decor"
                     fill
                     priority
                     sizes="100vw"
@@ -101,9 +101,9 @@ export default function Hero() {
                 >
                     {[
                         { number: "50,000+", label: "Sq. Ft. Area" },
-                        { number: "4", label: "Luxurious Halls" },
-                        { number: "800+", label: "Events Hosted" },
-                        { number: "15+", label: "Years of Excellence" },
+                        { number: "3", label: "Luxury Venues" },
+                        { number: "5000+", label: "Events Hosted" },
+                        { number: "15+", label: "Years in Patna" },
                     ].map((stat, index) => (
                         <div key={index} className="text-center">
                             <div className="text-3xl md:text-4xl font-bold text-gold-300 mb-1">
