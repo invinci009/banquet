@@ -102,9 +102,8 @@ export default function Contact() {
                                             name="eventDate"
                                             value={formData.eventDate}
                                             onChange={handleChange}
-                                            onFocus={(e) => e.target.type = 'date'}
-                                            onBlur={(e) => !e.target.value && (e.target.type = 'text')}
-                                            placeholder="Event Date"
+                                            placeholder="DD/MM/YYYY"
+                                            pattern="\d{2}/\d{2}/\d{4}"
                                             className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gold-500 transition-colors"
                                         />
                                     </div>
