@@ -27,15 +27,50 @@ export default function Contact() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [error, setError] = useState("");
+
+    // Replace with your Web3Forms access key from https://web3forms.com
+    const WEB3FORMS_ACCESS_KEY = "6c6fec0f-1c99-46ce-a752-531b0c6efc9a";
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        setError("");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_ACCESS_KEY,
+                    subject: `New Event Inquiry - ${formData.eventType || "General"}`,
+                    from_name: "Royal Grandeur Website",
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    event_date: formData.eventDate,
+                    event_type: formData.eventType,
+                    message: formData.message,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setIsSubmitted(true);
+                setFormData({ name: "", email: "", phone: "", eventDate: "", eventType: "", message: "" });
+                setTimeout(() => setIsSubmitted(false), 5000);
+            } else {
+                setError("Something went wrong. Please try again.");
+            }
+        } catch {
+            setError("Failed to send message. Please try again.");
+        }
+
         setIsSubmitting(false);
-        setIsSubmitted(true);
-        setFormData({ name: "", email: "", phone: "", eventDate: "", eventType: "", message: "" });
-        setTimeout(() => setIsSubmitted(false), 5000);
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -121,6 +156,10 @@ export default function Contact() {
                                     <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
                                     <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Your Message..." rows={3} className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gold-500 transition-colors resize-none" />
                                 </div>
+
+                                {error && (
+                                    <div className="text-red-500 text-sm text-center py-2">{error}</div>
+                                )}
 
                                 <button type="submit" disabled={isSubmitting} className="w-full py-3 bg-gold-500 hover:bg-gold-600 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
                                     {isSubmitting ? (
