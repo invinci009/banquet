@@ -25,17 +25,7 @@ export default function Hero() {
             <div className="absolute top-20 left-10 w-72 h-72 bg-gold-400/10 rounded-full blur-3xl animate-pulse-slow" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl animate-pulse-slow" />
 
-            {/* Floating Decorative Shapes */}
-            <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/4 right-1/4 w-8 h-8 border-2 border-gold-300/40 rotate-45"
-            />
-            <motion.div
-                animate={{ y: [10, -10, 10] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-1/3 left-1/5 w-12 h-12 border-2 border-gold-200/30 rounded-full"
-            />
+
 
             {/* Main Content */}
             <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
