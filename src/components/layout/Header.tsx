@@ -6,13 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronDown, Sparkles } from "lucide-react";
 
 const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Venues", href: "#venues" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Venues", href: "/#venues" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Testimonials", href: "/#testimonials" },
+    { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {

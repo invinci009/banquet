@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -14,26 +16,29 @@ import CTA from "@/components/sections/CTA";
 import Contact from "@/components/sections/Contact";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import FloatingParticles from "@/components/shared/FloatingParticles";
+import InitialLoader from "@/components/shared/InitialLoader";
 
 export default function Home() {
     return (
-        <main className="relative">
-            <FloatingParticles />
-            <Header />
-            <Hero />
-            <About />
-            <WeddingJourney />
-            <VenueShowcase />
-            <Features />
-            <Services />
-            <WeddingPackages />
-            <Events />
-            <Gallery />
-            <Testimonials />
-            <Contact />
-            <CTA />
-            <Footer />
-            <WhatsAppButton />
-        </main>
+        <InitialLoader>
+            <main className="relative">
+                <FloatingParticles />
+                <Header />
+                <Hero />
+                <About />
+                <WeddingJourney />
+                <VenueShowcase />
+                <Features />
+                <Services />
+                <WeddingPackages />
+                <Events />
+                <Gallery />
+                <Testimonials />
+                <Contact />
+                <CTA />
+                <Footer />
+                <WhatsAppButton />
+            </main>
+        </InitialLoader>
     );
 }
