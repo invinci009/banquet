@@ -23,10 +23,10 @@ const timeline = [
 ];
 
 const values = [
-    { icon: Crown, title: "Excellence", description: "We strive for perfection in every detail.", color: "from-amber-400 to-orange-500" },
-    { icon: Heart, title: "Passion", description: "Our love for celebrations drives everything we do.", color: "from-rose-400 to-pink-500" },
-    { icon: Shield, title: "Trust", description: "Building lasting relationships through dedication.", color: "from-emerald-400 to-teal-500" },
-    { icon: Star, title: "Innovation", description: "Evolving with trends while honoring traditions.", color: "from-violet-400 to-purple-500" },
+    { icon: Crown, title: "Royal Hospitality", description: "Treating every guest like royalty is our promise.", color: "from-amber-400 to-orange-500" },
+    { icon: Heart, title: "Family First", description: "We understand emotions, not just events.", color: "from-rose-400 to-pink-500" },
+    { icon: Shield, title: "Reliability", description: "What we promise is exactly what we deliver.", color: "from-emerald-400 to-teal-500" },
+    { icon: Star, title: "Quality", description: "No compromise on food, decor, or service.", color: "from-violet-400 to-purple-500" },
 ];
 
 const services = [
@@ -118,18 +118,10 @@ export default function AboutClient() {
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                            Where Dreams Become
+                            Crafting Unforgettable
                             <br />
-                            <span className="relative">
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500">
-                                    Reality
-                                </span>
-                                <motion.span
-                                    className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-gold-400 to-gold-600 rounded-full"
-                                    initial={{ scaleX: 0 }}
-                                    animate={{ scaleX: 1 }}
-                                    transition={{ duration: 0.8, delay: 0.8 }}
-                                />
+                            <span className="text-gold-400">
+                                Memories in Patna
                             </span>
                         </h1>
                     </motion.div>

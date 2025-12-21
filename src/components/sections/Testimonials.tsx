@@ -43,13 +43,13 @@ export default function Testimonials() {
                     transition={{ duration: 0.6 }}
                     className="text-center max-w-3xl mx-auto mb-16"
                 >
-                    <span className="section-subheading">Testimonials</span>
+                    <span className="section-subheading">Real Stories</span>
                     <h2 className="section-heading mb-6">
-                        What Our <span className="text-gold-600">Guests Say</span>
+                        Memories Created <span className="text-gold-600">Here</span>
                     </h2>
-                    <p className="text-gold-700/70 text-lg">
-                        Don&apos;t just take our word for it. Hear from the families and
-                        organizations who trusted us with their special moments.
+                    <p className="text-gold-800/80 text-lg">
+                        The true measure of our success is the happiness of the families we serve.
+                        Read their experiences.
                     </p>
                 </motion.div>
 

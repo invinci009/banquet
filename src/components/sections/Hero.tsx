@@ -54,11 +54,9 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
                 >
-                    Where
-                    <span className="text-gold-300"> Dreams </span>
-                    Meet
+                    Patna&apos;s Grandest
                     <br />
-                    <span className="text-gold-200">Elegance</span>
+                    <span className="text-gold-300">Celebration Venue</span>
                 </motion.h1>
 
                 {/* Subheading */}
@@ -68,9 +66,8 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-lg sm:text-xl text-gold-100/80 max-w-3xl mx-auto mb-10 leading-relaxed"
                 >
-                    Experience the pinnacle of luxury at Royal Grandeur Banquet Hall.
-                    The premier destination for weddings, corporate gatherings, and
-                    unforgettable celebrations in the heart of Patna.
+                    From intimate gatherings to royal weddings, we provide the perfect setting
+                    for your most cherished moments in the heart of the city.
                 </motion.p>
 
                 {/* CTA Buttons */}

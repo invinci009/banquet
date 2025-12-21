@@ -6,38 +6,38 @@ import { MapPin, Users, UtensilsCrossed, Car, Wifi, Music, Camera, Flower2 } fro
 const features = [
     {
         icon: MapPin,
-        title: "Prime Location",
-        description: "Centrally located in Patna with excellent connectivity and easy access for all your guests.",
+        title: "Heart of Patna",
+        description: "Ideally situated near Patna Junction, ensuring easy commute for all your local and outstation guests.",
     },
     {
         icon: Users,
-        title: "500+ Capacity",
-        description: "Spacious halls accommodating large weddings, corporate conferences, and grand celebrations.",
+        title: "Grand & Intimate Spaces",
+        description: "From cozy gatherings to grand weddings of 500+, our flexible halls adapt to your guest list.",
     },
     {
         icon: UtensilsCrossed,
-        title: "Premium Catering",
-        description: "Exquisite multi-cuisine menus crafted by expert chefs to delight every palate.",
+        title: "Patna's Finest Flavors",
+        description: "Expert chefs crafting authentic Bihari cuisines alongside global favorites. A feast your guests will remember.",
     },
     {
         icon: Car,
-        title: "Valet Parking",
-        description: "Hassle-free parking experience with complimentary valet service for your events.",
+        title: "Valet & Parking",
+        description: "Ample parking space with dedicated valet service so your guests arrive stress-free.",
     },
     {
         icon: Wifi,
-        title: "High-Speed WiFi",
-        description: "Complimentary high-speed internet for your corporate events and live streaming needs.",
+        title: "Connectivity",
+        description: "Reliable WiFi and power backup to ensure your presentations and livestreams run without a hitch.",
     },
     {
         icon: Music,
-        title: "Premium Sound",
-        description: "State-of-the-art audio-visual equipment for concerts, DJ nights, and presentations.",
+        title: "Concert-Grade Audio",
+        description: "Crystal clear sound systems for the Sangeet night or the keynote speech.",
     },
     {
         icon: Camera,
-        title: "Photo Zones",
-        description: "Instagram-worthy photo corners with stunning backdrops for memorable pictures.",
+        title: "Picture Perfect",
+        description: "Beautifully designed corners and lighting that make every photo look professional.",
     },
     {
         icon: Flower2,
@@ -55,19 +55,18 @@ export default function Features() {
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="text-center max-w-3xl mx-auto mb-16"
                 >
-                    <span className="section-subheading">Why Choose Us</span>
+                    <span className="section-subheading">Why Royal Grandeur?</span>
                     <h2 className="section-heading mb-6">
-                        Exceptional <span className="text-gold-600">Amenities</span>
+                        More Than Just a <span className="text-gold-600">Venue</span>
                     </h2>
-                    <p className="text-gold-800/70 text-lg">
-                        Every detail is thoughtfully curated to ensure your celebration is nothing
-                        short of extraordinary. Discover what makes us the preferred choice.
+                    <p className="text-gold-800/80 text-lg max-w-2xl mx-auto">
+                        We don&apos;t just provide space; we provide an experience. Here&apos;s how we make your event seamless.
                     </p>
                 </motion.div>
 
@@ -82,22 +81,22 @@ export default function Features() {
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                             className="group"
                         >
-                            <div className="bg-white/90 backdrop-blur-md border border-gold-200/50 rounded-2xl p-6 h-full shadow-lg hover:shadow-gold transition-all duration-500 hover:-translate-y-2 hover:border-gold-400/50">
+                            <div className="bg-white rounded-xl p-6 h-full shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gold-100">
                                 {/* Content */}
                                 <div className="relative z-10">
-                                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gold-100 to-gold-200 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                                        <feature.icon className="w-7 h-7 text-gold-600" />
+                                    <div className="w-12 h-12 rounded-lg bg-gold-50 flex items-center justify-center mb-4 text-gold-600">
+                                        <feature.icon className="w-6 h-6" />
                                     </div>
                                     <h3 className="font-display text-lg font-semibold text-gold-900 mb-2">
                                         {feature.title}
                                     </h3>
-                                    <p className="text-gold-700/70 text-sm leading-relaxed">
+                                    <p className="text-gray-600 text-sm leading-relaxed">
                                         {feature.description}
                                     </p>
                                 </div>
 
-                                {/* Decorative Corner */}
-                                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gold-400 rounded-full opacity-5 group-hover:opacity-10 transition-opacity" />
+                                {/* Simplistic Hover Line */}
+                                <div className="absolute bottom-0 left-6 right-6 h-0.5 bg-gold-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                             </div>
                         </motion.div>
                     ))}
