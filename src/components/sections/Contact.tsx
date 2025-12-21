@@ -97,7 +97,16 @@ export default function Contact() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div className="relative">
                                         <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                        <input type="date" name="eventDate" value={formData.eventDate} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gold-500 transition-colors" />
+                                        <input
+                                            type="text"
+                                            name="eventDate"
+                                            value={formData.eventDate}
+                                            onChange={handleChange}
+                                            onFocus={(e) => e.target.type = 'date'}
+                                            onBlur={(e) => !e.target.value && (e.target.type = 'text')}
+                                            placeholder="Event Date"
+                                            className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gold-500 transition-colors"
+                                        />
                                     </div>
                                     <select name="eventType" value={formData.eventType} onChange={handleChange} className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-gold-500 transition-colors">
                                         <option value="">Select Event</option>
