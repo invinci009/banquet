@@ -31,7 +31,7 @@ export default function About() {
     return (
         <section id="about" className="py-24 lg:py-32 bg-white relative overflow-hidden">
             {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-champagne-100/50 to-transparent" />
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gold-50/50 to-transparent" />
             <div className="absolute -left-40 top-1/2 w-80 h-80 bg-gold-200/30 rounded-full blur-3xl" />
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,14 +61,14 @@ export default function About() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.4, duration: 0.6 }}
-                                className="absolute -bottom-10 -right-10 bg-white rounded-2xl shadow-gold p-6"
+                                className="absolute -bottom-10 -right-10 bg-white rounded-2xl shadow-gold p-6 border border-gold-200"
                             >
                                 <div className="flex items-center gap-4">
                                     <div className="w-16 h-16 rounded-full bg-gold-gradient flex items-center justify-center">
-                                        <span className="text-2xl font-bold text-navy-900">15+</span>
+                                        <span className="text-2xl font-bold text-white">15+</span>
                                     </div>
                                     <div>
-                                        <p className="text-navy-800 font-semibold">Years of</p>
+                                        <p className="text-gold-800 font-semibold">Years of</p>
                                         <p className="text-gold-600 font-bold">Excellence</p>
                                     </div>
                                 </div>
@@ -96,14 +96,14 @@ export default function About() {
                             <Gem className="w-6 h-6 text-gold-500" />
                         </div>
 
-                        <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                        <p className="text-gold-800/70 text-lg leading-relaxed mb-6">
                             Royal Grandeur Banquet Hall stands as Patna&apos;s premier venue for
                             celebrations that deserve nothing less than perfection. Our magnificent
                             halls, adorned with crystal chandeliers and elegant décor, provide the
                             ideal backdrop for your most precious moments.
                         </p>
 
-                        <p className="text-gray-600 leading-relaxed mb-10">
+                        <p className="text-gold-700/70 leading-relaxed mb-10">
                             From intimate gatherings to grand receptions, our dedicated team of
                             professionals ensures every detail is meticulously crafted to exceed
                             your expectations. We blend traditional hospitality with modern luxury
@@ -121,14 +121,14 @@ export default function About() {
                                     transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
                                     className="flex items-start gap-3"
                                 >
-                                    <div className="w-10 h-10 rounded-lg bg-gold-100 flex items-center justify-center flex-shrink-0">
+                                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-100 to-gold-200 flex items-center justify-center flex-shrink-0">
                                         <item.icon className="w-5 h-5 text-gold-600" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-navy-800 text-sm">
+                                        <h4 className="font-semibold text-gold-800 text-sm">
                                             {item.title}
                                         </h4>
-                                        <p className="text-gray-500 text-xs mt-0.5">
+                                        <p className="text-gold-600/70 text-xs mt-0.5">
                                             {item.description}
                                         </p>
                                     </div>

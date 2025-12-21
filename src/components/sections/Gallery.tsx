@@ -46,7 +46,7 @@ export default function Gallery() {
                         <h2 className="section-heading mb-6">
                             A Glimpse <span className="text-gold-600">Inside</span>
                         </h2>
-                        <p className="text-gray-600 text-lg">
+                        <p className="text-gold-700/70 text-lg">
                             Explore the beauty and sophistication of our venues through our lens.
                             Every corner tells a story of elegance.
                         </p>
@@ -70,12 +70,12 @@ export default function Gallery() {
                                 />
 
                                 {/* Overlay */}
-                                <div className="absolute inset-0 bg-navy-900/0 group-hover:bg-navy-900/40 transition-colors duration-300" />
+                                <div className="absolute inset-0 bg-gold-900/0 group-hover:bg-gold-900/40 transition-colors duration-300" />
 
                                 {/* Zoom Icon */}
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                                        <ZoomIn className="w-6 h-6 text-navy-800" />
+                                    <div className="w-14 h-14 rounded-full bg-gold-gradient flex items-center justify-center shadow-lg">
+                                        <ZoomIn className="w-6 h-6 text-gold-900" />
                                     </div>
                                 </div>
 
@@ -93,12 +93,12 @@ export default function Gallery() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-50 bg-navy-900/95 backdrop-blur-xl flex items-center justify-center p-4"
+                    className="fixed inset-0 z-50 bg-gold-900/95 backdrop-blur-xl flex items-center justify-center p-4"
                     onClick={() => setSelectedImage(null)}
                 >
                     <button
                         onClick={() => setSelectedImage(null)}
-                        className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                        className="absolute top-6 right-6 w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-200 hover:bg-gold-500/30 transition-colors"
                     >
                         <X className="w-6 h-6" />
                     </button>

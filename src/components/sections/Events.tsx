@@ -26,7 +26,7 @@ const events = [
 
 export default function Events() {
     return (
-        <section id="venues" className="py-24 lg:py-32 bg-champagne-50 relative overflow-hidden">
+        <section id="venues" className="py-24 lg:py-32 bg-gold-50 relative overflow-hidden">
             {/* Decorative */}
             <div className="absolute inset-0 pattern-dots opacity-50" />
 
@@ -71,30 +71,30 @@ export default function Events() {
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                                     style={{ backgroundImage: `url("${event.image}")` }}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-gold-900/80 via-transparent to-transparent" />
 
                                 {/* Tag */}
                                 <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1.5 bg-gold-500 text-navy-900 text-xs font-bold rounded-full">
+                                    <span className="px-3 py-1.5 bg-gold-gradient text-gold-900 text-xs font-bold rounded-full">
                                         {event.tag}
                                     </span>
                                 </div>
 
                                 {/* Title Overlay */}
                                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                                    <h3 className="font-display text-2xl font-bold text-white mb-2 group-hover:text-gold-300 transition-colors">
+                                    <h3 className="font-display text-2xl font-bold text-white mb-2 group-hover:text-gold-200 transition-colors">
                                         {event.title}
                                     </h3>
                                 </div>
                             </div>
 
                             {/* Description */}
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-gold-700/80 leading-relaxed">
                                 {event.description}
                             </p>
 
                             {/* Hover Line */}
-                            <div className="mt-4 h-0.5 bg-gradient-to-r from-gold-500 to-transparent w-0 group-hover:w-full transition-all duration-500" />
+                            <div className="mt-4 h-0.5 bg-gold-gradient w-0 group-hover:w-full transition-all duration-500" />
                         </motion.div>
                     ))}
                 </div>

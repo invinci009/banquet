@@ -17,37 +17,37 @@ export default function Hero() {
                 }}
             />
 
-            {/* Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-navy-900/60 via-navy-800/50 to-navy-900/80" />
-            <div className="absolute inset-0 bg-gradient-to-r from-burgundy-900/30 to-transparent" />
+            {/* Dark Gradient Overlays - neutral, no gold tint */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
 
-            {/* Decorative Elements */}
-            <div className="absolute top-20 left-10 w-72 h-72 bg-gold-500/10 rounded-full blur-3xl animate-pulse-slow" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-burgundy-700/10 rounded-full blur-3xl animate-pulse-slow" />
+            {/* Decorative Gold Elements */}
+            <div className="absolute top-20 left-10 w-72 h-72 bg-gold-400/10 rounded-full blur-3xl animate-pulse-slow" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl animate-pulse-slow" />
 
             {/* Floating Decorative Shapes */}
             <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/4 right-1/4 w-8 h-8 border-2 border-gold-400/30 rotate-45"
+                className="absolute top-1/4 right-1/4 w-8 h-8 border-2 border-gold-300/40 rotate-45"
             />
             <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-1/3 left-1/5 w-12 h-12 border-2 border-champagne/20 rounded-full"
+                className="absolute bottom-1/3 left-1/5 w-12 h-12 border-2 border-gold-200/30 rounded-full"
             />
 
             {/* Main Content */}
             <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                {/* Badge */}
+                {/* Badge - hidden on very small screens */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="hidden sm:inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5 mb-8"
+                    className="hidden sm:inline-flex items-center gap-2 bg-gold-500/20 backdrop-blur-sm border border-gold-400/40 rounded-full px-5 py-2.5 mb-8"
                 >
-                    <Star className="w-4 h-4 text-gold-400 fill-gold-400" />
-                    <span className="text-white/90 text-sm font-medium">
+                    <Star className="w-4 h-4 text-gold-300 fill-gold-300" />
+                    <span className="text-gold-100 text-sm font-medium">
                         Patna&apos;s Most Trusted Venue Since 2010
                     </span>
                 </motion.div>
@@ -60,10 +60,10 @@ export default function Hero() {
                     className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
                 >
                     Where
-                    <span className="text-gold-gradient"> Dreams </span>
+                    <span className="text-gold-300"> Dreams </span>
                     Meet
                     <br />
-                    <span className="text-champagne-300">Elegance</span>
+                    <span className="text-gold-200">Elegance</span>
                 </motion.h1>
 
                 {/* Subheading */}
@@ -71,7 +71,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed"
+                    className="text-lg sm:text-xl text-gold-100/80 max-w-3xl mx-auto mb-10 leading-relaxed"
                 >
                     Experience the pinnacle of luxury at Royal Grandeur Banquet Hall.
                     The premier destination for weddings, corporate gatherings, and
@@ -91,7 +91,7 @@ export default function Hero() {
                             Schedule a Visit
                         </span>
                     </button>
-                    <button className="btn-ghost group">
+                    <button className="inline-flex items-center justify-center px-6 py-4 bg-gold-500/20 backdrop-blur-sm border border-gold-400/50 text-gold-100 font-medium rounded-lg transition-all duration-300 hover:bg-gold-500/30 hover:border-gold-300">
                         <Play className="w-5 h-5 mr-2" />
                         Watch Virtual Tour
                     </button>
@@ -111,10 +111,10 @@ export default function Hero() {
                         { number: "4", label: "Luxurious Halls" },
                     ].map((stat, index) => (
                         <div key={index} className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold text-gold-400 mb-1">
+                            <div className="text-3xl md:text-4xl font-bold text-gold-300 mb-1">
                                 {stat.number}
                             </div>
-                            <div className="text-white/60 text-sm">{stat.label}</div>
+                            <div className="text-gold-200/70 text-sm">{stat.label}</div>
                         </div>
                     ))}
                 </motion.div>
@@ -130,7 +130,7 @@ export default function Hero() {
                 <motion.div
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="flex flex-col items-center gap-2 text-white/60"
+                    className="flex flex-col items-center gap-2 text-gold-300/70"
                 >
                     <span className="text-xs uppercase tracking-widest">Scroll</span>
                     <ChevronDown className="w-5 h-5" />

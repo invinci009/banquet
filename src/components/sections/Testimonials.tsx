@@ -29,10 +29,10 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section id="testimonials" className="py-24 lg:py-32 bg-gradient-to-b from-champagne-50 to-white relative overflow-hidden">
+        <section id="testimonials" className="py-24 lg:py-32 bg-gradient-to-b from-gold-50 to-white relative overflow-hidden">
             {/* Decorative Elements */}
-            <div className="absolute top-20 left-20 w-64 h-64 bg-gold-200/30 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-20 w-80 h-80 bg-burgundy-200/20 rounded-full blur-3xl" />
+            <div className="absolute top-20 left-20 w-64 h-64 bg-gold-200/40 rounded-full blur-3xl" />
+            <div className="absolute bottom-20 right-20 w-80 h-80 bg-gold-300/30 rounded-full blur-3xl" />
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
@@ -47,7 +47,7 @@ export default function Testimonials() {
                     <h2 className="section-heading mb-6">
                         What Our <span className="text-gold-600">Guests Say</span>
                     </h2>
-                    <p className="text-gray-600 text-lg">
+                    <p className="text-gold-700/70 text-lg">
                         Don&apos;t just take our word for it. Hear from the families and
                         organizations who trusted us with their special moments.
                     </p>
@@ -64,11 +64,11 @@ export default function Testimonials() {
                             transition={{ delay: index * 0.15, duration: 0.6 }}
                             className="group"
                         >
-                            <div className="relative h-full bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+                            <div className="relative h-full bg-white rounded-3xl p-8 shadow-lg hover:shadow-gold transition-all duration-500 hover:-translate-y-2 border border-gold-100 hover:border-gold-300">
                                 {/* Quote Icon */}
                                 <div className="absolute -top-4 left-8">
                                     <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold">
-                                        <Quote className="w-5 h-5 text-navy-900" />
+                                        <Quote className="w-5 h-5 text-gold-900" />
                                     </div>
                                 </div>
 
@@ -77,24 +77,24 @@ export default function Testimonials() {
                                     {[...Array(testimonial.rating)].map((_, i) => (
                                         <Star
                                             key={i}
-                                            className="w-5 h-5 text-amber-400 fill-amber-400"
+                                            className="w-5 h-5 text-gold-500 fill-gold-500"
                                         />
                                     ))}
                                 </div>
 
                                 {/* Quote */}
-                                <p className="text-gray-600 leading-relaxed mb-6 italic">
+                                <p className="text-gold-700/80 leading-relaxed mb-6 italic">
                                     &ldquo;{testimonial.quote}&rdquo;
                                 </p>
 
                                 {/* Author */}
-                                <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gray-100">
+                                <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gold-100">
                                     <div
-                                        className="w-14 h-14 rounded-full bg-cover bg-center border-2 border-gold-200"
+                                        className="w-14 h-14 rounded-full bg-cover bg-center border-2 border-gold-300"
                                         style={{ backgroundImage: `url("${testimonial.image}")` }}
                                     />
                                     <div>
-                                        <p className="font-display font-semibold text-navy-800">
+                                        <p className="font-display font-semibold text-gold-800">
                                             {testimonial.name}
                                         </p>
                                         <p className="text-sm text-gold-600">{testimonial.role}</p>
