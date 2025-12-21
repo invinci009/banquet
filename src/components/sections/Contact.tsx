@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { MapPin, Phone, Mail, Clock, Send, User, MessageSquare, Calendar } from "lucide-react";
 
 // Dynamically import map to avoid SSR issues
-const MapComponent = dynamic(() => import("./ContactMap"), {
+const ContactMap = dynamic(() => import("./ContactMap"), {
     ssr: false,
     loading: () => (
         <div className="h-full w-full bg-navy-800/50 flex items-center justify-center">
@@ -278,7 +278,7 @@ export default function Contact() {
                         transition={{ duration: 0.6 }}
                         className="h-[600px] rounded-3xl overflow-hidden border border-white/10"
                     >
-                        <MapComponent />
+                        <ContactMap />
                     </motion.div>
                 </div>
             </div>
