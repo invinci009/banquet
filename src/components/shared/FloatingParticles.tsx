@@ -12,7 +12,7 @@ const particles = Array.from({ length: 20 }, (_, i) => ({
 
 export default function FloatingParticles() {
     return (
-        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 hidden md:block">
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
             {particles.map((particle) => (
                 <motion.div
                     key={particle.id}
