@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const particles = Array.from({ length: 20 }, (_, i) => ({
+const particles = Array.from({ length: 12 }, (_, i) => ({
     id: i,
     size: Math.random() * 8 + 4,
     x: Math.random() * 100,
@@ -21,6 +21,7 @@ export default function FloatingParticles() {
                         left: `${particle.x}%`,
                         width: particle.size,
                         height: particle.size,
+                        willChange: "transform, opacity",
                     }}
                     initial={{ y: "100vh", opacity: 0 }}
                     animate={{

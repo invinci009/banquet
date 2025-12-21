@@ -18,6 +18,7 @@ export default function Hero() {
                     alt="Luxury Grand Banquet Hall Patna for Weddings with Chandelier"
                     fill
                     priority
+                    sizes="100vw"
                     className="object-cover object-center scale-105"
                 />
             </div>
