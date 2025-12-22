@@ -56,9 +56,20 @@ export default function AboutClient() {
 
             {/* Hero Section */}
             <section className="relative min-h-[100dvh] flex items-center justify-center bg-navy-900 overflow-hidden">
-                {/* Animated Pattern */}
+                {/* Background Image */}
                 <div className="absolute inset-0">
-                    <div className="absolute inset-0 pattern-dots opacity-20" />
+                    <img
+                        src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80"
+                        alt="Elegant event celebration"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-navy-900/50" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-navy-900/40" />
+                </div>
+
+                {/* Animated Pattern */}
+                <div className="absolute inset-0 pointer-events-none">
+                    <div className="absolute inset-0 pattern-dots opacity-10" />
                     {/* Floating Particles */}
                     {[...Array(20)].map((_, i) => (
                         <motion.div
@@ -95,7 +106,7 @@ export default function AboutClient() {
                 />
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16 sm:pt-32 sm:pb-20">
-                    {/* Animated Crown */}
+                    {/* Animated Logo */}
                     <motion.div
                         initial={{ scale: 0, rotate: -180 }}
                         animate={{ scale: 1, rotate: 0 }}
@@ -107,8 +118,12 @@ export default function AboutClient() {
                             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                             className="absolute inset-0 w-16 h-16 sm:w-24 sm:h-24 rounded-full border-2 border-dashed border-gold-400/30"
                         />
-                        <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 flex items-center justify-center shadow-gold-lg">
-                            <Crown className="w-8 h-8 sm:w-12 sm:h-12 text-navy-900" />
+                        <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-gold-lg">
+                            <img
+                                src="/logo.png"
+                                alt="Royal Grandeur Logo"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </motion.div>
 

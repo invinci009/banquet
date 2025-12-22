@@ -39,10 +39,14 @@ export default function Header() {
                         {/* Logo */}
                         <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
                             <div className="relative">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold group-hover:shadow-gold-lg transition-shadow duration-300">
-                                    <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-gold group-hover:shadow-gold-lg transition-shadow duration-300">
+                                    <img
+                                        src="/logo.png"
+                                        alt="Royal Grandeur Logo"
+                                        className="w-full h-full object-cover"
+                                    />
                                 </div>
-                                <div className="absolute -inset-1 bg-gold-gradient rounded-full blur opacity-30 group-hover:opacity-50 transition-opacity" />
+                                <div className="absolute -inset-1 bg-gold-gradient rounded-full blur opacity-30 group-hover:opacity-50 transition-opacity -z-10" />
                             </div>
                             <div className="flex flex-col">
                                 <span
@@ -87,9 +91,9 @@ export default function Header() {
                                 <Phone className="w-4 h-4" />
                                 <span>+91 62057 08606</span>
                             </a>
-                            <button className="btn-primary text-sm py-3 px-6">
+                            <Link href="/contact" className="btn-primary text-sm py-3 px-6">
                                 <span className="relative z-10">Book Now</span>
-                            </button>
+                            </Link>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -156,9 +160,9 @@ export default function Header() {
                                     transition={{ delay: 0.4 }}
                                     className="pt-4 border-t border-gold-100"
                                 >
-                                    <button className="w-full btn-primary py-4">
+                                    <Link href="/contact" className="w-full btn-primary py-4 block text-center" onClick={() => setIsMobileMenuOpen(false)}>
                                         <span className="relative z-10">Book Now</span>
-                                    </button>
+                                    </Link>
                                 </motion.div>
                             </div>
                         </motion.nav>

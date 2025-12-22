@@ -28,6 +28,11 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "/",
     },
+    icons: {
+        icon: "/logo.png",
+        shortcut: "/logo.png",
+        apple: "/logo.png",
+    },
     openGraph: {
         title: "Royal Grandeur Banquet Hall Patna | Luxury Wedding Venue & Marriage Hall in Bihar",
         description: "Top banquet hall in Patna near Gandhi Maidan for grand weddings, receptions & events. AC halls for 50-800 guests, catering, decor & parking. Book your dream venue today!",
@@ -37,7 +42,13 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "https://images.unsplash.com/photo-1519167758481-83f5a5d4aa0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+                url: "/logo.png",
+                width: 512,
+                height: 512,
+                alt: "Royal Grandeur Logo",
+            },
+            {
+                url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&q=80",
                 width: 1200,
                 height: 630,
                 alt: "Royal Grandeur Luxury Banquet Hall Patna",
@@ -48,7 +59,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Royal Grandeur Banquet Hall Patna",
         description: "Top banquet hall in Patna near Gandhi Maidan for grand weddings, receptions & events.",
-        images: ["https://images.unsplash.com/photo-1519167758481-83f5a5d4aa0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"],
+        images: ["/logo.png"],
     },
     robots: {
         index: true,

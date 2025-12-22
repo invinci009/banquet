@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Phone, Calendar, Sparkles } from "lucide-react";
 
 export default function CTA() {
@@ -73,12 +74,12 @@ export default function CTA() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
-                    <button className="btn-primary group w-full sm:w-auto">
+                    <Link href="/contact" className="btn-primary group w-full sm:w-auto">
                         <span className="relative z-10 flex items-center gap-2">
                             <Calendar className="w-5 h-5" />
                             Book a Visit
                         </span>
-                    </button>
+                    </Link>
                     <a
                         href="tel:+916205708606"
                         className="flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg text-white font-semibold hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"

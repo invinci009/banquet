@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Calendar, Play, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -80,16 +81,16 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
                 >
-                    <button className="btn-primary group">
+                    <Link href="/contact" className="btn-primary group">
                         <span className="relative z-10 flex items-center gap-2">
                             <Calendar className="w-5 h-5" />
                             Schedule a Visit
                         </span>
-                    </button>
-                    <button className="inline-flex items-center justify-center px-6 py-4 bg-gold-500/20 backdrop-blur-sm border border-gold-400/50 text-gold-100 font-medium rounded-lg transition-all duration-300 hover:bg-gold-500/30 hover:border-gold-300">
+                    </Link>
+                    <Link href="/gallery" className="inline-flex items-center justify-center px-6 py-4 bg-gold-500/20 backdrop-blur-sm border border-gold-400/50 text-gold-100 font-medium rounded-lg transition-all duration-300 hover:bg-gold-500/30 hover:border-gold-300">
                         <Play className="w-5 h-5 mr-2" />
                         Watch Virtual Tour
-                    </button>
+                    </Link>
                 </motion.div>
 
                 {/* Stats Row */}
