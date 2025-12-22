@@ -29,8 +29,8 @@ export default function Contact() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [error, setError] = useState("");
 
-    // Replace with your Web3Forms access key from https://web3forms.com
-    const WEB3FORMS_ACCESS_KEY = "6c6fec0f-1c99-46ce-a752-531b0c6efc9a";
+    // Environment variable for Web3Forms Access Key
+    const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "6c6fec0f-1c99-46ce-a752-531b0c6efc9a";
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
