@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Check, Crown, Gem, Sparkles, Star, ArrowRight } from "lucide-react";
 
 const packages = [
@@ -139,13 +140,16 @@ export default function WeddingPackages() {
                                 </ul>
 
                                 {/* CTA */}
-                                <button className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${pkg.popular
-                                    ? "bg-gold-gradient text-navy-900 hover:shadow-gold"
-                                    : "bg-gold-50 text-gold-700 hover:bg-gold-100"
-                                    }`}>
+                                <Link
+                                    href="/contact"
+                                    className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${pkg.popular
+                                        ? "bg-gold-gradient text-navy-900 hover:shadow-gold"
+                                        : "bg-gold-50 text-gold-700 hover:bg-gold-100"
+                                        }`}
+                                >
                                     Get Quote
                                     <ArrowRight className="w-4 h-4" />
-                                </button>
+                                </Link>
                             </div>
                         </motion.div>
                     ))}

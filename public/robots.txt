@@ -1,0 +1,35 @@
+# Royal Grandeur Banquet Hall - robots.txt
+# https://royalgrandeurpatna.com
+
+# Allow all search engines
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://royalgrandeurpatna.com/sitemap.xml
+
+# Host preference
+Host: https://royalgrandeurpatna.com

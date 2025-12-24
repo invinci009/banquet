@@ -134,7 +134,7 @@ export default function ServicesHero() {
                             href="tel:+916205708606"
                             className="btn-secondary"
                         >
-                            Call: +91 62057 08606
+                            Call Us
                         </a>
                     </motion.div>
                 </motion.div>

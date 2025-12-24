@@ -85,7 +85,7 @@ export default function CTA() {
                         className="flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg text-white font-semibold hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                     >
                         <Phone className="w-5 h-5" />
-                        Call +91 62057 08606
+                        Call Us
                     </a>
                 </motion.div>
 

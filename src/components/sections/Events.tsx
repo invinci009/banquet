@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const events = [
@@ -45,13 +46,13 @@ export default function Events() {
                             Tailored Solutions for <span className="text-gold-600">Every Occasion</span>
                         </h2>
                     </div>
-                    <a
-                        href="#services"
+                    <Link
+                        href="/services"
                         className="flex items-center gap-2 text-gold-600 font-semibold hover:text-gold-700 transition-colors group"
                     >
                         View All Services
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                 </motion.div>
 
                 {/* Events Grid */}

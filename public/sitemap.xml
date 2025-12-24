@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- Homepage - Highest Priority -->
+    <url>
+        <loc>https://royalgrandeurpatna.com</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://royalgrandeurpatna.com/logo.png</image:loc>
+            <image:title>Royal Grandeur Banquet Hall Logo</image:title>
+            <image:caption>Royal Grandeur - Patna's Premier Luxury Wedding Venue</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Gallery Page -->
+    <url>
+        <loc>https://royalgrandeurpatna.com/gallery</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://images.unsplash.com/photo-1519167758481-83f550bb49b3</image:loc>
+            <image:title>Royal Grandeur Wedding Venue Gallery</image:title>
+            <image:caption>Beautiful wedding and event photos at Royal Grandeur Patna</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Services Page -->
+    <url>
+        <loc>https://royalgrandeurpatna.com/services</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Contact Page -->
+    <url>
+        <loc>https://royalgrandeurpatna.com/contact</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Individual Service Pages -->
+    <url>
+        <loc>https://royalgrandeurpatna.com/services/wedding-ceremonies</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://royalgrandeurpatna.com/services/reception-parties</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://royalgrandeurpatna.com/services/corporate-events</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://royalgrandeurpatna.com/services/birthday-celebrations</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://royalgrandeurpatna.com/services/engagement-ceremonies</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://royalgrandeurpatna.com/services/pre-wedding-functions</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://royalgrandeurpatna.com/services/anniversary-events</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://royalgrandeurpatna.com/services/religious-functions</loc>
+        <lastmod>2024-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+</urlset>

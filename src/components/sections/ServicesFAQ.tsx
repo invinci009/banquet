@@ -84,7 +84,7 @@ export default function ServicesFAQ() {
                             <div className="space-y-3 mb-6">
                                 <a href="tel:+916205708606" className="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-colors">
                                     <span className="text-gold-400">📞</span>
-                                    +91 62057 08606
+                                    Call Us
                                 </a>
                                 <a href="mailto:info@royalgrandeur.com" className="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-colors">
                                     <span className="text-gold-400">✉️</span>

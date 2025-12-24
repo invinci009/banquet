@@ -12,9 +12,13 @@ import WeddingPackages from "@/components/sections/WeddingPackages";
 import Events from "@/components/sections/Events";
 import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
+import GoogleReviews from "@/components/sections/GoogleReviews";
+import TrustBadges from "@/components/sections/TrustBadges";
+import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
 import Contact from "@/components/sections/Contact";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
+import FloatingBookButton from "@/components/shared/FloatingBookButton";
 import FloatingParticles from "@/components/shared/FloatingParticles";
 import InitialLoader from "@/components/shared/InitialLoader";
 
@@ -25,6 +29,7 @@ export default function HomeClient() {
                 <FloatingParticles />
                 <Header />
                 <Hero />
+                <TrustBadges />
                 <About />
                 <WeddingJourney />
                 <VenueShowcase />
@@ -34,10 +39,13 @@ export default function HomeClient() {
                 <Events />
                 <Gallery />
                 <Testimonials />
+                <GoogleReviews />
+                <FAQ />
                 <Contact />
                 <CTA />
                 <Footer />
                 <WhatsAppButton />
+                <FloatingBookButton />
             </main>
         </InitialLoader>
     );

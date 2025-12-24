@@ -52,86 +52,88 @@ export default function EnhancedServices() {
                             onMouseLeave={() => setHoveredId(null)}
                             className="group relative"
                         >
-                            <div
-                                className="h-full rounded-3xl bg-white border-2 border-gold-200 hover:border-gold-400 shadow-lg overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-gold"
+                            <Link
+                                href={`/services/${service.slug}`}
+                                className="block h-full"
                             >
-                                {/* Image Header */}
-                                <div className="relative h-48 overflow-hidden">
-                                    <motion.img
-                                        src={service.image}
-                                        alt={service.title}
-                                        className="w-full h-full object-cover"
-                                        animate={{
-                                            scale: hoveredId === service.id ? 1.1 : 1,
-                                        }}
-                                        transition={{ duration: 0.5 }}
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/30 to-transparent" />
+                                <div
+                                    className="h-full rounded-3xl bg-white border-2 border-gold-200 hover:border-gold-400 shadow-lg overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-gold cursor-pointer"
+                                >
+                                    {/* Image Header */}
+                                    <div className="relative h-48 overflow-hidden">
+                                        <motion.img
+                                            src={service.image}
+                                            alt={service.title}
+                                            className="w-full h-full object-cover"
+                                            animate={{
+                                                scale: hoveredId === service.id ? 1.1 : 1,
+                                            }}
+                                            transition={{ duration: 0.5 }}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/30 to-transparent" />
 
-                                    {/* Highlight Badge */}
-                                    <div className="absolute top-4 right-4">
-                                        <span className="px-3 py-1.5 bg-gold-gradient text-navy-900 text-xs font-bold rounded-full shadow-lg">
-                                            {service.highlight}
-                                        </span>
-                                    </div>
+                                        {/* Highlight Badge */}
+                                        <div className="absolute top-4 right-4">
+                                            <span className="px-3 py-1.5 bg-gold-gradient text-navy-900 text-xs font-bold rounded-full shadow-lg">
+                                                {service.highlight}
+                                            </span>
+                                        </div>
 
-                                    <div className="absolute bottom-4 left-6">
-                                        <div className="w-14 h-14 rounded-2xl bg-gold-gradient flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                            {(() => {
-                                                const IconComponent = iconMap[service.iconName];
-                                                return <IconComponent className="w-7 h-7 text-navy-900" />;
-                                            })()}
+                                        <div className="absolute bottom-4 left-6">
+                                            <div className="w-14 h-14 rounded-2xl bg-gold-gradient flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                                {(() => {
+                                                    const IconComponent = iconMap[service.iconName];
+                                                    return <IconComponent className="w-7 h-7 text-navy-900" />;
+                                                })()}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                {/* Content */}
-                                <div className="p-6">
-                                    <h3 className="font-display text-xl font-bold text-navy-800 mb-2">
-                                        {service.title}
-                                    </h3>
-                                    <p className="text-gold-600 text-sm font-medium mb-3">
-                                        {service.shortDesc}
-                                    </p>
-                                    <p className="text-gold-700/70 text-sm leading-relaxed mb-4 line-clamp-2">
-                                        {service.description}
-                                    </p>
+                                    {/* Content */}
+                                    <div className="p-6">
+                                        <h3 className="font-display text-xl font-bold text-navy-800 mb-2 group-hover:text-gold-700 transition-colors">
+                                            {service.title}
+                                        </h3>
+                                        <p className="text-gold-600 text-sm font-medium mb-3">
+                                            {service.shortDesc}
+                                        </p>
+                                        <p className="text-gold-700/70 text-sm leading-relaxed mb-4 line-clamp-2">
+                                            {service.description}
+                                        </p>
 
-                                    {/* Features Preview */}
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        {service.features.slice(0, 3).map((feature) => (
-                                            <span
-                                                key={feature}
-                                                className="text-xs px-3 py-1 bg-gold-50 text-gold-700 rounded-full border border-gold-200"
-                                            >
-                                                {feature}
-                                            </span>
-                                        ))}
-                                        {service.features.length > 3 && (
-                                            <span className="text-xs px-3 py-1 bg-champagne-100 text-gold-600 rounded-full">
-                                                +{service.features.length - 3} more
-                                            </span>
-                                        )}
+                                        {/* Features Preview */}
+                                        <div className="flex flex-wrap gap-2 mb-4">
+                                            {service.features.slice(0, 3).map((feature) => (
+                                                <span
+                                                    key={feature}
+                                                    className="text-xs px-3 py-1 bg-gold-50 text-gold-700 rounded-full border border-gold-200"
+                                                >
+                                                    {feature}
+                                                </span>
+                                            ))}
+                                            {service.features.length > 3 && (
+                                                <span className="text-xs px-3 py-1 bg-champagne-100 text-gold-600 rounded-full">
+                                                    +{service.features.length - 3} more
+                                                </span>
+                                            )}
+                                        </div>
+
+                                        {/* CTA */}
+                                        <div className="flex items-center gap-2 text-sm font-semibold text-gold-600 group-hover:text-gold-700">
+                                            Explore Service
+                                            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </div>
                                     </div>
 
-                                    {/* CTA */}
-                                    <Link
-                                        href={`/services/${service.slug}`}
-                                        className="flex items-center gap-2 text-sm font-semibold text-gold-600 hover:text-gold-700 group/btn"
-                                    >
-                                        Explore Service
-                                        <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                                    </Link>
+                                    {/* Animated Border */}
+                                    <motion.div
+                                        className="absolute bottom-0 left-0 h-1 bg-gold-gradient"
+                                        initial={{ width: "0%" }}
+                                        animate={{ width: hoveredId === service.id ? "100%" : "0%" }}
+                                        transition={{ duration: 0.3 }}
+                                    />
                                 </div>
-
-                                {/* Animated Border */}
-                                <motion.div
-                                    className="absolute bottom-0 left-0 h-1 bg-gold-gradient"
-                                    initial={{ width: "0%" }}
-                                    animate={{ width: hoveredId === service.id ? "100%" : "0%" }}
-                                    transition={{ duration: 0.3 }}
-                                />
-                            </div>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>
@@ -147,13 +149,13 @@ export default function EnhancedServices() {
                     <p className="text-gold-700/70 mb-6">
                         Can&apos;t find what you&apos;re looking for? We offer custom services tailored to your needs.
                     </p>
-                    <a
+                    <Link
                         href="/contact"
                         className="btn-primary inline-flex items-center gap-2"
                     >
                         <span className="relative z-10">Request Custom Service</span>
                         <ArrowRight className="w-5 h-5 relative z-10" />
-                    </a>
+                    </Link>
                 </motion.div>
             </div>
         </section >

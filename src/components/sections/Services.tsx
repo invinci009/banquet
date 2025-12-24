@@ -1,23 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Utensils, Flower, CalendarCheck, Check, ArrowRight } from "lucide-react";
 
 const services = [
     {
         icon: Utensils,
+        slug: "gourmet-catering",
         title: "Premium Catering",
         description: "Indulge in a gastronomic journey with our diverse menu options. Our expert chefs ensure hygiene, taste, and presentation are world-class.",
         features: ["Live Food Stations", "Customized Menus", "Multi-Cuisine Options", "Trained Service Staff"],
     },
     {
         icon: Flower,
+        slug: "exquisite-decoration",
         title: "Exquisite Decoration",
         description: "Transform our venue to match your vision. Our decorators specialize in floral arrangements, lighting, and thematic stage setups.",
         features: ["Floral & Drapery", "Theme Concepts", "Stage Design", "Ambient Lighting"],
     },
     {
         icon: CalendarCheck,
+        slug: "event-planning",
         title: "Event Planning",
         description: "Our experienced planners manage every detail, from vendor coordination to guest hospitality, ensuring your event runs smoothly.",
         features: ["End-to-End Management", "Logistics Support", "Vendor Coordination", "Day-of Management"],
@@ -97,10 +101,13 @@ export default function Services() {
                                     </ul>
 
                                     {/* CTA */}
-                                    <button className="flex items-center gap-2 text-sm font-semibold text-gold-600 hover:text-gold-700 group/btn">
+                                    <Link
+                                        href={`/services/${service.slug}`}
+                                        className="flex items-center gap-2 text-sm font-semibold text-gold-600 hover:text-gold-700 group/btn"
+                                    >
                                         Learn More
                                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                                    </button>
+                                    </Link>
                                 </div>
 
                                 {/* Hover Gradient Overlay */}

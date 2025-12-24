@@ -25,12 +25,12 @@ const quickLinks = [
 ];
 
 const services = [
-    "Wedding Celebrations",
-    "Corporate Events",
-    "Birthday Parties",
-    "Anniversary Functions",
-    "Engagement Ceremonies",
-    "Reception Parties",
+    { name: "Wedding Celebrations", slug: "event-planning" },
+    { name: "Corporate Events", slug: "guest-hospitality" },
+    { name: "Birthday Parties", slug: "entertainment-dj" },
+    { name: "Anniversary Functions", slug: "exquisite-decoration" },
+    { name: "Engagement Ceremonies", slug: "mehendi-haldi-ceremony" },
+    { name: "Reception Parties", slug: "gourmet-catering" },
 ];
 
 export default function Footer() {
@@ -76,13 +76,16 @@ export default function Footer() {
                         {/* Social Links */}
                         <div className="flex gap-3">
                             {[
-                                { icon: Facebook, href: "#" },
-                                { icon: Instagram, href: "#" },
-                                { icon: Youtube, href: "#" },
+                                { icon: Facebook, href: "https://www.facebook.com/royalgrandeurpatna", label: "Facebook" },
+                                { icon: Instagram, href: "https://www.instagram.com/royalgrandeurpatna", label: "Instagram" },
+                                { icon: Youtube, href: "https://www.youtube.com/@royalgrandeurpatna", label: "YouTube" },
                             ].map((social, index) => (
                                 <a
                                     key={index}
                                     href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={social.label}
                                     className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-gold-500 hover:text-navy-900 transition-all duration-300"
                                 >
                                     <social.icon className="w-5 h-5" />
@@ -128,10 +131,14 @@ export default function Footer() {
                         </h4>
                         <ul className="space-y-3">
                             {services.map((service) => (
-                                <li key={service}>
-                                    <span className="text-gray-400 text-sm">
-                                        {service}
-                                    </span>
+                                <li key={service.name}>
+                                    <Link
+                                        href={`/services/${service.slug}`}
+                                        className="text-gray-400 hover:text-gold-400 transition-colors text-sm flex items-center gap-2 group"
+                                    >
+                                        <span className="w-1.5 h-1.5 rounded-full bg-gold-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        {service.name}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -199,28 +206,38 @@ export default function Footer() {
                     className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
                 >
                     <p className="text-gray-500 text-sm flex items-center gap-1 flex-wrap justify-center">
-                        © 2024 Royal Grandeur Banquet Hall. Made with{" "}
-                        <Heart className="w-4 h-4 text-red-500 fill-red-500" />{" "}
-                        by <a href="https://ignius-olive.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-gold-400 hover:text-gold-300 font-medium">Ignius Studios</a>
+                        © {new Date().getFullYear()} Royal Grandeur Banquet Hall. Made with{" "}
+                        <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" style={{ animation: 'heartbeat 1s ease-in-out infinite' }} />{" "}
+                        by <a
+                            href="https://ignius-olive.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold bg-gradient-to-r from-gold-400 via-rose-400 to-gold-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient hover:opacity-80 transition-opacity"
+                        >
+                            Ignius Studios
+                        </a>
                     </p>
-                    <div className="flex gap-6 text-sm text-gray-500">
-                        <Link href="#" className="hover:text-gold-400 transition-colors">
+                    <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm text-gray-500">
+                        <Link href="/contact" className="hover:text-gold-400 transition-colors">
                             Privacy Policy
                         </Link>
-                        <Link href="#" className="hover:text-gold-400 transition-colors">
+                        <Link href="/contact" className="hover:text-gold-400 transition-colors">
                             Terms of Service
+                        </Link>
+                        <Link href="/contact" className="hover:text-gold-400 transition-colors">
+                            Contact
                         </Link>
                     </div>
                 </motion.div>
             </div>
 
-            {/* Scroll to Top Button */}
+            {/* Scroll to Top Button - positioned above WhatsApp button on mobile */}
             <button
                 onClick={scrollToTop}
-                className="fixed bottom-8 right-8 w-12 h-12 bg-gold-500 text-navy-900 rounded-full shadow-gold flex items-center justify-center hover:bg-gold-400 hover:shadow-gold-lg transition-all duration-300 z-40"
+                className="fixed bottom-8 right-8 w-10 h-10 sm:w-12 sm:h-12 bg-gold-500 text-navy-900 rounded-full shadow-gold flex items-center justify-center hover:bg-gold-400 hover:shadow-gold-lg transition-all duration-300 z-40"
                 aria-label="Scroll to top"
             >
-                <ArrowUp className="w-5 h-5" />
+                <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
         </footer>
     );

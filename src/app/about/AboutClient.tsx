@@ -3,6 +3,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Crown, Heart, Star, Users, Award, Calendar, Sparkles, ChefHat, Music, Camera, Shield, Clock, ArrowRight } from "lucide-react";
 import { useRef } from "react";
@@ -418,22 +419,20 @@ export default function AboutClient() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <motion.a
+                            <Link
                                 href="/contact"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-900 font-bold rounded-lg sm:rounded-xl transition-all flex items-center gap-2 shadow-gold text-sm sm:text-base"
+                                className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-900 font-bold rounded-lg sm:rounded-xl transition-all flex items-center gap-2 shadow-gold text-sm sm:text-base hover:scale-105 active:scale-95"
                             >
                                 Schedule a Tour
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </motion.a>
+                            </Link>
                             <motion.a
                                 href="tel:+916205708606"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/30 hover:border-gold-400 hover:bg-gold-400/10 text-white font-semibold rounded-lg sm:rounded-xl transition-all text-sm sm:text-base"
                             >
-                                Call Us Now
+                                Call Us
                             </motion.a>
                         </div>
                     </motion.div>

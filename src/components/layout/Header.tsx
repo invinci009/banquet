@@ -89,7 +89,7 @@ export default function Header() {
                                     }`}
                             >
                                 <Phone className="w-4 h-4" />
-                                <span>+91 62057 08606</span>
+                                <span>Call Us</span>
                             </a>
                             <Link href="/contact" className="btn-primary text-sm py-3 px-6">
                                 <span className="relative z-10">Book Now</span>
@@ -158,8 +158,16 @@ export default function Header() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4 }}
-                                    className="pt-4 border-t border-gold-100"
+                                    className="pt-4 border-t border-gold-100 space-y-3"
                                 >
+                                    <a
+                                        href="tel:+916205708606"
+                                        className="w-full py-3 flex items-center justify-center gap-2 text-gold-700 font-medium hover:bg-gold-50 rounded-lg transition-colors"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        <Phone className="w-5 h-5" />
+                                        Call Us
+                                    </a>
                                     <Link href="/contact" className="w-full btn-primary py-4 block text-center" onClick={() => setIsMobileMenuOpen(false)}>
                                         <span className="relative z-10">Book Now</span>
                                     </Link>
