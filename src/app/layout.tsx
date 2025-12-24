@@ -221,7 +221,7 @@ const structuredData = {
         },
         // LocalBusiness Schema (Important for Local SEO)
         {
-            "@type": "LocalBusiness",
+            "@type": ["LocalBusiness", "EventVenue", "WeddingVenue"],
             "@id": "https://royalgrandeurpatna.com/#localbusiness",
             "name": "Royal Grandeur Banquet Hall",
             "image": [
@@ -229,7 +229,6 @@ const structuredData = {
                 "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&q=80",
             ],
             "description": "Royal Grandeur is Patna's most prestigious banquet hall offering luxury wedding venues, reception halls, and corporate event spaces with world-class amenities.",
-            "@type": ["LocalBusiness", "EventVenue", "WeddingVenue"],
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Near Gandhi Maidan",
