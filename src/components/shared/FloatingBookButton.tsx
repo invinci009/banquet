@@ -34,19 +34,11 @@ export default function FloatingBookButton() {
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
                     className="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 sm:left-6 sm:translate-x-0"
                 >
-                    <div className="relative">
-                        {/* Dismiss button */}
-                        <button
-                            onClick={() => setIsDismissed(true)}
-                            className="absolute -top-2 -right-2 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center text-white hover:bg-gray-700 transition-colors shadow-lg"
-                        >
-                            <X className="w-3 h-3" />
-                        </button>
-
+                    <div className="relative pt-3 pr-3">
                         {/* Main button */}
                         <Link
                             href="/contact"
-                            className="group flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 font-bold rounded-2xl shadow-gold-lg hover:shadow-gold transition-all hover:scale-105"
+                            className="relative group flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 font-bold rounded-2xl shadow-gold-lg hover:shadow-gold transition-all hover:scale-105 overflow-hidden"
                         >
                             <motion.div
                                 animate={{ rotate: [0, 10, -10, 0] }}
@@ -54,11 +46,20 @@ export default function FloatingBookButton() {
                             >
                                 <Calendar className="w-5 h-5" />
                             </motion.div>
-                            <span>Book Your Event</span>
+                            <span className="relative z-10">Book Your Event</span>
 
                             {/* Pulse ring */}
                             <span className="absolute inset-0 rounded-2xl animate-ping bg-gold-400/30" style={{ animationDuration: "2s" }} />
                         </Link>
+
+                        {/* Dismiss button - positioned outside the link */}
+                        <button
+                            onClick={() => setIsDismissed(true)}
+                            className="absolute top-0 right-0 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center text-white hover:bg-gray-700 transition-colors shadow-lg z-50"
+                            aria-label="Dismiss"
+                        >
+                            <X className="w-3 h-3" />
+                        </button>
                     </div>
                 </motion.div>
             )}
