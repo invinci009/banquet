@@ -225,10 +225,10 @@ export default function Footer() {
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-gold-500 flex-shrink-0" />
                                 <a
-                                    href="mailto:info@albacatering.com"
+                                    href="mailto:albabanquethall123@gmail.com"
                                     className="text-gray-400 hover:text-gold-400 transition-colors text-sm"
                                 >
-                                    info@albacatering.com
+                                    albabanquethall123@gmail.com
                                 </a>
                             </li>
                             <li className="flex items-center gap-3">

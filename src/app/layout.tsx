@@ -183,7 +183,7 @@ const structuredData = {
             "image": "https://albacatering.com/logo.png",
             "description": "Patna's premier catering service for weddings, corporate events, and celebrations.",
             "telephone": "+91-9234953085",
-            "email": "info@albacatering.com",
+            "email": "albabanquethall123@gmail.com",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Alba Colony, Near Alba Masjid, Phulwari Sharif",

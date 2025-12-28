@@ -86,9 +86,9 @@ export default function ServicesFAQ() {
                                     <span className="text-gold-400">📞</span>
                                     Call Us
                                 </a>
-                                <a href="mailto:info@albacatering.com" className="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-colors">
+                                <a href="mailto:albabanquethall123@gmail.com" className="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-colors">
                                     <span className="text-gold-400">✉️</span>
-                                    info@albacatering.com
+                                    albabanquethall123@gmail.com
                                 </a>
                                 <div className="flex items-center gap-3 text-gray-300">
                                     <span className="text-gold-400">🕐</span>

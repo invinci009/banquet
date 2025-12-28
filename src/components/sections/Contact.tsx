@@ -20,7 +20,7 @@ const ContactMap = dynamic(() => import("./ContactMap"), {
 const contactInfo = [
     { icon: MapPin, title: "Visit Us", details: "Alba Colony, Phulwari Sharif, Patna - 05", highlight: "Premium Location" },
     { icon: Phone, title: "Call Us", details: "+91 92349 53085", link: "tel:+919234953085", highlight: "24/7 Available" },
-    { icon: Mail, title: "Email Us", details: "info@albacatering.com", link: "mailto:info@albacatering.com", highlight: "Quick Response" },
+    { icon: Mail, title: "Email Us", details: "albabanquethall123@gmail.com", link: "mailto:albabanquethall123@gmail.com", highlight: "Quick Response" },
     { icon: Clock, title: "Working Hours", details: "Daily: 9 AM - 10 PM", highlight: "Open All Days" },
 ];
 
@@ -44,7 +44,7 @@ export default function Contact() {
     const [focusedField, setFocusedField] = useState<string | null>(null);
     const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
-    const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "6c6fec0f-1c99-46ce-a752-531b0c6efc9a";
+    const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "2d0784b3-e96c-4ac7-8ef0-94a2d85a576d";
 
     const validateForm = () => {
         const errors: Record<string, string> = {};
