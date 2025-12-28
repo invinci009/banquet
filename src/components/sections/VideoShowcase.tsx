@@ -96,7 +96,7 @@ export default function VideoShowcase() {
                                 muted={isMuted}
                                 loop
                                 playsInline
-                                preload="metadata"
+                                preload="none"
                                 poster="/gallery/reception-hall.webp"
                                 onPlay={() => setIsPlaying(true)}
                                 onPause={() => setIsPlaying(false)}
