@@ -28,14 +28,14 @@ export default function EnhancedServices() {
                     transition={{ duration: 0.6 }}
                     className="text-center max-w-3xl mx-auto mb-16"
                 >
-                    <span className="section-subheading">Comprehensive Solutions</span>
+                    <span className="section-subheading">Our Expertise</span>
                     <h2 className="section-heading mb-6">
-                        Everything You Need for a{" "}
-                        <span className="text-gold-600">Perfect Event</span>
+                        Premium{" "}
+                        <span className="text-gold-600">Catering Services</span>
                     </h2>
                     <p className="text-gold-800/70 text-lg">
-                        We offer a complete suite of premium services to make your celebration
-                        truly extraordinary. Each service is customizable to match your vision.
+                        Be a guest on your party! We offer a complete range of catering services
+                        for all occasions - from intimate gatherings to grand celebrations.
                     </p>
                 </motion.div>
 

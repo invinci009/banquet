@@ -2,39 +2,39 @@ import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
 
 export const metadata: Metadata = {
-    title: "Contact Us | Book Royal Grandeur Banquet Hall Patna",
-    description: "Contact Royal Grandeur Banquet Hall for wedding & event bookings. Located near Gandhi Maidan, Patna. Call +91-6205708606 for inquiries, venue tours & quotes. Open 7 days a week!",
+    title: "Contact Us | Book Alba Banquet Hall Patna",
+    description: "Contact Alba Banquet Hall for wedding & event catering bookings. Located in Phulwari Sharif, Patna. Call +91-9234953085 for inquiries & quotes. Open 7 days a week!",
     keywords: [
-        "contact royal grandeur patna",
-        "book banquet hall patna",
-        "wedding venue booking patna",
-        "banquet hall phone number patna",
-        "event booking patna",
-        "royal grandeur address",
-        "marriage hall booking patna",
-        "banquet hall gandhi maidan",
+        "contact Alba Banquet Hall patna",
+        "book catering patna",
+        "wedding catering booking patna",
+        "caterers phone number patna",
+        "event catering booking patna",
+        "Alba Banquet Hall address",
+        "catering service booking patna",
+        "caterers phulwari sharif",
     ],
     alternates: {
-        canonical: "https://royalgrandeurpatna.com/contact",
+        canonical: "https://albacatering.com/contact",
     },
     openGraph: {
-        title: "Contact & Book Royal Grandeur Banquet Hall Patna",
-        description: "Ready to plan your event? Contact us at +91-6205708606. Visit our venue near Gandhi Maidan, Patna or fill out our booking form.",
-        url: "https://royalgrandeurpatna.com/contact",
+        title: "Contact & Book Alba Banquet Hall Patna",
+        description: "Ready to plan your event? Contact us at +91-9234953085. Visit us in Phulwari Sharif, Patna or fill out our booking form.",
+        url: "https://albacatering.com/contact",
         type: "website",
         images: [
             {
-                url: "https://royalgrandeurpatna.com/logo.png",
+                url: "https://albacatering.com/logo.png",
                 width: 512,
                 height: 512,
-                alt: "Contact Royal Grandeur",
+                alt: "Contact Alba Banquet Hall",
             },
         ],
     },
     twitter: {
         card: "summary",
-        title: "Contact Royal Grandeur Banquet Hall",
-        description: "Book your dream venue. Call +91-6205708606",
+        title: "Contact Alba Banquet Hall",
+        description: "Book your catering. Call +91-9234953085",
     },
 };
 
@@ -42,26 +42,26 @@ export const metadata: Metadata = {
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contact Royal Grandeur Banquet Hall",
-    "description": "Contact page for booking inquiries and venue tours",
-    "url": "https://royalgrandeurpatna.com/contact",
+    "name": "Contact Alba Banquet Hall",
+    "description": "Contact page for catering inquiries and bookings",
+    "url": "https://albacatering.com/contact",
     "mainEntity": {
         "@type": "LocalBusiness",
-        "name": "Royal Grandeur Banquet Hall",
-        "telephone": "+91-6205708606",
-        "email": "info@royalgrandeur.com",
+        "name": "Alba Banquet Hall",
+        "telephone": "+91-9234953085",
+        "email": "info@albacatering.com",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Near Gandhi Maidan",
+            "streetAddress": "Alba Colony, Near Alba Masjid, Phulwari Sharif",
             "addressLocality": "Patna",
             "addressRegion": "Bihar",
-            "postalCode": "800001",
+            "postalCode": "800005",
             "addressCountry": "IN",
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 25.6080,
-            "longitude": 85.1380,
+            "latitude": 25.5693995,
+            "longitude": 85.0734818,
         },
         "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
@@ -71,7 +71,7 @@ const jsonLd = {
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+91-6205708606",
+            "telephone": "+91-9234953085",
             "contactType": "reservations",
             "areaServed": "IN",
             "availableLanguage": ["en", "hi"],

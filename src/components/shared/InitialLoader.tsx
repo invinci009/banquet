@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles } from "lucide-react";
 
 export default function InitialLoader({ children }: { children: React.ReactNode }) {
     const [isLoading, setIsLoading] = useState(true);
@@ -54,44 +53,33 @@ export default function InitialLoader({ children }: { children: React.ReactNode 
                                 initial={{ scale: 0.8, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.5 }}
-                                className="mb-8"
+                                className="mb-6 relative"
                             >
+                                <div className="absolute inset-0 bg-gold-400/20 rounded-full blur-xl animate-pulse" />
                                 <motion.div
-                                    animate={{ rotate: 360 }}
-                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                                    className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-gold-lg"
+                                    animate={{
+                                        scale: [1, 1.05, 1],
+                                        filter: ["brightness(1)", "brightness(1.2)", "brightness(1)"]
+                                    }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                    className="relative w-48 h-48 sm:w-64 sm:h-64 mx-auto rounded-full overflow-hidden border-2 border-gold-500/30 bg-black/40 backdrop-blur-sm shadow-2xl flex items-center justify-center p-4"
                                 >
-                                    <Sparkles className="w-10 h-10 text-navy-900" />
+                                    <img
+                                        src="/logo.png"
+                                        alt="Alba Banquet Hall"
+                                        className="w-full h-auto object-contain drop-shadow-lg"
+                                    />
                                 </motion.div>
                             </motion.div>
 
-                            <motion.h1
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                className="font-display text-3xl font-bold text-white mb-2"
-                            >
-                                Royal Grandeur
-                            </motion.h1>
                             <motion.p
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.4 }}
-                                className="text-gold-400 text-sm uppercase tracking-widest mb-8"
+                                className="text-gold-400 text-sm uppercase tracking-[0.3em]"
                             >
-                                Banquet Hall
+                                Loading Experience
                             </motion.p>
-
-                            <div className="flex items-center justify-center gap-2">
-                                {[0, 1, 2].map((i) => (
-                                    <motion.div
-                                        key={i}
-                                        className="w-3 h-3 rounded-full bg-gold-500"
-                                        animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-                                        transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                                    />
-                                ))}
-                            </div>
                         </div>
                     </motion.div>
                 )}

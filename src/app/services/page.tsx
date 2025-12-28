@@ -2,45 +2,44 @@ import type { Metadata } from "next";
 import ServicesClient from "./ServicesClient";
 
 export const metadata: Metadata = {
-    title: "Premium Wedding & Event Services in Patna | Royal Grandeur Banquet",
-    description: "Experience luxury event services at Royal Grandeur Banquet Hall, Patna. Expert wedding planning, gourmet catering, exquisite decoration, professional photography, entertainment, and complete event management. 5000+ successful events hosted.",
+    title: "Premium Catering Services in Patna | Alba Banquet Hall",
+    description: "Experience exceptional catering services at Alba Banquet Hall, Patna. Wedding Catering, Corporate Catering, Buffet, Dinner, Snack & Personal Catering. Be a Guest on Your Party! Call: +91-9234953085",
     keywords: [
-        "wedding services patna",
-        "banquet hall services",
-        "event planning patna",
+        "catering services patna",
         "wedding catering patna",
-        "wedding decoration patna",
-        "wedding photography patna",
-        "mehendi ceremony patna",
-        "haldi ceremony venue",
-        "reception hall patna",
-        "party venue patna",
-        "corporate event patna",
-        "birthday party venue",
-        "anniversary celebration",
-        "engagement venue patna",
-        "luxury wedding patna"
+        "corporate catering patna",
+        "buffet catering patna",
+        "dinner catering patna",
+        "snack catering patna",
+        "personal catering patna",
+        "party catering patna",
+        "event catering bihar",
+        "best caterers patna",
+        "catering near me",
+        "wedding caterers bihar",
+        "corporate event catering",
+        "birthday party catering"
     ],
     alternates: {
         canonical: "/services",
     },
     openGraph: {
-        title: "Premium Wedding & Event Services | Royal Grandeur Banquet Hall Patna",
-        description: "Transform your special day with our comprehensive event services. From intimate celebrations to grand weddings, we deliver perfection in every detail.",
+        title: "Premium Catering Services | Alba Banquet Hall Patna",
+        description: "Transform your celebrations with our comprehensive catering services. From intimate gatherings to grand weddings, we deliver perfection in every dish.",
         type: "website",
         images: [
             {
                 url: "/images/services-og.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Royal Grandeur Banquet Services"
+                alt: "Alba Banquet Hall"
             }
         ]
     },
     twitter: {
         card: "summary_large_image",
-        title: "Premium Wedding & Event Services | Royal Grandeur",
-        description: "Luxury wedding planning, catering, decoration & more. 5000+ successful events in Patna."
+        title: "Premium Catering Services | Alba Banquet Hall",
+        description: "Wedding, Corporate, Buffet, Dinner & Snack Catering in Patna. Be a Guest on Your Party!"
     },
     robots: {
         index: true,
@@ -52,30 +51,33 @@ export const metadata: Metadata = {
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Royal Grandeur Event Services",
+    "name": "Alba Banquet Hall",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Royal Grandeur Banquet Hall",
+        "name": "Alba Banquet Hall",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Alba Colony, Near Alba Masjid, Phulwari Sharif",
             "addressLocality": "Patna",
             "addressRegion": "Bihar",
+            "postalCode": "800005",
             "addressCountry": "IN"
-        }
+        },
+        "telephone": "+91-9234953085"
     },
     "serviceType": [
-        "Wedding Planning",
-        "Event Catering",
-        "Venue Decoration",
-        "Photography Services",
-        "Entertainment Services",
-        "Corporate Event Management"
+        "Wedding Catering",
+        "Corporate Catering",
+        "Buffet Catering",
+        "Dinner Catering",
+        "Snack Catering",
+        "Personal Catering"
     ],
     "areaServed": {
         "@type": "City",
         "name": "Patna"
     },
-    "description": "Comprehensive event services including wedding planning, catering, decoration, photography, and entertainment.",
+    "description": "Comprehensive catering services including wedding catering, corporate catering, buffet, dinner, snack, and personal catering.",
     "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "INR",

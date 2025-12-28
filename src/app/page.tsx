@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
 
 export const metadata: Metadata = {
-    title: "Royal Grandeur Banquet Hall Patna | #1 Luxury Wedding Venue & Marriage Hall in Bihar",
-    description: "Royal Grandeur is Patna's most prestigious banquet hall near Gandhi Maidan. Perfect for weddings, receptions, engagements & corporate events. AC halls for 50-1000+ guests with premium catering, stunning decor & valet parking. ⭐ 4.9 Rating | 500+ Events | Book today!",
+    title: "Alba Banquet Hall Patna | #1 Luxury Wedding Venue & Event Hall in Bihar",
+    description: "Alba Banquet Hall is Patna's most prestigious venue in Phulwari Sharif. Perfect for weddings, receptions, engagements & corporate events. AC halls for 50-1000+ guests with premium catering, stunning decor & parking. ⭐ Top Rated | Book today! Call: +91-9234953085",
     keywords: [
         // High-volume primary keywords
         "banquet hall patna",
@@ -12,10 +12,10 @@ export const metadata: Metadata = {
         "best banquet hall in patna",
         "luxury wedding venue patna",
         // Location-specific
-        "banquet hall near gandhi maidan",
+        "banquet hall phulwari sharif",
         "wedding hall patna city",
-        "marriage hall boring road patna",
-        "banquet near patna junction",
+        "alba banquet hall patna",
+        "banquet near patna",
         // Event-specific
         "reception hall patna",
         "engagement venue patna",
@@ -30,17 +30,17 @@ export const metadata: Metadata = {
         // Long-tail
         "best wedding venue in patna with price",
         "top 10 banquet halls in patna",
-        "royal grandeur patna booking",
-        "5 star wedding venue patna bihar",
+        "alba banquet patna booking",
+        "premium wedding venue patna bihar",
     ],
     alternates: {
-        canonical: "https://royalgrandeurpatna.com",
+        canonical: "https://albacatering.com",
     },
     openGraph: {
-        title: "Royal Grandeur Banquet Hall Patna | #1 Wedding & Event Venue in Bihar",
-        description: "Patna's most prestigious venue for weddings & events. Premium halls for 50-1000+ guests. ⭐ 4.9 Rating | Book your dream celebration!",
-        url: "https://royalgrandeurpatna.com",
-        siteName: "Royal Grandeur Banquet Hall",
+        title: "Alba Banquet Hall Patna | #1 Wedding & Event Venue in Bihar",
+        description: "Patna's most prestigious venue for weddings & events. Premium halls for 50-1000+ guests. ⭐ Top Rated | Book your dream celebration!",
+        url: "https://albacatering.com",
+        siteName: "Alba Banquet Hall",
         type: "website",
         locale: "en_IN",
         images: [
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
                 url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&q=80",
                 width: 1200,
                 height: 630,
-                alt: "Royal Grandeur Banquet Hall - Luxury Wedding Venue Patna",
+                alt: "Alba Banquet Hall - Luxury Wedding Venue Patna",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Royal Grandeur Banquet Hall Patna | Best Wedding Venue",
-        description: "Patna's #1 luxury wedding venue. Book now! ⭐ 4.9 Rating",
+        title: "Alba Banquet Hall Patna | Best Wedding Venue",
+        description: "Patna's #1 luxury wedding venue. Book now! ⭐ Top Rated",
         images: ["https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&q=80"],
     },
 };

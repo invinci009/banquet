@@ -17,10 +17,10 @@ const playfair = Playfair_Display({
 // Comprehensive SEO Metadata
 export const metadata: Metadata = {
     title: {
-        default: "Royal Grandeur Banquet Hall Patna | #1 Luxury Wedding Venue & Marriage Hall in Bihar",
-        template: "%s | Royal Grandeur Patna - Best Banquet Hall",
+        default: "Alba Banquet Hall Patna | #1 Premium Catering Service in Bihar",
+        template: "%s | Alba Banquet Hall - Best Caterers in Patna",
     },
-    description: "Royal Grandeur is Patna's premier luxury banquet hall near Gandhi Maidan. Perfect for weddings, receptions, engagements & corporate events. AC halls for 50-1000+ guests with in-house catering, stunning decor, valet parking & dedicated event planners. ⭐ 4.9 Rating | 500+ Events | Book your dream venue today!",
+    description: "Alba Banquet Hall - Patna's premier catering company for weddings, corporate events & parties. Be a Guest on Your Party! Wedding Catering, Corporate Catering, Buffet, Dinner & Snack Catering. ⭐ Top Rated | Book now: +91-9234953085",
     keywords: [
         // Primary Keywords - High Intent
         "banquet hall in patna",
@@ -62,14 +62,14 @@ export const metadata: Metadata = {
         "vivah sthal patna",
         "banquet hall patna price",
     ],
-    authors: [{ name: "Royal Grandeur Banquet Hall", url: "https://royalgrandeurpatna.com" }],
-    creator: "Royal Grandeur",
-    publisher: "Royal Grandeur Banquet Hall",
-    metadataBase: new URL("https://royalgrandeurpatna.com"),
+    authors: [{ name: "Alba Banquet Hall", url: "https://albacatering.com" }],
+    creator: "Alba Banquet Hall",
+    publisher: "Alba Banquet Hall",
+    metadataBase: new URL("https://albacatering.com"),
     alternates: {
-        canonical: "https://royalgrandeurpatna.com",
+        canonical: "https://albacatering.com",
         languages: {
-            "en-IN": "https://royalgrandeurpatna.com",
+            "en-IN": "https://albacatering.com",
         },
     },
     icons: {
@@ -83,10 +83,10 @@ export const metadata: Metadata = {
         ],
     },
     openGraph: {
-        title: "Royal Grandeur Banquet Hall Patna | #1 Luxury Wedding & Event Venue in Bihar",
-        description: "Patna's most prestigious banquet hall for weddings, receptions & events. AC halls for 50-1000+ guests | Premium Catering | Stunning Decor | Valet Parking | ⭐ 4.9 Rating",
-        url: "https://royalgrandeurpatna.com",
-        siteName: "Royal Grandeur Banquet Hall Patna",
+        title: "Alba Banquet Hall Patna | #1 Premium Catering Service in Bihar",
+        description: "Patna's most trusted catering service for weddings, receptions & events. Wedding Catering | Corporate Catering | Buffet | Dinner | Snack Catering | ⭐ Top Rated",
+        url: "https://albacatering.com",
+        siteName: "Alba Banquet Hall",
         locale: "en_IN",
         type: "website",
         images: [
@@ -94,25 +94,25 @@ export const metadata: Metadata = {
                 url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&q=80",
                 width: 1200,
                 height: 630,
-                alt: "Royal Grandeur Banquet Hall - Luxury Wedding Venue in Patna",
+                alt: "Alba Banquet Hall - Premium Catering in Patna",
                 type: "image/jpeg",
             },
             {
                 url: "/logo.png",
                 width: 512,
                 height: 512,
-                alt: "Royal Grandeur Logo",
+                alt: "Alba Banquet Hall Logo",
                 type: "image/png",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Royal Grandeur Banquet Hall Patna | Best Wedding Venue in Bihar",
-        description: "Patna's premier luxury banquet hall for weddings & events. AC halls, catering, decor & parking. ⭐ 4.9 Rating | Book now!",
+        title: "Alba Banquet Hall Patna | Best Caterers in Bihar",
+        description: "Patna's premier catering service for weddings & events. Wedding, Corporate, Buffet & Personal Catering. ⭐ Top Rated | Book now!",
         images: ["https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&q=80"],
-        creator: "@royalgrandeurpatna",
-        site: "@royalgrandeurpatna",
+        creator: "@albacatering",
+        site: "@albacatering",
     },
     robots: {
         index: true,
@@ -132,7 +132,7 @@ export const metadata: Metadata = {
         // google: "your-google-verification-code",
         // yandex: "your-yandex-verification-code",
     },
-    category: "Event Venue",
+    category: "Catering Service",
     classification: "Business",
     referrer: "origin-when-cross-origin",
     formatDetection: {
@@ -142,9 +142,9 @@ export const metadata: Metadata = {
     },
     other: {
         "geo.region": "IN-BR",
-        "geo.placename": "Patna",
-        "geo.position": "25.6080;85.1380",
-        "ICBM": "25.6080, 85.1380",
+        "geo.placename": "Phulwari Sharif, Patna",
+        "geo.position": "25.5693995;85.0734818",
+        "ICBM": "25.5693995, 85.0734818",
         "revisit-after": "7 days",
         "rating": "General",
         "distribution": "Global",
@@ -171,48 +171,48 @@ const structuredData = {
         // Organization Schema
         {
             "@type": "Organization",
-            "@id": "https://royalgrandeurpatna.com/#organization",
-            "name": "Royal Grandeur Banquet Hall",
-            "url": "https://royalgrandeurpatna.com",
+            "@id": "https://albacatering.com/#organization",
+            "name": "Alba Banquet Hall",
+            "url": "https://albacatering.com",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://royalgrandeurpatna.com/logo.png",
+                "url": "https://albacatering.com/logo.png",
                 "width": 512,
                 "height": 512,
             },
-            "image": "https://royalgrandeurpatna.com/logo.png",
-            "description": "Patna's premier luxury banquet hall for weddings, receptions, and corporate events.",
-            "telephone": "+91-6205708606",
-            "email": "info@royalgrandeur.com",
+            "image": "https://albacatering.com/logo.png",
+            "description": "Patna's premier catering service for weddings, corporate events, and celebrations.",
+            "telephone": "+91-9234953085",
+            "email": "info@albacatering.com",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Near Gandhi Maidan",
+                "streetAddress": "Alba Colony, Near Alba Masjid, Phulwari Sharif",
                 "addressLocality": "Patna",
                 "addressRegion": "Bihar",
-                "postalCode": "800001",
+                "postalCode": "800005",
                 "addressCountry": "IN",
             },
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 25.6080,
-                "longitude": 85.1380,
+                "latitude": 25.5693995,
+                "longitude": 85.0734818,
             },
             "sameAs": [
-                "https://www.facebook.com/royalgrandeurpatna",
-                "https://www.instagram.com/royalgrandeurpatna",
-                "https://www.youtube.com/@royalgrandeurpatna",
+                "https://www.facebook.com/albacatering",
+                "https://www.instagram.com/albacatering",
+                "https://www.youtube.com/@albacatering",
             ],
             "contactPoint": [
                 {
                     "@type": "ContactPoint",
-                    "telephone": "+91-6205708606",
+                    "telephone": "+91-9234953085",
                     "contactType": "reservations",
                     "areaServed": ["IN"],
                     "availableLanguage": ["en", "hi"],
                 },
                 {
                     "@type": "ContactPoint",
-                    "telephone": "+91-6205708606",
+                    "telephone": "+91-9234953085",
                     "contactType": "customer service",
                     "areaServed": ["IN"],
                     "availableLanguage": ["en", "hi"],
@@ -221,29 +221,29 @@ const structuredData = {
         },
         // LocalBusiness Schema (Important for Local SEO)
         {
-            "@type": ["LocalBusiness", "EventVenue", "WeddingVenue"],
-            "@id": "https://royalgrandeurpatna.com/#localbusiness",
-            "name": "Royal Grandeur Banquet Hall",
+            "@type": ["LocalBusiness", "FoodService", "CateringService"],
+            "@id": "https://albacatering.com/#localbusiness",
+            "name": "Alba Banquet Hall",
             "image": [
-                "https://royalgrandeurpatna.com/logo.png",
+                "https://albacatering.com/logo.png",
                 "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&q=80",
             ],
-            "description": "Royal Grandeur is Patna's most prestigious banquet hall offering luxury wedding venues, reception halls, and corporate event spaces with world-class amenities.",
+            "description": "Alba Banquet Hall - Patna's most trusted catering company offering wedding catering, corporate catering, buffet, dinner, and snack catering services.",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Near Gandhi Maidan",
+                "streetAddress": "Alba Colony, Near Alba Masjid, Phulwari Sharif",
                 "addressLocality": "Patna",
                 "addressRegion": "Bihar",
-                "postalCode": "800001",
+                "postalCode": "800005",
                 "addressCountry": "IN",
             },
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 25.6080,
-                "longitude": 85.1380,
+                "latitude": 25.5693995,
+                "longitude": 85.0734818,
             },
-            "url": "https://royalgrandeurpatna.com",
-            "telephone": "+91-6205708606",
+            "url": "https://albacatering.com",
+            "telephone": "+91-9234953085",
             "priceRange": "₹₹₹",
             "currenciesAccepted": "INR",
             "paymentAccepted": "Cash, Credit Card, Debit Card, UPI, Bank Transfer",
@@ -333,18 +333,18 @@ const structuredData = {
         // WebSite Schema
         {
             "@type": "WebSite",
-            "@id": "https://royalgrandeurpatna.com/#website",
-            "url": "https://royalgrandeurpatna.com",
-            "name": "Royal Grandeur Banquet Hall Patna",
-            "description": "Patna's premier luxury wedding venue and banquet hall",
+            "@id": "https://albacatering.com/#website",
+            "url": "https://albacatering.com",
+            "name": "Alba Banquet Hall Patna",
+            "description": "Patna's premier catering service for weddings and events",
             "publisher": {
-                "@id": "https://royalgrandeurpatna.com/#organization",
+                "@id": "https://albacatering.com/#organization",
             },
             "potentialAction": {
                 "@type": "SearchAction",
                 "target": {
                     "@type": "EntryPoint",
-                    "urlTemplate": "https://royalgrandeurpatna.com/search?q={search_term_string}",
+                    "urlTemplate": "https://albacatering.com/search?q={search_term_string}",
                 },
                 "query-input": "required name=search_term_string",
             },
@@ -353,37 +353,37 @@ const structuredData = {
         // WebPage Schema
         {
             "@type": "WebPage",
-            "@id": "https://royalgrandeurpatna.com/#webpage",
-            "url": "https://royalgrandeurpatna.com",
-            "name": "Royal Grandeur Banquet Hall Patna | #1 Luxury Wedding Venue in Bihar",
+            "@id": "https://albacatering.com/#webpage",
+            "url": "https://albacatering.com",
+            "name": "Alba Banquet Hall Patna | #1 Premium Catering Service in Bihar",
             "isPartOf": {
-                "@id": "https://royalgrandeurpatna.com/#website",
+                "@id": "https://albacatering.com/#website",
             },
             "about": {
-                "@id": "https://royalgrandeurpatna.com/#localbusiness",
+                "@id": "https://albacatering.com/#localbusiness",
             },
-            "description": "Book Patna's most prestigious banquet hall for your wedding, reception, or corporate event. Premium amenities, world-class service.",
+            "description": "Book Patna's most trusted catering service for your wedding, reception, or corporate event. Premium food, world-class service.",
             "breadcrumb": {
-                "@id": "https://royalgrandeurpatna.com/#breadcrumb",
+                "@id": "https://albacatering.com/#breadcrumb",
             },
             "inLanguage": "en-IN",
             "potentialAction": [
                 {
                     "@type": "ReadAction",
-                    "target": ["https://royalgrandeurpatna.com"],
+                    "target": ["https://albacatering.com"],
                 },
             ],
         },
         // BreadcrumbList Schema
         {
             "@type": "BreadcrumbList",
-            "@id": "https://royalgrandeurpatna.com/#breadcrumb",
+            "@id": "https://albacatering.com/#breadcrumb",
             "itemListElement": [
                 {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://royalgrandeurpatna.com",
+                    "item": "https://albacatering.com",
                 },
             ],
         },
@@ -393,42 +393,42 @@ const structuredData = {
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "What is the capacity of Royal Grandeur Banquet Hall?",
+                    "name": "What catering services does Alba Banquet Hall offer?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Royal Grandeur offers multiple halls with capacities ranging from 50 to 1000+ guests. We have intimate spaces for small gatherings and grand ballrooms for large weddings and events.",
+                        "text": "Alba Banquet Hall offers Wedding Catering, Corporate Catering, Buffet Catering, Dinner Catering, Snack Catering, and Personal Catering for events of all sizes.",
                     },
                 },
                 {
                     "@type": "Question",
-                    "name": "What services are included in wedding packages?",
+                    "name": "What cuisines are available?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Our wedding packages include venue decoration, catering services with customizable menus, lighting and sound systems, valet parking, dedicated event coordinators, and complimentary bridal suite.",
+                        "text": "We offer a wide variety of cuisines including North Indian, South Indian, Chinese, Continental, Mughlai, and live counters. Custom menus are available based on your preferences.",
                     },
                 },
                 {
                     "@type": "Question",
-                    "name": "How do I book Royal Grandeur for my event?",
+                    "name": "How do I book Alba Banquet Hall for my event?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "You can book by calling us at +91-6205708606, sending a WhatsApp message, or filling out the contact form on our website. We recommend booking 3-6 months in advance for peak wedding season.",
+                        "text": "You can book by calling us at +91-9234953085, sending a WhatsApp message, or filling out the contact form on our website. We recommend booking 2-4 weeks in advance for large events.",
                     },
                 },
                 {
                     "@type": "Question",
-                    "name": "What is the location of Royal Grandeur Banquet Hall?",
+                    "name": "What is the location of Alba Banquet Hall?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Royal Grandeur is conveniently located near Gandhi Maidan in Patna, Bihar. We are easily accessible from Patna Junction and have ample parking space for guests.",
+                        "text": "Alba Banquet Hall is located at Alba Colony, Near Alba Masjid, Phulwari Sharif, Patna - 05, Bihar. We provide catering services across Patna and surrounding areas.",
                     },
                 },
                 {
                     "@type": "Question",
-                    "name": "Do you provide catering services?",
+                    "name": "Do you provide catering for small gatherings?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Yes, we have an in-house catering team that offers a wide variety of cuisines including North Indian, South Indian, Chinese, Continental, and live counters. Custom menus are available.",
+                        "text": "Yes, we provide catering for events of all sizes - from intimate family gatherings to large weddings with 1000+ guests. Our personal catering service is perfect for small events.",
                     },
                 },
             ],
@@ -472,8 +472,8 @@ export default function RootLayout({
                 />
 
                 {/* Additional SEO Meta Tags */}
-                <meta name="author" content="Royal Grandeur Banquet Hall" />
-                <meta name="copyright" content="Royal Grandeur Banquet Hall" />
+                <meta name="author" content="Alba Banquet Hall" />
+                <meta name="copyright" content="Alba Banquet Hall" />
                 <meta name="language" content="English" />
                 <meta name="target" content="all" />
                 <meta name="audience" content="all" />
@@ -481,30 +481,30 @@ export default function RootLayout({
                 <meta name="distribution" content="Global" />
                 <meta name="rating" content="General" />
                 <meta name="revisit-after" content="7 days" />
-                <meta name="subject" content="Wedding Venue, Banquet Hall, Event Space in Patna Bihar" />
-                <meta name="topic" content="Wedding and Event Venue Services" />
-                <meta name="summary" content="Royal Grandeur - Patna's premier luxury banquet hall for weddings, receptions, and events" />
+                <meta name="subject" content="Catering Services, Wedding Catering, Event Catering in Patna Bihar" />
+                <meta name="topic" content="Catering and Event Services" />
+                <meta name="summary" content="Alba Banquet Hall - Patna's premier catering company for weddings, corporate events, and celebrations" />
                 <meta name="Classification" content="Business" />
                 <meta name="designer" content="Ignius Studios" />
-                <meta name="owner" content="Royal Grandeur" />
-                <meta name="url" content="https://royalgrandeurpatna.com" />
-                <meta name="identifier-URL" content="https://royalgrandeurpatna.com" />
-                <meta name="pagename" content="Royal Grandeur Banquet Hall Patna" />
+                <meta name="owner" content="Alba Banquet Hall" />
+                <meta name="url" content="https://albacatering.com" />
+                <meta name="identifier-URL" content="https://albacatering.com" />
+                <meta name="pagename" content="Alba Banquet Hall Patna" />
                 <meta name="HandheldFriendly" content="True" />
                 <meta name="MobileOptimized" content="320" />
 
                 {/* Geo Tags for Local SEO */}
                 <meta name="geo.region" content="IN-BR" />
                 <meta name="geo.placename" content="Patna, Bihar, India" />
-                <meta name="geo.position" content="25.6080;85.1380" />
-                <meta name="ICBM" content="25.6080, 85.1380" />
+                <meta name="geo.position" content="25.5693995;85.0734818" />
+                <meta name="ICBM" content="25.5693995, 85.0734818" />
 
                 {/* Dublin Core Metadata */}
-                <meta name="DC.title" content="Royal Grandeur Banquet Hall Patna" />
-                <meta name="DC.creator" content="Royal Grandeur" />
-                <meta name="DC.subject" content="Wedding Venue, Banquet Hall, Event Space" />
-                <meta name="DC.description" content="Patna's premier luxury banquet hall for weddings and events" />
-                <meta name="DC.publisher" content="Royal Grandeur" />
+                <meta name="DC.title" content="Alba Banquet Hall Patna" />
+                <meta name="DC.creator" content="Alba Banquet Hall" />
+                <meta name="DC.subject" content="Catering Services, Wedding Catering, Event Catering" />
+                <meta name="DC.description" content="Patna's premier catering service for weddings and events" />
+                <meta name="DC.publisher" content="Alba Banquet Hall" />
                 <meta name="DC.type" content="Service" />
                 <meta name="DC.format" content="text/html" />
                 <meta name="DC.language" content="en-IN" />

@@ -18,8 +18,8 @@ export default function GalleryClient() {
                 {/* Background Image with Parallax Effect */}
                 <div className="absolute inset-0">
                     <img
-                        src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1920&q=80"
-                        alt="Wedding celebration"
+                        src="/gallery/building-exterior.webp"
+                        alt="Alba Banquet Hall Building"
                         className="w-full h-full object-cover scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/80 to-navy-900/60" />
@@ -126,7 +126,7 @@ export default function GalleryClient() {
                             transition={{ delay: 0.5, duration: 0.6 }}
                             className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed"
                         >
-                            A visual journey through thousands of magical celebrations hosted at Royal Grandeur. Every image tells a story of love, joy, and unforgettable moments.
+                            A visual journey through thousands of magical celebrations hosted at Alba Banquet Hall. Every image tells a story of love, joy, and unforgettable moments.
                         </motion.p>
 
                         {/* Stats Row */}
@@ -137,18 +137,18 @@ export default function GalleryClient() {
                             className="flex items-center justify-center gap-6 sm:gap-10 mb-8"
                         >
                             <div className="text-center">
-                                <div className="font-display text-2xl sm:text-3xl font-bold text-gold-400">5000+</div>
-                                <div className="text-gray-400 text-xs sm:text-sm">Events</div>
+                                <div className="font-display text-2xl sm:text-3xl font-bold text-gold-400">3000+</div>
+                                <div className="text-gray-400 text-xs sm:text-sm">Capacity</div>
                             </div>
                             <div className="w-px h-10 bg-gold-500/30" />
                             <div className="text-center">
-                                <div className="font-display text-2xl sm:text-3xl font-bold text-gold-400">100K+</div>
-                                <div className="text-gray-400 text-xs sm:text-sm">Photos</div>
+                                <div className="font-display text-2xl sm:text-3xl font-bold text-gold-400">124+</div>
+                                <div className="text-gray-400 text-xs sm:text-sm">Reviews</div>
                             </div>
                             <div className="w-px h-10 bg-gold-500/30" />
                             <div className="text-center">
-                                <div className="font-display text-2xl sm:text-3xl font-bold text-gold-400">15+</div>
-                                <div className="text-gray-400 text-xs sm:text-sm">Years</div>
+                                <div className="font-display text-2xl sm:text-3xl font-bold text-gold-400">4.2★</div>
+                                <div className="text-gray-400 text-xs sm:text-sm">Rating</div>
                             </div>
                         </motion.div>
 
@@ -166,12 +166,13 @@ export default function GalleryClient() {
                                 <Images className="w-5 h-5" />
                                 Book a Tour
                             </Link>
-                            <button
+                            <Link
+                                href="/#virtual-tour"
                                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl hover:bg-white/20 transition-all"
                             >
                                 <Play className="w-5 h-5" />
                                 Watch Video Tour
-                            </button>
+                            </Link>
                         </motion.div>
                     </motion.div>
 

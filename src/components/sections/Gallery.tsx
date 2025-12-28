@@ -1,106 +1,196 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useCallback } from "react";
-import { X, ZoomIn, ChevronLeft, ChevronRight, Heart, Download, Share2, Sparkles, Camera, Star } from "lucide-react";
+import { useState, useCallback, useEffect, useRef } from "react";
+import { X, ZoomIn, ChevronLeft, ChevronRight, Heart, Download, Share2, Sparkles, Camera, Star, Play, Pause } from "lucide-react";
 import Image from "next/image";
+
+// ... (lines 8-164 remain unchanged, handled by matching context or assuming file hasn't shifted much)
+
+// We need to re-declare the imports if we're replacing the top, but `replace_file_content` works on range. 
+// I'll target the import line specifically first to add useEffect.
+
+// Actually I'll just use MultiReplace to do it cleanly.
+
+
+// (Removed duplicate imports)
 
 const categories = [
     { id: "all", label: "All Events", icon: "✨" },
-    { id: "wedding", label: "Weddings", icon: "💍" },
-    { id: "reception", label: "Receptions", icon: "🎊" },
+    { id: "venue", label: "Venue", icon: "🏛️" },
+    { id: "hall", label: "Hall", icon: "�" },
+    { id: "entrance", label: "Entrance", icon: "�" },
     { id: "decor", label: "Decorations", icon: "🌸" },
     { id: "catering", label: "Catering", icon: "🍽️" },
-    { id: "venue", label: "Venues", icon: "🏛️" },
 ];
 
 const galleryImages = [
     {
-        src: "https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Grand Banquet Hall with Crystal Chandeliers",
+        src: "/gallery/night-lawn-view.webp",
+        alt: "Alba Banquet Hall Night View with Fairy Lights and Lawn",
         category: "venue",
         span: "col-span-2 row-span-2",
         featured: true,
     },
     {
-        src: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Elegant Wedding Stage with Floral Decor",
+        src: "/gallery/wedding-stage-roses.webp",
+        alt: "Beautiful Wedding Stage with Red Rose Decorations",
         category: "decor",
-        span: "col-span-1 row-span-1",
+        span: "col-span-2 row-span-1",
+        featured: true,
     },
     {
-        src: "https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Luxurious Banquet Seating Arrangement",
+        src: "/gallery/building-exterior.webp",
+        alt: "Alba Banquet Hall Building with Fairy Light Decoration",
         category: "venue",
         span: "col-span-1 row-span-2",
     },
     {
-        src: "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Traditional Wedding Mandap Decoration",
-        category: "wedding",
+        src: "/gallery/hall-seating.webp",
+        alt: "AC Indoor Hall with Seating and Stage View",
+        category: "hall",
         span: "col-span-1 row-span-1",
         featured: true,
     },
     {
-        src: "https://images.pexels.com/photos/1114425/pexels-photo-1114425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Royal Wedding Table Setup with Gold Accents",
+        src: "/gallery/haldi-stage.webp",
+        alt: "Haldi/Mehendi Stage Setup with Yellow Decor",
         category: "decor",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/building-entrance.webp",
+        alt: "Grand Building Entrance with Arch Design",
+        category: "venue",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/changing-room.webp",
+        alt: "Complimentary Changing Room for Bride/Groom",
+        category: "hall",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/entrance-decor.webp",
+        alt: "Traditional Red & Gold Marigold Entrance Decor",
+        category: "entrance",
         span: "col-span-2 row-span-1",
     },
     {
-        src: "https://images.pexels.com/photos/5638748/pexels-photo-5638748.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Gourmet Indian Cuisine Buffet Display",
-        category: "catering",
-        span: "col-span-1 row-span-1",
-    },
-    {
-        src: "https://images.pexels.com/photos/3171815/pexels-photo-3171815.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Evening Reception with Fairy Lights",
-        category: "reception",
-        span: "col-span-1 row-span-1",
-    },
-    {
-        src: "https://images.pexels.com/photos/1128783/pexels-photo-1128783.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Bride and Groom Wedding Ceremony",
-        category: "wedding",
+        src: "/gallery/indoor-hall.webp",
+        alt: "AC Indoor Hall with Stage and Seating",
+        category: "hall",
         span: "col-span-1 row-span-2",
         featured: true,
     },
     {
-        src: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Premium Wedding Feast Presentation",
-        category: "catering",
-        span: "col-span-2 row-span-1",
-    },
-    {
-        src: "https://images.pexels.com/photos/1035665/pexels-photo-1035665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Couple First Dance at Reception",
-        category: "reception",
+        src: "/gallery/floral-gate.webp",
+        alt: "Colorful Floral Welcome Gate",
+        category: "entrance",
         span: "col-span-1 row-span-1",
     },
     {
-        src: "https://images.pexels.com/photos/1114690/pexels-photo-1114690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Floral Stage Backdrop with LED Lighting",
+        src: "/gallery/mocktail-counter.webp",
+        alt: "Premium Mocktail Counter Setup",
+        category: "catering",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/lawn-area.webp",
+        alt: "Spacious Open Lawn with Fairy Lights",
+        category: "venue",
+        span: "col-span-2 row-span-1",
+    },
+    {
+        src: "/gallery/food-counter.webp",
+        alt: "Elegant Food Counter with Hanging Lamps",
+        category: "catering",
+        span: "col-span-2 row-span-1",
+        featured: true,
+    },
+    {
+        src: "/gallery/entrance-gate.webp",
+        alt: "Pink & White Entrance Gate with Flowers",
+        category: "entrance",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/stage-decor.webp",
+        alt: "Wedding Stage with Floral Decorations",
         category: "decor",
         span: "col-span-1 row-span-1",
     },
     {
-        src: "https://images.pexels.com/photos/3585798/pexels-photo-3585798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        alt: "Grand Reception Hall Night Setup",
+        src: "/gallery/building-front-lights.webp",
+        alt: "Building Front with Beautiful LED Lights and Green Lawn",
         category: "venue",
         span: "col-span-2 row-span-2",
         featured: true,
+    },
+    {
+        src: "/gallery/hall-stage-view.webp",
+        alt: "AC Hall with Stage and Maroon Chair Setup",
+        category: "hall",
+        span: "col-span-2 row-span-1",
+        featured: true,
+    },
+    {
+        src: "/gallery/hall-wide-view.webp",
+        alt: "Wide View of AC Hall with Seating Arrangement",
+        category: "hall",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/building-night-lights.webp",
+        alt: "Stunning Night View with Fairy Light Decoration",
+        category: "venue",
+        span: "col-span-1 row-span-2",
+    },
+    {
+        src: "/gallery/buffet-service.webp",
+        alt: "Live Buffet Service at Wedding Event",
+        category: "catering",
+        span: "col-span-2 row-span-1",
+        featured: true,
+    },
+    {
+        src: "/gallery/catering-service.webp",
+        alt: "Professional Catering Service with Elegant Lamps",
+        category: "catering",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/reception-hall.webp",
+        alt: "Grand Reception Hall with Red Rose Stage Decoration",
+        category: "hall",
+        span: "col-span-2 row-span-2",
+        featured: true,
+    },
+    {
+        src: "/gallery/buffet-staff.webp",
+        alt: "Professional Catering Staff at Buffet Counter",
+        category: "catering",
+        span: "col-span-1 row-span-1",
     },
 ];
 
-export default function Gallery() {
+interface GalleryProps {
+    limit?: number;
+    showFilter?: boolean;
+}
+
+export default function Gallery({ limit, showFilter = true }: GalleryProps) {
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
     const [activeCategory, setActiveCategory] = useState("all");
     const [likedImages, setLikedImages] = useState<Set<number>>(new Set());
+    const [isPlaying, setIsPlaying] = useState(false);
+    const thumbnailScrollRef = useRef<HTMLDivElement>(null);
 
-    const filteredImages = activeCategory === "all"
+    const allFilteredImages = activeCategory === "all"
         ? galleryImages
         : galleryImages.filter(img => img.category === activeCategory);
+
+    const filteredImages = limit ? allFilteredImages.slice(0, limit) : allFilteredImages;
 
     const toggleLike = useCallback((index: number, e: React.MouseEvent) => {
         e.stopPropagation();
@@ -124,6 +214,62 @@ export default function Gallery() {
             setSelectedImage(currentIndex < filteredImages.length - 1 ? currentIndex + 1 : 0);
         }
     }, [selectedImage, filteredImages]);
+
+    // Auto-advance for slideshow
+    useEffect(() => {
+        let interval: NodeJS.Timeout;
+        if (isPlaying && selectedImage !== null) {
+            interval = setInterval(() => {
+                navigateImage('next');
+            }, 3000);
+        }
+        return () => clearInterval(interval);
+    }, [isPlaying, selectedImage, navigateImage]);
+
+    // Keyboard Navigation
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (selectedImage === null) return;
+
+            switch (e.key) {
+                case 'ArrowLeft':
+                case 'a':
+                case 'A':
+                    navigateImage('prev');
+                    break;
+                case 'ArrowRight':
+                case 'd':
+                case 'D':
+                    navigateImage('next');
+                    break;
+                case 'Escape':
+                    setSelectedImage(null);
+                    setIsPlaying(false);
+                    break;
+                case ' ': // Spacebar to toggle play/pause
+                    e.preventDefault();
+                    setIsPlaying(prev => !prev);
+                    break;
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedImage, navigateImage]);
+
+    // Scroll active thumbnail into view
+    useEffect(() => {
+        if (selectedImage !== null && thumbnailScrollRef.current) {
+            const activeThumbnail = thumbnailScrollRef.current.children[selectedImage] as HTMLElement;
+            if (activeThumbnail) {
+                activeThumbnail.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                });
+            }
+        }
+    }, [selectedImage]);
 
     return (
         <>
@@ -161,29 +307,31 @@ export default function Gallery() {
                     </motion.div>
 
                     {/* Category Filter Pills */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 lg:mb-14"
-                    >
-                        {categories.map((cat) => (
-                            <motion.button
-                                key={cat.id}
-                                onClick={() => setActiveCategory(cat.id)}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${activeCategory === cat.id
-                                    ? 'bg-gold-gradient text-navy-900 shadow-gold'
-                                    : 'bg-white text-gold-700 border-2 border-gold-200 hover:border-gold-400 hover:bg-gold-50'
-                                    }`}
-                            >
-                                <span>{cat.icon}</span>
-                                <span className="hidden sm:inline">{cat.label}</span>
-                            </motion.button>
-                        ))}
-                    </motion.div>
+                    {showFilter && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 lg:mb-14"
+                        >
+                            {categories.map((cat) => (
+                                <motion.button
+                                    key={cat.id}
+                                    onClick={() => setActiveCategory(cat.id)}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${activeCategory === cat.id
+                                        ? 'bg-gold-gradient text-navy-900 shadow-gold'
+                                        : 'bg-white text-gold-700 border-2 border-gold-200 hover:border-gold-400 hover:bg-gold-50'
+                                        }`}
+                                >
+                                    <span>{cat.icon}</span>
+                                    <span className="hidden sm:inline">{cat.label}</span>
+                                </motion.button>
+                            ))}
+                        </motion.div>
+                    )}
 
                     {/* Stats Bar */}
                     <motion.div
@@ -218,76 +366,108 @@ export default function Gallery() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.4 }}
-                            className="grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[220px] gap-3 sm:gap-4"
+                            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[200px] sm:auto-rows-[200px] md:auto-rows-[220px] gap-3 sm:gap-4"
                         >
-                            {filteredImages.map((image, index) => (
-                                <motion.div
-                                    key={`${activeCategory}-${index}`}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: index * 0.05, duration: 0.4 }}
-                                    className={`${image.span} rounded-2xl sm:rounded-3xl overflow-hidden relative group cursor-pointer`}
-                                    onClick={() => setSelectedImage(index)}
-                                >
-                                    <Image
-                                        src={image.src}
-                                        alt={image.alt}
-                                        fill
-                                        sizes="(max-width: 768px) 50vw, 25vw"
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
+                            {filteredImages.map((image, index) => {
+                                // Smart Bento Grid for Limited View
+                                const limitedSpans = [
+                                    "sm:col-span-2 sm:row-span-2", // Large Main
+                                    "sm:col-span-2 sm:row-span-1", // Wide Top
+                                    "sm:col-span-1 sm:row-span-1", // Small Bottom
+                                    "sm:col-span-1 sm:row-span-1", // Small Bottom
+                                ];
 
-                                    {/* Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                                const spanClass = limit && index < 4
+                                    ? limitedSpans[index]
+                                    : `sm:${image.span}`;
 
-                                    {/* Featured Badge */}
-                                    {image.featured && (
-                                        <div className="absolute top-3 left-3 px-2 py-1 bg-gold-gradient rounded-full flex items-center gap-1 shadow-lg">
-                                            <Sparkles className="w-3 h-3 text-navy-900" />
-                                            <span className="text-xs font-bold text-navy-900">Featured</span>
-                                        </div>
-                                    )}
-
-                                    {/* Like Button */}
-                                    <motion.button
-                                        onClick={(e) => toggleLike(index, e)}
-                                        whileHover={{ scale: 1.2 }}
-                                        whileTap={{ scale: 0.9 }}
-                                        className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
+                                return (
+                                    <motion.div
+                                        key={`${activeCategory}-${index}`}
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ delay: index * 0.05, duration: 0.4 }}
+                                        className={`${spanClass} rounded-2xl sm:rounded-3xl overflow-hidden relative group cursor-pointer`}
+                                        onClick={() => setSelectedImage(index)}
                                     >
-                                        <Heart
-                                            className={`w-4 h-4 transition-colors ${likedImages.has(index)
-                                                ? 'fill-red-500 text-red-500'
-                                                : 'text-gray-600'
-                                                }`}
+                                        <Image
+                                            src={image.src}
+                                            alt={image.alt}
+                                            fill
+                                            sizes="(max-width: 768px) 50vw, 25vw"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
-                                    </motion.button>
 
-                                    {/* Bottom Info */}
-                                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                                        <p className="text-white text-xs sm:text-sm font-medium line-clamp-2">{image.alt}</p>
-                                    </div>
+                                        {/* Gradient Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
 
-                                    {/* Center Zoom Icon */}
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <motion.div
-                                            initial={{ scale: 0 }}
-                                            whileHover={{ scale: 1.1 }}
-                                            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold"
+                                        {/* Featured Badge */}
+                                        {image.featured && (
+                                            <div className="absolute top-3 left-3 px-2 py-1 bg-gold-gradient rounded-full flex items-center gap-1 shadow-lg">
+                                                <Sparkles className="w-3 h-3 text-navy-900" />
+                                                <span className="text-xs font-bold text-navy-900">Featured</span>
+                                            </div>
+                                        )}
+
+                                        {/* Like Button */}
+                                        <motion.button
+                                            onClick={(e) => toggleLike(index, e)}
+                                            whileHover={{ scale: 1.2 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
                                         >
-                                            <ZoomIn className="w-5 h-5 sm:w-6 sm:h-6 text-navy-900" />
-                                        </motion.div>
-                                    </div>
+                                            <Heart
+                                                className={`w-4 h-4 transition-colors ${likedImages.has(index)
+                                                    ? 'fill-red-500 text-red-500'
+                                                    : 'text-gray-600'
+                                                    }`}
+                                            />
+                                        </motion.button>
 
-                                    {/* Gold Border on Hover */}
-                                    <div className="absolute inset-0 border-3 sm:border-4 border-transparent group-hover:border-gold-400 rounded-2xl sm:rounded-3xl transition-colors duration-300 pointer-events-none" />
-                                </motion.div>
-                            ))}
+                                        {/* Bottom Info */}
+                                        <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                            <p className="text-white text-xs sm:text-sm font-medium line-clamp-2">{image.alt}</p>
+                                        </div>
+
+                                        {/* Center Zoom Icon */}
+                                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <motion.div
+                                                initial={{ scale: 0 }}
+                                                whileHover={{ scale: 1.1 }}
+                                                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold"
+                                            >
+                                                <ZoomIn className="w-5 h-5 sm:w-6 sm:h-6 text-navy-900" />
+                                            </motion.div>
+                                        </div>
+
+                                        {/* Gold Border on Hover */}
+                                        <div className="absolute inset-0 border-3 sm:border-4 border-transparent group-hover:border-gold-400 rounded-2xl sm:rounded-3xl transition-colors duration-300 pointer-events-none" />
+                                    </motion.div>
+                                );
+                            })}
                         </motion.div>
                     </AnimatePresence>
 
 
                 </div>
+
+                {limit && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="flex justify-center mt-12"
+                    >
+                        <a
+                            href="/gallery"
+                            className="inline-flex items-center gap-2 px-8 py-4 bg-navy-900 text-gold-400 rounded-full font-semibold hover:bg-navy-800 transition-colors shadow-lg hover:shadow-xl group"
+                        >
+                            View Complete Gallery
+                            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </a>
+                    </motion.div>
+                )}
             </section>
 
             {/* Premium Lightbox */}
@@ -363,6 +543,15 @@ export default function Gallery() {
                                         <motion.button
                                             whileHover={{ scale: 1.1 }}
                                             whileTap={{ scale: 0.9 }}
+                                            onClick={(e) => { e.stopPropagation(); setIsPlaying(!isPlaying); }}
+                                            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                                            title={isPlaying ? "Pause Slideshow" : "Play Slideshow"}
+                                        >
+                                            {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
+                                        </motion.button>
+                                        <motion.button
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
                                             onClick={(e) => toggleLike(selectedImage, e)}
                                             className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                                         >
@@ -390,25 +579,30 @@ export default function Gallery() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 max-w-[90vw] overflow-x-auto pb-2 px-4 scrollbar-hide"
+                            className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full max-w-[90vw] flex justify-center"
                         >
-                            {filteredImages.slice(0, 8).map((img, idx) => (
-                                <motion.button
-                                    key={idx}
-                                    onClick={(e) => { e.stopPropagation(); setSelectedImage(idx); }}
-                                    whileHover={{ scale: 1.1 }}
-                                    className={`flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-lg overflow-hidden transition-all ${selectedImage === idx
-                                        ? 'ring-2 ring-gold-400 ring-offset-2 ring-offset-navy-900'
-                                        : 'opacity-50 hover:opacity-100'
-                                        }`}
-                                >
-                                    <img
-                                        src={img.src}
-                                        alt={img.alt}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </motion.button>
-                            ))}
+                            <div
+                                ref={thumbnailScrollRef}
+                                className="flex gap-2 overflow-x-auto pb-2 px-4 scrollbar-hide max-w-full"
+                            >
+                                {filteredImages.map((img, idx) => (
+                                    <motion.button
+                                        key={idx}
+                                        onClick={(e) => { e.stopPropagation(); setSelectedImage(idx); }}
+                                        whileHover={{ scale: 1.1 }}
+                                        className={`flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-lg overflow-hidden transition-all ${selectedImage === idx
+                                            ? 'ring-2 ring-gold-400 ring-offset-2 ring-offset-navy-900 scale-110'
+                                            : 'opacity-50 hover:opacity-100'
+                                            }`}
+                                    >
+                                        <img
+                                            src={img.src}
+                                            alt={img.alt}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </motion.button>
+                                ))}
+                            </div>
                         </motion.div>
                     </motion.div>
                 )}

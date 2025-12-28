@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
-    title: "About Us",
-    description: "Learn about Royal Grandeur - Patna's premier banquet hall with 15+ years of excellence. Our journey, values, and commitment to creating unforgettable celebrations.",
+    title: "About Us | Alba Banquet Hall Patna",
+    description: "Learn about Alba Banquet Hall - Patna's premier venue in Phulwari Sharif with 10+ years of excellence. Our journey, values, and commitment to creating unforgettable celebrations.",
     alternates: {
-        canonical: "/about",
+        canonical: "https://albacatering.com/about",
     },
     openGraph: {
-        title: "About Royal Grandeur Banquet Hall",
-        description: "15+ years of creating magical celebrations in Patna. Discover our story, values, and what makes us Bihar's most trusted event venue.",
+        title: "About Alba Banquet Hall",
+        description: "10+ years of creating magical celebrations in Patna. Discover our story, values, and what makes us Bihar's most trusted event venue.",
     },
 };
 

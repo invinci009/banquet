@@ -23,10 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     return {
-        title: `${service.title} | Wedding & Event Services`,
+        title: `${service.title} | Alba Banquet Hall Patna`,
         description: service.description,
         openGraph: {
-            title: `${service.title} - Royal Grandeur Banquet Hall`,
+            title: `${service.title} - Alba Banquet Hall`,
             description: service.description,
             images: [service.image],
         },

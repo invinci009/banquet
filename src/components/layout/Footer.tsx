@@ -13,6 +13,7 @@ import {
     Youtube,
     ArrowUp,
     Heart,
+    ExternalLink,
 } from "lucide-react";
 
 const quickLinks = [
@@ -25,12 +26,12 @@ const quickLinks = [
 ];
 
 const services = [
-    { name: "Wedding Celebrations", slug: "event-planning" },
-    { name: "Corporate Events", slug: "guest-hospitality" },
-    { name: "Birthday Parties", slug: "entertainment-dj" },
-    { name: "Anniversary Functions", slug: "exquisite-decoration" },
-    { name: "Engagement Ceremonies", slug: "mehendi-haldi-ceremony" },
-    { name: "Reception Parties", slug: "gourmet-catering" },
+    { name: "Wedding Catering", slug: "wedding-catering" },
+    { name: "Corporate Catering", slug: "corporate-catering" },
+    { name: "Buffet Catering", slug: "buffet-catering" },
+    { name: "Dinner Catering", slug: "dinner-catering" },
+    { name: "Snack Catering", slug: "snack-catering" },
+    { name: "Personal Catering", slug: "personal-catering" },
 ];
 
 export default function Footer() {
@@ -61,24 +62,24 @@ export default function Footer() {
                             </div>
                             <div>
                                 <span className="font-display text-xl font-bold text-white">
-                                    Royal Grandeur
+                                    Alba Banquet
                                 </span>
                                 <span className="block text-xs text-gold-400 uppercase tracking-widest">
-                                    Banquet Hall
+                                    Hall
                                 </span>
                             </div>
                         </Link>
                         <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                            Creating timeless memories in the heart of Patna since 2010.
-                            The most trusted venue for weddings, celebrations, and corporate events.
+                            Be a Guest on Your Party! पार्टी हो या फंक्शन, स्वाद हमेशा नंबर वन!
+                            Patna's premier banquet hall for weddings, celebrations, and events.
                         </p>
 
                         {/* Social Links */}
                         <div className="flex gap-3">
                             {[
-                                { icon: Facebook, href: "https://www.facebook.com/royalgrandeurpatna", label: "Facebook" },
-                                { icon: Instagram, href: "https://www.instagram.com/royalgrandeurpatna", label: "Instagram" },
-                                { icon: Youtube, href: "https://www.youtube.com/@royalgrandeurpatna", label: "YouTube" },
+                                { icon: Facebook, href: "https://www.facebook.com/albabanquethall", label: "Facebook" },
+                                { icon: Instagram, href: "https://www.instagram.com/albabanquethall", label: "Instagram" },
+                                { icon: Youtube, href: "https://www.youtube.com/@albabanquethall", label: "YouTube" },
                             ].map((social, index) => (
                                 <a
                                     key={index}
@@ -91,6 +92,49 @@ export default function Footer() {
                                     <social.icon className="w-5 h-5" />
                                 </a>
                             ))}
+                        </div>
+
+                        {/* Find Us On Section */}
+                        <div className="mt-6 pt-6 border-t border-white/10">
+                            <p className="text-gray-500 text-xs uppercase tracking-wider mb-3">Find Us On</p>
+                            <div className="flex flex-wrap gap-2">
+                                <a
+                                    href="https://www.justdial.com/Patna/Alba-Banquet-Hall-Alba-Colony-Phulwarisharif/0612PX612-X612-181113174509-G2J3_BZDET"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 bg-white/5 hover:bg-gold-500/20 border border-white/10 hover:border-gold-500/50 px-3 py-1.5 rounded-full text-xs text-gray-400 hover:text-gold-400 transition-all"
+                                >
+                                    <ExternalLink className="w-3 h-3" />
+                                    JustDial
+                                </a>
+                                <a
+                                    href="https://www.wedmegood.com/wedding-venues/Alba-Banquet-Hall-1252513"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 bg-white/5 hover:bg-gold-500/20 border border-white/10 hover:border-gold-500/50 px-3 py-1.5 rounded-full text-xs text-gray-400 hover:text-gold-400 transition-all"
+                                >
+                                    <ExternalLink className="w-3 h-3" />
+                                    WedMeGood
+                                </a>
+                                <a
+                                    href="https://weddingz.in/patna/alba-banquet-hall-phulwari-sharif/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 bg-white/5 hover:bg-gold-500/20 border border-white/10 hover:border-gold-500/50 px-3 py-1.5 rounded-full text-xs text-gray-400 hover:text-gold-400 transition-all"
+                                >
+                                    <ExternalLink className="w-3 h-3" />
+                                    Weddingz
+                                </a>
+                                <a
+                                    href="https://www.google.com/maps/place/Alba+Banquet+Hall/@25.5693995,85.0709069,799m"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 bg-white/5 hover:bg-gold-500/20 border border-white/10 hover:border-gold-500/50 px-3 py-1.5 rounded-full text-xs text-gray-400 hover:text-gold-400 transition-all"
+                                >
+                                    <MapPin className="w-3 h-3" />
+                                    Google Maps
+                                </a>
+                            </div>
                         </div>
                     </motion.div>
 
@@ -159,32 +203,32 @@ export default function Footer() {
                                 <MapPin className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
                                 <span className="text-gray-400 text-sm">
                                     <a
-                                        href="https://www.google.com/maps/search/?api=1&query=Royal+Grandeur+Banquet+Hall+Patna"
+                                        href="https://www.google.com/maps/place/Alba+Banquet+Hall/@25.5693995,85.0709069,799m"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="hover:text-gold-400 transition-colors"
                                     >
-                                        Near Gandhi Maidan, Exhibition Road,<br />
-                                        Patna, Bihar 800001
+                                        Alba Colony, Near Alba Masjid,<br />
+                                        Phulwari Sharif, Patna - 05
                                     </a>
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-gold-500 flex-shrink-0" />
                                 <a
-                                    href="tel:+916205708606"
+                                    href="tel:+919234953085"
                                     className="text-gray-400 hover:text-gold-400 transition-colors text-sm"
                                 >
-                                    +91 62057 08606
+                                    +91 92349 53085
                                 </a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-gold-500 flex-shrink-0" />
                                 <a
-                                    href="mailto:info@royalgrandeur.com"
+                                    href="mailto:info@albacatering.com"
                                     className="text-gray-400 hover:text-gold-400 transition-colors text-sm"
                                 >
-                                    info@royalgrandeur.com
+                                    info@albacatering.com
                                 </a>
                             </li>
                             <li className="flex items-center gap-3">
@@ -206,7 +250,7 @@ export default function Footer() {
                     className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
                 >
                     <p className="text-gray-500 text-sm flex items-center gap-1 flex-wrap justify-center">
-                        © {new Date().getFullYear()} Royal Grandeur Banquet Hall. Made with{" "}
+                        © {new Date().getFullYear()} Alba Banquet Hall. Made with{" "}
                         <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" style={{ animation: 'heartbeat 1s ease-in-out infinite' }} />{" "}
                         by <a
                             href="https://ignius-olive.vercel.app/"

@@ -2,29 +2,50 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Utensils, Flower, CalendarCheck, Check, ArrowRight } from "lucide-react";
+import { Utensils, Users, UtensilsCrossed, Salad, Coffee, Heart, Check, ArrowRight } from "lucide-react";
 
 const services = [
     {
+        icon: Heart,
+        slug: "wedding-catering",
+        title: "Wedding Catering",
+        description: "Make your special day unforgettable with our exquisite wedding catering. We craft memorable dining experiences for your guests.",
+        features: ["Customized Wedding Menus", "Live Food Counters", "Traditional & Modern Cuisine", "Professional Service Staff"],
+    },
+    {
+        icon: Users,
+        slug: "corporate-catering",
+        title: "Corporate Catering",
+        description: "Professional catering solutions for business meetings, conferences, and corporate events. Impress your clients and colleagues.",
+        features: ["Business Lunch Packages", "Conference Catering", "Office Party Menus", "On-Time Delivery"],
+    },
+    {
+        icon: UtensilsCrossed,
+        slug: "buffet-catering",
+        title: "Buffet Catering",
+        description: "Grand buffet setups featuring an extensive variety of dishes. Perfect for large gatherings and celebrations.",
+        features: ["Multi-Cuisine Spread", "Live Cooking Stations", "Elegant Presentation", "Unlimited Servings"],
+    },
+    {
         icon: Utensils,
-        slug: "gourmet-catering",
-        title: "Premium Catering",
-        description: "Indulge in a gastronomic journey with our diverse menu options. Our expert chefs ensure hygiene, taste, and presentation are world-class.",
-        features: ["Live Food Stations", "Customized Menus", "Multi-Cuisine Options", "Trained Service Staff"],
+        slug: "dinner-catering",
+        title: "Dinner Catering",
+        description: "Elegant dinner service for your special occasions. From intimate gatherings to grand celebrations.",
+        features: ["Plated Service Available", "Multi-Course Dinners", "Fine Dining Experience", "Specialty Dishes"],
     },
     {
-        icon: Flower,
-        slug: "exquisite-decoration",
-        title: "Exquisite Decoration",
-        description: "Transform our venue to match your vision. Our decorators specialize in floral arrangements, lighting, and thematic stage setups.",
-        features: ["Floral & Drapery", "Theme Concepts", "Stage Design", "Ambient Lighting"],
+        icon: Coffee,
+        slug: "snack-catering",
+        title: "Snack Catering",
+        description: "Delicious snacks and appetizers for tea parties, get-togethers, and casual events. Quality bites that impress.",
+        features: ["Tea Party Snacks", "Appetizer Platters", "Quick Bites Menu", "Customizable Options"],
     },
     {
-        icon: CalendarCheck,
-        slug: "event-planning",
-        title: "Event Planning",
-        description: "Our experienced planners manage every detail, from vendor coordination to guest hospitality, ensuring your event runs smoothly.",
-        features: ["End-to-End Management", "Logistics Support", "Vendor Coordination", "Day-of Management"],
+        icon: Salad,
+        slug: "personal-catering",
+        title: "Personal Catering",
+        description: "Personalized catering for small family gatherings, house parties, and intimate celebrations.",
+        features: ["Small Batch Cooking", "Home Delivery", "Personalized Menus", "Flexible Portions"],
     },
 ];
 
@@ -46,16 +67,16 @@ export default function Services() {
                 >
                     <span className="section-subheading">Our Expertise</span>
                     <h2 className="section-heading mb-6">
-                        Comprehensive <span className="text-gold-600">Event Services</span>
+                        Premium <span className="text-gold-600">Catering Services</span>
                     </h2>
                     <p className="text-gold-800/70 text-lg">
-                        We bring together the best professionals in the industry to offer you
-                        a seamless, stress-free event experience. From concept to execution, we handle it all.
+                        Be a guest on your party! We offer a complete range of catering services
+                        for all occasions - from intimate gatherings to grand celebrations.
                     </p>
                 </motion.div>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {services.map((service, index) => (
                         <motion.div
                             key={service.title}

@@ -82,7 +82,7 @@ export default function NotFound() {
                     className="mt-12 flex items-center justify-center gap-4"
                 >
                     <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold-500/50" />
-                    <span className="text-gold-500/50 text-sm">Royal Grandeur</span>
+                    <span className="text-gold-500/50 text-sm">Alba Banquet</span>
                     <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold-500/50" />
                 </motion.div>
             </div>

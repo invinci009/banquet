@@ -6,43 +6,43 @@ import { MapPin, Users, UtensilsCrossed, Car, Wifi, Music, Camera, Flower2 } fro
 const features = [
     {
         icon: MapPin,
-        title: "Heart of Patna",
-        description: "Ideally situated near Patna Junction, ensuring easy commute for all your local and outstation guests.",
+        title: "Phulwari Sharif Location",
+        description: "Conveniently located in Alba Colony, Phulwari Sharif. Easy to find using Google Maps for all your guests.",
     },
     {
         icon: Users,
-        title: "Grand & Intimate Spaces",
-        description: "From cozy gatherings to grand weddings of 500+, our flexible halls adapt to your guest list.",
+        title: "Capacity: 115 - 3000",
+        description: "From intimate gatherings to grand weddings, our versatile venue can accommodate any guest count.",
     },
     {
         icon: UtensilsCrossed,
-        title: "Patna's Finest Flavors",
-        description: "Expert chefs crafting authentic Bihari cuisines alongside global favorites. A feast your guests will remember.",
+        title: "In-house Catering",
+        description: "Expert chefs crafting authentic Bihari and North Indian cuisines. Outside caterers also welcome.",
     },
     {
         icon: Car,
-        title: "Valet & Parking",
-        description: "Ample parking space with dedicated valet service so your guests arrive stress-free.",
+        title: "Dedicated Parking",
+        description: "Dedicated parking space available for your guests to ensure a hassle-free arrival experience.",
     },
     {
         icon: Wifi,
-        title: "Connectivity",
-        description: "Reliable WiFi and power backup to ensure your presentations and livestreams run without a hitch.",
+        title: "AC Halls",
+        description: "Fully air-conditioned halls to keep your guests comfortable in all seasons.",
     },
     {
         icon: Music,
-        title: "Concert-Grade Audio",
-        description: "Crystal clear sound systems for the Sangeet night or the keynote speech.",
+        title: "Late Music Allowed",
+        description: "Celebrate into the night! Overnight weddings and late music are permitted at our venue.",
     },
     {
         icon: Camera,
-        title: "Picture Perfect",
-        description: "Beautifully designed corners and lighting that make every photo look professional.",
+        title: "Changing Rooms",
+        description: "2 complimentary AC changing rooms for bride and groom to prepare in comfort.",
     },
     {
         icon: Flower2,
-        title: "Floral Decor",
-        description: "Breathtaking floral arrangements and thematic decorations by expert designers.",
+        title: "Outdoor Lawn",
+        description: "Sprawling lawn for outdoor events and traditional ceremonies like hawan and baarat.",
     },
 ];
 
@@ -61,7 +61,7 @@ export default function Features() {
                     transition={{ duration: 0.6 }}
                     className="text-center max-w-3xl mx-auto mb-16"
                 >
-                    <span className="section-subheading">Why Royal Grandeur?</span>
+                    <span className="section-subheading">Why Alba Banquet?</span>
                     <h2 className="section-heading mb-6">
                         More Than Just a <span className="text-gold-600">Venue</span>
                     </h2>

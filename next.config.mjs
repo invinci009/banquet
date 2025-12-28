@@ -17,6 +17,9 @@ const nextConfig = {
             { protocol: 'https', hostname: 'images.pexels.com' },
         ],
     },
+    poweredByHeader: false,
+    reactStrictMode: true,
+    swcMinify: true,
 };
 
 export default nextConfig;

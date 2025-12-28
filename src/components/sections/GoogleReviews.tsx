@@ -5,39 +5,39 @@ import { Star, Quote, MapPin } from "lucide-react";
 
 const reviews = [
     {
-        name: "Priya Sharma",
+        name: "Ali Imran",
         rating: 5,
-        date: "2 weeks ago",
-        text: "Absolutely stunning venue! Our wedding was magical. The staff went above and beyond to make our day perfect. The decoration was breathtaking and food was delicious!",
-        avatar: "PS",
+        date: "4 years ago",
+        text: "Located in a beautiful surrounding, the hall was very impressive. Space, facilities, decoration, everything screams high quality. I was a guest there and was mighty impressed with the amenities. Have heard the cost is affordable too. Overall I would highly recommend the hall for functions.",
+        avatar: "AI",
     },
     {
-        name: "Rahul Verma",
+        name: "Azra Aftab",
         rating: 5,
-        date: "1 month ago",
-        text: "Best banquet hall in Patna! Hosted my daughter's reception here and it was flawless. The coordination team is very professional and responsive.",
-        avatar: "RV",
+        date: "5 years ago",
+        text: "Visited this hall for my relatives wedding, liked the ambience. Newly build marriage hall. Very spacious with dedicated parking. There are very few halls in the area with such a large open space. The best thing I liked was that there are separate halls for ladies and gents.",
+        avatar: "AA",
     },
     {
-        name: "Anjali Singh",
+        name: "Zurqua Fatima",
         rating: 5,
-        date: "3 weeks ago",
-        text: "We celebrated our 25th anniversary here. The ambiance, service, and attention to detail exceeded our expectations. Highly recommend!",
-        avatar: "AS",
+        date: "5 years ago",
+        text: "Booked for my brother's wedding. Very reasonable charges for such huge halls and open ground. Highly recommended for people residing in or near Alba colony, Federal colony, Haroon Colony, etc.",
+        avatar: "ZF",
     },
     {
-        name: "Vikram Patel",
+        name: "Himanshu Goel",
         rating: 5,
-        date: "2 months ago",
-        text: "Organized our company annual event at Royal Grandeur. The team handled everything professionally. Great AV setup and excellent catering.",
-        avatar: "VP",
+        date: "5 years ago",
+        text: "This place is just marvellous. It is really spacious and a good venue for any kind of event. If you are thinking about choosing a banquet hall for marriage or parties, this is the right choice.",
+        avatar: "HG",
     },
     {
-        name: "Meera Gupta",
-        rating: 5,
-        date: "1 month ago",
-        text: "Dream venue for our engagement ceremony! The mandap decoration was exactly what we wanted. Thank you team for making it special.",
-        avatar: "MG",
+        name: "Ankit Anand",
+        rating: 4,
+        date: "3 years ago",
+        text: "Place is best for marriage and birthday party and meetings. Big place that good for big arrangement. Staff behaviour is good. So you can consider it for party and big meetings.",
+        avatar: "AA",
     },
 ];
 
@@ -74,14 +74,14 @@ export default function GoogleReviews() {
                             <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                         </svg>
                         <div className="flex items-center gap-1">
-                            <span className="text-white font-bold text-xl">4.9</span>
+                            <span className="text-white font-bold text-xl">4.8</span>
                             <div className="flex">
                                 {[...Array(5)].map((_, i) => (
                                     <Star key={i} className="w-4 h-4 fill-gold-400 text-gold-400" />
                                 ))}
                             </div>
                         </div>
-                        <span className="text-gray-400 text-sm">250+ Reviews</span>
+                        <span className="text-gray-400 text-sm">20+ Reviews</span>
                     </motion.div>
 
                     <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -141,7 +141,7 @@ export default function GoogleReviews() {
                     className="mt-10 text-center"
                 >
                     <a
-                        href="https://g.page/r/royalgrandeurpatna/review"
+                        href="https://www.google.com/maps/place/Alba+Banquet+Hall/@25.5693995,85.0709069,799m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39f2a82fc8a27df1:0x5a02aaa304f08eba!8m2!3d25.5693995!4d85.0734818!16s%2Fg%2F11ggs8yxvb"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 font-medium transition-colors"

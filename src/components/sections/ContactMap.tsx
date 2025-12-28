@@ -1,12 +1,12 @@
 "use client";
 
 export default function ContactMap() {
-    // Patna coordinates (near Gandhi Maidan)
-    const lat = 25.6093;
-    const lng = 85.1376;
+    // Alba Banquet Hall, Phulwari Sharif exact coordinates
+    const lat = 25.5693995;
+    const lng = 85.0734818;
 
-    // Wider bounding box to show all of Patna
-    const bbox = `${lng - 0.15},${lat - 0.1},${lng + 0.15},${lat + 0.1}`;
+    // Street-level zoom bounding box
+    const bbox = `${lng - 0.005},${lat - 0.004},${lng + 0.005},${lat + 0.004}`;
 
     return (
         <div className="h-full w-full relative">

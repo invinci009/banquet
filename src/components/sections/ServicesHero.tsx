@@ -5,10 +5,10 @@ import { Sparkles, Star, Award, Users, Calendar } from "lucide-react";
 import { useRef } from "react";
 
 const stats = [
-    { icon: Calendar, value: "5000+", label: "Events Hosted" },
-    { icon: Users, value: "10L+", label: "Happy Guests" },
+    { icon: Calendar, value: "1500+", label: "Events Catered" },
+    { icon: Users, value: "50K+", label: "Happy Guests" },
     { icon: Star, value: "4.9", label: "Rating" },
-    { icon: Award, value: "15+", label: "Years Experience" },
+    { icon: Award, value: "12+", label: "Years Experience" },
 ];
 
 export default function ServicesHero() {
@@ -26,9 +26,9 @@ export default function ServicesHero() {
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img
-                    src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80"
-                    alt="Elegant banquet hall"
-                    className="w-full h-full object-cover"
+                    src="/gallery/catering-service.webp"
+                    alt="Premium Catering Service"
+                    className="w-full h-full object-cover opacity-70"
                 />
                 {/* Gradient Overlays for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-r from-navy-900/80 via-navy-900/50 to-transparent" />
@@ -93,14 +93,14 @@ export default function ServicesHero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
                         <Sparkles className="w-5 h-5 text-gold-400" />
-                        <span className="text-gold-300 font-medium">Crafting Memories Since 2009</span>
+                        <span className="text-gold-300 font-medium">Be a Guest on Your Party!</span>
                     </motion.div>
 
                     {/* Main Heading */}
                     <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                         Premium{" "}
                         <span className="relative">
-                            <span className="text-gold-400">Event Services</span>
+                            <span className="text-gold-400">Catering Services</span>
                             <motion.span
                                 className="absolute -bottom-2 left-0 w-full h-1 bg-gold-gradient rounded-full"
                                 initial={{ scaleX: 0 }}
@@ -111,10 +111,10 @@ export default function ServicesHero() {
                     </h1>
 
                     <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
-                        From intimate gatherings to grand celebrations, we bring your vision to life with
-                        <span className="text-gold-400 font-medium"> world-class expertise</span>,
-                        <span className="text-gold-400 font-medium"> impeccable attention to detail</span>, and
-                        <span className="text-gold-400 font-medium"> unwavering commitment to excellence</span>.
+                        From intimate family gatherings to grand weddings, we bring you
+                        <span className="text-gold-400 font-medium"> authentic taste</span>,
+                        <span className="text-gold-400 font-medium"> elegant presentation</span>, and
+                        <span className="text-gold-400 font-medium"> reliable service</span>.
                     </p>
 
                     {/* CTA Buttons */}
@@ -131,7 +131,7 @@ export default function ServicesHero() {
                             <span className="relative z-10">Get Free Consultation</span>
                         </a>
                         <a
-                            href="tel:+916205708606"
+                            href="tel:+919234953085"
                             className="btn-secondary"
                         >
                             Call Us

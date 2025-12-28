@@ -6,36 +6,36 @@ import { ChevronDown, HelpCircle, Sparkles } from "lucide-react";
 
 const faqs = [
     {
-        question: "What is the capacity of Royal Grandeur Banquet Hall?",
-        answer: "Our venue can accommodate 50 to 800 guests across multiple halls. We have intimate spaces for small gatherings and grand halls for large weddings and corporate events.",
+        question: "What is the capacity of Alba Banquet Hall?",
+        answer: "Our venue can accommodate 115 to 3,000 guests effortlessly. We have intimate spaces for small gatherings and a sprawling lawn for large weddings and grand celebrations.",
+    },
+    {
+        question: "What types of events can be hosted here?",
+        answer: "Alba Banquet Hall is ideal for Weddings, Receptions, Engagement ceremonies, Sangeet, Mehndi ceremonies, Baby Showers, Birthday parties, Corporate events, and other celebrations.",
     },
     {
         question: "Do you provide catering services?",
-        answer: "Yes! We offer in-house gourmet catering with a wide variety of cuisines including North Indian, South Indian, Chinese, Continental, and live counters. We also accommodate special dietary requirements.",
+        answer: "Yes! We offer in-house catering with a wide variety of cuisines including North Indian, Bihari, Chinese, and Continental options. Outside caterers are also allowed if you prefer your own.",
     },
     {
         question: "What decoration packages do you offer?",
-        answer: "We offer multiple decoration packages from elegant traditional setups to grand royal themes. Our team works with top decorators in Patna to bring your vision to life with floral arrangements, LED lighting, mandap setups, and more.",
+        answer: "We provide in-house decoration services and also allow outside decorators. Our team works with top decorators in Patna to bring your vision to life with floral arrangements, LED lighting, mandap setups, and more.",
     },
     {
         question: "Is parking available at the venue?",
-        answer: "Yes, we have ample parking space for over 200 vehicles with valet parking services available for premium events. Guest safety and convenience is our priority.",
+        answer: "Yes, we have dedicated parking space available for vehicles. The venue provides convenient parking for your guests to ensure a hassle-free experience.",
     },
     {
-        question: "Can I visit the venue before booking?",
-        answer: "Absolutely! We encourage venue tours. You can schedule a free tour by calling us or filling out the contact form. Our team will personally show you all halls and discuss your requirements.",
+        question: "Are there changing rooms available?",
+        answer: "Yes, we provide 2 complimentary air-conditioned changing rooms for the bride and groom to prepare for their special day in comfort.",
     },
     {
-        question: "What is your booking and payment policy?",
-        answer: "We require a 25% advance to confirm your date, with the remaining amount due 7 days before the event. We accept cash, credit/debit cards, bank transfers, and UPI payments.",
+        question: "Is non-veg food and hawan allowed?",
+        answer: "Yes, non-vegetarian food is allowed at the venue. Hawan and traditional ceremonies are permitted. Baarat and overnight weddings are also allowed.",
     },
     {
-        question: "Do you provide DJ and entertainment services?",
-        answer: "Yes, we have partnerships with top DJs, live bands, and entertainment providers in Patna. We can arrange everything from classical musicians to modern DJs based on your preferences.",
-    },
-    {
-        question: "What safety measures do you have in place?",
-        answer: "Our venue is fully equipped with fire safety systems, CCTV surveillance, trained security personnel, and first aid facilities. We also follow all local safety regulations and have emergency protocols in place.",
+        question: "What is your booking policy?",
+        answer: "We require a booking amount of ₹10,000 to confirm your date. F&B taxes of 18% apply. We accept cash, bank transfers, and UPI payments.",
     },
 ];
 
@@ -69,7 +69,7 @@ export default function FAQ() {
                         Frequently Asked <span className="text-gold-600">Questions</span>
                     </h2>
                     <p className="text-gold-700/70 text-lg max-w-2xl mx-auto">
-                        Everything you need to know about hosting your event at Royal Grandeur
+                        Everything you need to know about hosting your event at Alba Banquet Hall
                     </p>
                 </motion.div>
 
@@ -85,8 +85,8 @@ export default function FAQ() {
                         >
                             <div
                                 className={`bg-white rounded-2xl border-2 transition-all duration-300 overflow-hidden ${openIndex === index
-                                        ? "border-gold-400 shadow-gold"
-                                        : "border-gray-100 hover:border-gold-200 shadow-lg"
+                                    ? "border-gold-400 shadow-gold"
+                                    : "border-gray-100 hover:border-gold-200 shadow-lg"
                                     }`}
                             >
                                 <button
@@ -100,8 +100,8 @@ export default function FAQ() {
                                         animate={{ rotate: openIndex === index ? 180 : 0 }}
                                         transition={{ duration: 0.3 }}
                                         className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index
-                                                ? "bg-gold-500 text-white"
-                                                : "bg-gold-100 text-gold-600"
+                                            ? "bg-gold-500 text-white"
+                                            : "bg-gold-100 text-gold-600"
                                             }`}
                                     >
                                         <ChevronDown className="w-4 h-4" />
@@ -117,7 +117,7 @@ export default function FAQ() {
                                         >
                                             <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0">
                                                 <div className="pt-4 border-t border-gold-100">
-                                                    <p className="text-gold-700/80 leading-relaxed text-sm sm:text-base">
+                                                    <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                                                         {faq.answer}
                                                     </p>
                                                 </div>

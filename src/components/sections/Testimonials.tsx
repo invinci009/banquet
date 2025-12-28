@@ -5,24 +5,24 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
     {
-        name: "Priya & Rohan Sharma",
-        role: "Wedding, Dec 2024",
-        image: "https://images.unsplash.com/photo-1623366302587-bdbd9a1f4c41?auto=format&fit=crop&w=150&q=80",
-        quote: "Outstanding venue! Our wedding in December was flawless. The hall decoration near the stage was breathtaking, and the food live counters were a huge hit with our guests.",
+        name: "Himanshu Goel",
+        role: "Wedding & Events",
+        avatar: "HG",
+        quote: "This place is just marvellous. It is really spacious and a good venue for any kind of event. If you are thinking about choosing a banquet hall for marriage or parties, this is the right choice.",
         rating: 5,
     },
     {
-        name: "Vikram Malhotra",
-        role: "Tech Summit, Patna",
-        image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=150&q=80",
-        quote: "We hosted our annual dealer meet here. The location near Gandhi Maidan made it easy for everyone to reach. Professional staff and excellent AC quality.",
+        name: "Zurqua Fatima",
+        role: "Brother's Wedding",
+        avatar: "ZF",
+        quote: "Booked for my brother's wedding. Very reasonable charges for such huge halls and open ground. Highly recommended for people residing in or near Alba colony, Federal colony, Haroon Colony, etc.",
         rating: 5,
     },
     {
-        name: "Anjali Devi",
-        role: "Daughter's Ring Ceremony",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
-        quote: "A hidden gem for luxury events. The garden area was perfect for the evening party. Highly recommended for anyone looking for class and elegance.",
+        name: "Ali Imran",
+        role: "Wedding Function",
+        avatar: "AI",
+        quote: "Located in a beautiful surrounding, the hall was very impressive. Space, facilities, decoration, everything screams high quality. Overall I would highly recommend the hall for functions.",
         rating: 5,
     },
 ];
@@ -83,16 +83,15 @@ export default function Testimonials() {
                                 </div>
 
                                 {/* Quote */}
-                                <p className="text-gold-700/80 leading-relaxed mb-6 italic">
+                                <p className="text-gray-700 leading-relaxed mb-6 italic">
                                     &ldquo;{testimonial.quote}&rdquo;
                                 </p>
 
                                 {/* Author */}
                                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gold-100">
-                                    <div
-                                        className="w-14 h-14 rounded-full bg-cover bg-center border-2 border-gold-300"
-                                        style={{ backgroundImage: `url("${testimonial.image}")` }}
-                                    />
+                                    <div className="w-14 h-14 rounded-full bg-gold-gradient flex items-center justify-center text-navy-900 font-bold text-lg">
+                                        {testimonial.avatar}
+                                    </div>
                                     <div>
                                         <p className="font-display font-semibold text-gold-800">
                                             {testimonial.name}

@@ -82,13 +82,13 @@ export default function ServicesFAQ() {
                             </div>
 
                             <div className="space-y-3 mb-6">
-                                <a href="tel:+916205708606" className="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-colors">
+                                <a href="tel:+919234953085" className="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-colors">
                                     <span className="text-gold-400">📞</span>
                                     Call Us
                                 </a>
-                                <a href="mailto:info@royalgrandeur.com" className="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-colors">
+                                <a href="mailto:info@albacatering.com" className="flex items-center gap-3 text-gray-300 hover:text-gold-400 transition-colors">
                                     <span className="text-gold-400">✉️</span>
-                                    info@royalgrandeur.com
+                                    info@albacatering.com
                                 </a>
                                 <div className="flex items-center gap-3 text-gray-300">
                                     <span className="text-gold-400">🕐</span>

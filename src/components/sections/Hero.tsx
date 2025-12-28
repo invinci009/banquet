@@ -16,7 +16,7 @@ export default function Hero() {
             <div className="absolute inset-0">
                 <Image
                     src="https://images-pw.pixieset.com/page/YLq0O6/SD_AllWedding-338_websize-a89308b0-1500.jpg"
-                    alt="Royal Grandeur Banquet Hall Patna luxury wedding venue with crystal chandeliers and floral decor"
+                    alt="Alba Banquet Hall Patna luxury wedding venue with crystal chandeliers and floral decor"
                     fill
                     priority
                     sizes="100vw"
@@ -45,7 +45,7 @@ export default function Hero() {
                 >
                     <Star className="w-4 h-4 text-gold-300 fill-gold-300" />
                     <span className="text-gold-100 text-sm font-medium">
-                        Patna&apos;s Most Trusted Venue Since 2010
+                        4.9★ Rated on JustDial | Trusted Since 2012
                     </span>
                 </motion.div>
 
@@ -56,7 +56,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
                 >
-                    Royal Grandeur Banquet Hall
+                    Alba Banquet Hall
                     <br />
                     <span className="text-gold-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl block mt-2">
                         Patna&apos;s Premier Luxury Wedding & Event Venue
@@ -70,8 +70,8 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-lg sm:text-xl text-gold-100/80 max-w-3xl mx-auto mb-10 leading-relaxed"
                 >
-                    From intimate gatherings to royal weddings, we provide the perfect setting
-                    for your most cherished moments in the heart of the city.
+                    We host everything from intimate family gatherings to grand weddings.
+                    Located in Phulwari Sharif, we provide a beautiful setting for your special day.
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -87,7 +87,7 @@ export default function Hero() {
                             Schedule a Visit
                         </span>
                     </Link>
-                    <Link href="/gallery" className="inline-flex items-center justify-center px-6 py-4 bg-gold-500/20 backdrop-blur-sm border border-gold-400/50 text-gold-100 font-medium rounded-lg transition-all duration-300 hover:bg-gold-500/30 hover:border-gold-300">
+                    <Link href="#virtual-tour" className="inline-flex items-center justify-center px-6 py-4 bg-gold-500/20 backdrop-blur-sm border border-gold-400/50 text-gold-100 font-medium rounded-lg transition-all duration-300 hover:bg-gold-500/30 hover:border-gold-300">
                         <Play className="w-5 h-5 mr-2" />
                         Watch Virtual Tour
                     </Link>
@@ -101,10 +101,10 @@ export default function Hero() {
                     className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
                 >
                     {[
-                        { number: "50,000+", label: "Sq. Ft. Area" },
-                        { number: "3", label: "Luxury Venues" },
-                        { number: "5000+", label: "Events Hosted" },
-                        { number: "15+", label: "Years in Patna" },
+                        { number: "3000+", label: "Guest Capacity" },
+                        { number: "4.2★", label: "JustDial Rating" },
+                        { number: "124+", label: "Reviews" },
+                        { number: "10+", label: "Years Experience" },
                     ].map((stat, index) => (
                         <div key={index} className="text-center">
                             <div className="text-3xl md:text-4xl font-bold text-gold-300 mb-1">

@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppButton() {
-    const phoneNumber = "916205708606"; // Updated phone number
+    const phoneNumber = "919234953085"; // Alba Banquet Hall
     const message = encodeURIComponent(
-        "Hello! I would like to inquire about booking Royal Grandeur Banquet Hall for an event."
+        "Hello! I would like to inquire about Alba Banquet Hall for my event."
     );
 
     return (

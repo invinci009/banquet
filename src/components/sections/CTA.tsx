@@ -81,7 +81,7 @@ export default function CTA() {
                         </span>
                     </Link>
                     <a
-                        href="tel:+916205708606"
+                        href="tel:+919234953085"
                         className="flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg text-white font-semibold hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
                     >
                         <Phone className="w-5 h-5" />
@@ -98,7 +98,7 @@ export default function CTA() {
                     className="mt-12 flex items-center justify-center gap-2 text-white/60 text-sm"
                 >
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    Open for bookings — Limited dates available for 2024-25
+                    Open for bookings — Limited dates available for 2026
                 </motion.div>
             </div>
         </section>

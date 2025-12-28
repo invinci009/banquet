@@ -37,7 +37,7 @@ export default function Loading() {
                     transition={{ delay: 0.2 }}
                     className="font-display text-3xl font-bold text-white mb-2"
                 >
-                    Royal Grandeur
+                    Alba Banquet
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0 }}

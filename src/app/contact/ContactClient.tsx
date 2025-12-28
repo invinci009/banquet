@@ -126,7 +126,7 @@ export default function ContactClient() {
                             transition={{ delay: 0.5, duration: 0.6 }}
                             className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed"
                         >
-                            Ready to create unforgettable memories? Our expert team is here to make your dream celebration a reality.
+                            Ready to create unforgettable dining experiences? Our expert team is here to make your celebration delicious and memorable.
                         </motion.p>
 
                         {/* Quick Action Buttons */}
@@ -137,14 +137,14 @@ export default function ContactClient() {
                             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
                         >
                             <a
-                                href="tel:+916205708606"
+                                href="tel:+919234953085"
                                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold-gradient text-navy-900 font-semibold rounded-xl shadow-gold hover:shadow-gold-lg transition-all hover:scale-105"
                             >
                                 <Phone className="w-5 h-5" />
                                 Call Us Now
                             </a>
                             <a
-                                href="https://wa.me/916205708606?text=Hi!%20I%27m%20interested%20in%20booking%20Royal%20Grandeur."
+                                href="https://wa.me/919234953085?text=Hi!%20I%27m%20interested%20in%20Alba%20Catering%20Services."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl shadow-lg transition-all hover:scale-105"

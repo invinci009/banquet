@@ -7,53 +7,53 @@ import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 const testimonials = [
     {
         id: 1,
-        name: "Priya & Rahul Sharma",
-        event: "Wedding Reception",
-        date: "December 2023",
+        name: "Ali Imran",
+        event: "Wedding Function",
+        date: "Google Review",
         rating: 5,
-        image: "https://images.unsplash.com/photo-1523450001312-faa4e2e37f0f?w=100&h=100&fit=crop&crop=faces",
-        text: "Royal Grandeur exceeded all our expectations! The decoration was absolutely stunning, and the food received rave reviews from all our guests. The team made our wedding day truly magical.",
-        highlight: "Decoration & Catering"
+        avatar: "AI",
+        text: "Located in a beautiful surrounding, the hall was very impressive. Space, facilities, decoration, everything screams high quality. I was a guest there and was mighty impressed with the amenities. Have heard the cost is affordable too. Overall I would highly recommend the hall for functions.",
+        highlight: "Impressive Facilities"
     },
     {
         id: 2,
-        name: "Amit & Sneha Verma",
-        event: "Grand Wedding",
-        date: "November 2023",
+        name: "Azra Aftab",
+        event: "Relatives Wedding",
+        date: "Google Review",
         rating: 5,
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces",
-        text: "From the initial consultation to the final goodbye, the team was incredibly professional. Our coordinator handled everything so smoothly that we could actually enjoy our own wedding!",
-        highlight: "Event Planning"
+        avatar: "AA",
+        text: "Visited this hall for my relatives wedding, liked the ambience. Newly build marriage hall. Very spacious with dedicated parking. There are very few halls in the area with such a large open space. The best thing I liked was that there are separate halls for ladies and gents.",
+        highlight: "Spacious Venue"
     },
     {
         id: 3,
-        name: "Dr. Rajesh Gupta",
-        event: "Engagement Ceremony",
-        date: "October 2023",
+        name: "Zurqua Fatima",
+        event: "Brother's Wedding",
+        date: "Google Review",
         rating: 5,
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces",
-        text: "The photography and videography team captured every precious moment beautifully. The cinematic video they created still brings tears to our eyes. Highly recommended!",
-        highlight: "Photography"
+        avatar: "ZF",
+        text: "Booked for my brother's wedding. Very reasonable charges for such huge halls and open ground. Highly recommended for people residing in or near Alba colony, Federal colony, Haroon Colony, etc.",
+        highlight: "Affordable Pricing"
     },
     {
         id: 4,
-        name: "Meera & Vikram Singh",
-        event: "Wedding + Mehendi",
-        date: "February 2024",
+        name: "Himanshu Goel",
+        event: "Wedding & Events",
+        date: "Google Review",
         rating: 5,
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=faces",
-        text: "We booked them for both our Mehendi and Wedding. The traditional setups they created were picture-perfect. The DJ kept the crowd energized throughout the night!",
-        highlight: "Entertainment & Décor"
+        avatar: "HG",
+        text: "This place is just marvellous. It is really spacious and a good venue for any kind of event. If you are thinking about choosing a banquet hall for marriage or parties, this is the right choice.",
+        highlight: "Marvellous Venue"
     },
     {
         id: 5,
-        name: "Ankit Kumar",
-        event: "Corporate Event",
-        date: "January 2024",
-        rating: 5,
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=faces",
-        text: "We hosted our annual company gala here and the team handled 500+ guests flawlessly. The AV setup, catering, and hospitality were all top-notch. Our clients were thoroughly impressed.",
-        highlight: "Corporate Events"
+        name: "Ankit Anand",
+        event: "Marriage & Meetings",
+        date: "Google Review",
+        rating: 4,
+        avatar: "AA",
+        text: "Place is best for marriage and birthday party and meetings. Big place that good for big arrangement. Staff behaviour is good. So you can consider it for party and big meetings.",
+        highlight: "Great for Celebrations"
     }
 ];
 
@@ -163,11 +163,9 @@ export default function ServiceTestimonials() {
 
                                     {/* Author */}
                                     <div className="flex items-center justify-center gap-4">
-                                        <img
-                                            src={current.image}
-                                            alt={current.name}
-                                            className="w-14 h-14 rounded-full object-cover border-2 border-gold-200"
-                                        />
+                                        <div className="w-14 h-14 rounded-full bg-gold-gradient flex items-center justify-center text-navy-900 font-bold text-lg">
+                                            {current.avatar}
+                                        </div>
                                         <div className="text-left">
                                             <h4 className="font-display font-bold text-navy-800">
                                                 {current.name}
@@ -208,8 +206,8 @@ export default function ServiceTestimonials() {
                                     setCurrentIndex(index);
                                 }}
                                 className={`transition-all duration-300 ${index === currentIndex
-                                        ? "w-8 h-2 bg-gold-500 rounded-full"
-                                        : "w-2 h-2 bg-gold-200 rounded-full hover:bg-gold-300"
+                                    ? "w-8 h-2 bg-gold-500 rounded-full"
+                                    : "w-2 h-2 bg-gold-200 rounded-full hover:bg-gold-300"
                                     }`}
                                 aria-label={`Go to testimonial ${index + 1}`}
                             />
@@ -226,8 +224,8 @@ export default function ServiceTestimonials() {
                     className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
                 >
                     {[
-                        { value: "4.9/5", label: "Google Rating" },
-                        { value: "500+", label: "5-Star Reviews" },
+                        { value: "4.8/5", label: "Google Rating" },
+                        { value: "20+", label: "5-Star Reviews" },
                         { value: "98%", label: "Would Recommend" },
                         { value: "100%", label: "Client Satisfaction" }
                     ].map((stat, index) => (

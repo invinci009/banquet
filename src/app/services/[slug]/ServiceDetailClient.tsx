@@ -90,7 +90,7 @@ export default function ServiceDetailClient({ service }: Props) {
                                     </span>
                                 </Link>
                                 <a
-                                    href={`https://wa.me/916205708606?text=${encodeURIComponent(`Hi! I'm interested in booking ${service.title} service. Please share more details.`)}`}
+                                    href={`https://wa.me/919234953085?text=${encodeURIComponent(`Hi! I'm interested in booking ${service.title} service. Please share more details.`)}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 px-6 py-4 bg-green-500 hover:bg-green-600 text-white font-medium rounded-xl transition-all shadow-lg hover:shadow-xl"
@@ -101,7 +101,7 @@ export default function ServiceDetailClient({ service }: Props) {
                                     Book via WhatsApp
                                 </a>
                                 <a
-                                    href="tel:+916205708606"
+                                    href="tel:+919234953085"
                                     className="inline-flex items-center gap-2 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-medium rounded-xl hover:bg-white/20 transition-all"
                                 >
                                     <Phone className="w-5 h-5" />

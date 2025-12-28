@@ -9,18 +9,18 @@ import { Crown, Heart, Star, Users, Award, Calendar, Sparkles, ChefHat, Music, C
 import { useRef } from "react";
 
 const stats = [
-    { number: "15+", label: "Years of Excellence", icon: Calendar },
-    { number: "5000+", label: "Events Hosted", icon: Heart },
-    { number: "50+", label: "Expert Staff", icon: Users },
-    { number: "100%", label: "Client Satisfaction", icon: Star },
+    { number: "12+", label: "Years of Excellence", icon: Calendar },
+    { number: "1500+", label: "Events Hosted", icon: Heart },
+    { number: "50+", label: "Hospitality Experts", icon: Users },
+    { number: "4.9", label: "Average Rating", icon: Star },
 ];
 
 const timeline = [
-    { year: "2010", title: "The Beginning", description: "Royal Grandeur was established with a vision to create unforgettable celebrations." },
-    { year: "2014", title: "First Expansion", description: "Expanded our venue with a second grand hall to accommodate growing demand." },
-    { year: "2018", title: "Award Winning", description: "Recognized as Bihar's Premier Wedding Venue by the Hospitality Excellence Awards." },
-    { year: "2022", title: "Modern Renovation", description: "Complete renovation with state-of-the-art facilities and contemporary elegance." },
-    { year: "2024", title: "Continuing Legacy", description: "Celebrating thousands of successful events and countless happy memories." },
+    { year: "2012", title: "The Beginning", description: "Alba Banquet Hall was established in Phulwari Sharif with a vision to create unforgettable celebrations." },
+    { year: "2016", title: "First Expansion", description: "Expanded our venue with a second grand hall and modern amenities to accommodate growing demand." },
+    { year: "2019", title: "Award Winning", description: "Recognized as one of Patna's Premier Wedding Venues for outstanding hospitality and service." },
+    { year: "2022", title: "Grand Renovation", description: "Complete renovation with state-of-the-art facilities, new interiors, and contemporary elegance." },
+    { year: "2024", title: "A Decade of Legacy", description: "Celebrating 10 years of successful events and creating countless happy memories for families." },
 ];
 
 const values = [
@@ -60,9 +60,9 @@ export default function AboutClient() {
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <img
-                        src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80"
-                        alt="Elegant event celebration"
-                        className="w-full h-full object-cover"
+                        src="/gallery/reception-hall.webp"
+                        alt="Alba Banquet Hall Grand Reception"
+                        className="w-full h-full object-cover opacity-60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-navy-900/50" />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-navy-900/40" />
@@ -122,7 +122,7 @@ export default function AboutClient() {
                         <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-gold-lg">
                             <img
                                 src="/logo.png"
-                                alt="Royal Grandeur Logo"
+                                alt="Alba Banquet Logo"
                                 className="w-full h-full object-cover"
                             />
                         </div>
@@ -148,8 +148,8 @@ export default function AboutClient() {
                         transition={{ duration: 0.6, delay: 0.5 }}
                         className="text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-12 px-2"
                     >
-                        For over 15 years, Royal Grandeur has been Patna&apos;s most trusted destination
-                        for weddings, celebrations, and unforgettable moments.
+                        Located in the heart of Phulwari Sharif, Alba Banquet Hall has been Patna&apos;s most trusted destination
+                        for luxury weddings, celebrations, and unforgettable moments for over a decade.
                     </motion.p>
 
                     {/* Animated Stats */}
@@ -427,7 +427,7 @@ export default function AboutClient() {
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <motion.a
-                                href="tel:+916205708606"
+                                href="tel:+919234953085"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/30 hover:border-gold-400 hover:bg-gold-400/10 text-white font-semibold rounded-lg sm:rounded-xl transition-all text-sm sm:text-base"

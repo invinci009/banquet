@@ -47,11 +47,12 @@ export default function About() {
                         <div className="relative z-10">
                             {/* Main Image */}
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <div
-                                    className="aspect-[4/5] bg-cover bg-center"
-                                    style={{
-                                        backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMOmsdP-QJAaW36RKBASM-Qa_UcbdwPWOdiFbrki3XIk9Ouh1hYkh_8ju3g1KWXtt5rR49JWfZHoGPPFjI-y-kA7dhfOk-YUhk5JI2cyUwbGxvw0m_ozABFGqcnxoD5wkWWF8I65z8MmdNfDSbp-tIK_Q1wUsWuoLAEGSYkjKcjUO4tTRBttQDfom4JDGpH5-dlu2OLFS4caZw0oLr-SsQHznsl0NbYioJUG6tCOL5sgKM3KzZeyZo1UsG-vfB0BqqpV2p01y4Hj_v")`,
-                                    }}
+                                <Image
+                                    src="/gallery/building-entrance.webp"
+                                    alt="Alba Banquet Hall Grand Entrance"
+                                    width={600}
+                                    height={750}
+                                    className="object-cover"
                                 />
                             </div>
 
@@ -65,7 +66,7 @@ export default function About() {
                             >
                                 <div className="flex items-center gap-4">
                                     <div className="w-16 h-16 rounded-full bg-gold-gradient flex items-center justify-center">
-                                        <span className="text-2xl font-bold text-white">15+</span>
+                                        <span className="text-2xl font-bold text-white">12+</span>
                                     </div>
                                     <div>
                                         <p className="text-gold-800 font-semibold">Years of</p>
@@ -86,10 +87,10 @@ export default function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="section-subheading">Welcome to Royal Grandeur</span>
+                        <span className="section-subheading">Welcome to Alba Banquet</span>
                         <h2 className="section-heading mb-6">
                             Creating Timeless Memories
-                            <span className="text-gold-600"> Since 2010</span>
+                            <span className="text-gold-600"> Since 2012</span>
                         </h2>
 
                         <div className="luxury-divider justify-start my-8">
@@ -97,17 +98,15 @@ export default function About() {
                         </div>
 
                         <p className="text-gold-800/70 text-lg leading-relaxed mb-6">
-                            Royal Grandeur Banquet Hall stands as Patna&apos;s premier venue for
-                            celebrations that deserve nothing less than perfection. Our magnificent
-                            halls, adorned with crystal chandeliers and elegant décor, provide the
-                            ideal backdrop for your most precious moments.
+                            Located in Phulwari Sharif, Alba Banquet Hall is a premier venue for
+                            your most important celebrations. Our spacious halls, beautiful décor,
+                            and modern amenities provide the perfect backdrop for your events.
                         </p>
 
                         <p className="text-gold-700/70 leading-relaxed mb-10">
-                            From intimate gatherings to grand receptions, our dedicated team of
-                            professionals ensures every detail is meticulously crafted to exceed
-                            your expectations. We blend traditional hospitality with modern luxury
-                            to create experiences that linger in hearts forever.
+                            From small gatherings to large receptions, our experienced team
+                            ensures every detail is taken care of. We combine traditional hospitality
+                            with modern concepts to create memorable experiences for you and your guests.
                         </p>
 
                         {/* Highlights Grid */}

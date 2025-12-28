@@ -15,9 +15,9 @@ import {
 const reasons = [
     {
         icon: Shield,
-        title: "Trusted by 5000+ Families",
+        title: "Trusted by 1500+ Families",
         description: "Our reputation speaks for itself. We've been the trusted choice for weddings and celebrations across Bihar.",
-        stat: "5000+",
+        stat: "1500+",
         statLabel: "Events"
     },
     {
@@ -31,7 +31,7 @@ const reasons = [
         icon: Sparkles,
         title: "Premium Quality",
         description: "We never compromise on quality. From decor to cuisine, expect nothing but the finest.",
-        stat: "5★",
+        stat: "4.9★",
         statLabel: "Rating"
     },
     {
@@ -43,9 +43,9 @@ const reasons = [
     },
     {
         icon: Award,
-        title: "15+ Years Experience",
+        title: "12+ Years Experience",
         description: "Our seasoned team brings expertise and creative insights from over a decade of celebrations.",
-        stat: "15+",
+        stat: "12+",
         statLabel: "Years"
     },
     {
@@ -97,7 +97,7 @@ export default function WhyChooseUs() {
                     className="text-center max-w-3xl mx-auto mb-16"
                 >
                     <span className="text-gold-400 uppercase tracking-[0.2em] font-semibold text-sm mb-4 block">
-                        The Royal Grandeur Difference
+                        The Alba Banquet Difference
                     </span>
                     <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                         Why Families{" "}

@@ -18,9 +18,9 @@ const ContactMap = dynamic(() => import("./ContactMap"), {
 });
 
 const contactInfo = [
-    { icon: MapPin, title: "Visit Us", details: "Near Gandhi Maidan, Patna, Bihar", highlight: "Premium Location" },
-    { icon: Phone, title: "Call Us", details: "+91 62057 08606", link: "tel:+916205708606", highlight: "24/7 Available" },
-    { icon: Mail, title: "Email Us", details: "info@royalgrandeur.com", link: "mailto:info@royalgrandeur.com", highlight: "Quick Response" },
+    { icon: MapPin, title: "Visit Us", details: "Alba Colony, Phulwari Sharif, Patna - 05", highlight: "Premium Location" },
+    { icon: Phone, title: "Call Us", details: "+91 92349 53085", link: "tel:+919234953085", highlight: "24/7 Available" },
+    { icon: Mail, title: "Email Us", details: "info@albacatering.com", link: "mailto:info@albacatering.com", highlight: "Quick Response" },
     { icon: Clock, title: "Working Hours", details: "Daily: 9 AM - 10 PM", highlight: "Open All Days" },
 ];
 
@@ -93,7 +93,7 @@ export default function Contact() {
                 body: JSON.stringify({
                     access_key: WEB3FORMS_ACCESS_KEY,
                     subject: `New Event Inquiry - ${formData.eventType || "General"}`,
-                    from_name: "Royal Grandeur Website",
+                    from_name: "Alba Banquet Hall",
                     ...formData,
                 }),
             });
@@ -109,7 +109,7 @@ export default function Contact() {
                 setError("Something went wrong. Please try again or call us directly.");
             }
         } catch {
-            setError("Failed to send message. Please try again or call us at +91 62057 08606.");
+            setError("Failed to send message. Please try again or call us at +91 92349 53085.");
         }
 
         setIsSubmitting(false);
@@ -199,7 +199,7 @@ export default function Contact() {
                                     </div>
                                     <span className="block text-xs font-bold text-gold-500 uppercase tracking-wider mb-1">{info.title}</span>
                                     <p className="font-display text-sm sm:text-base font-semibold text-navy-800 mb-1 truncate">{info.details}</p>
-                                    <span className="text-xs text-gold-600">{info.highlight}</span>
+                                    <span className="text-xs text-gold-700 font-medium">{info.highlight}</span>
                                 </a>
                             ) : (
                                 <div className="block p-4 sm:p-6 bg-white rounded-2xl border-2 border-gold-100 shadow-lg">
@@ -208,7 +208,7 @@ export default function Contact() {
                                     </div>
                                     <span className="block text-xs font-bold text-gold-500 uppercase tracking-wider mb-1">{info.title}</span>
                                     <p className="font-display text-sm sm:text-base font-semibold text-navy-800 mb-1">{info.details}</p>
-                                    <span className="text-xs text-gold-600">{info.highlight}</span>
+                                    <span className="text-xs text-gold-700 font-medium">{info.highlight}</span>
                                 </div>
                             )}
                             {/* Glow effect */}
@@ -491,7 +491,7 @@ export default function Contact() {
                 >
                     <div className="text-center mb-6">
                         <h3 className="font-display text-2xl font-bold text-navy-800">Find Us Here</h3>
-                        <p className="text-gold-700/70">Located in the heart of Patna, near Gandhi Maidan</p>
+                        <p className="text-gold-700/70">Alba Colony, Near Alba Masjid, Phulwari Sharif, Patna - 05</p>
                     </div>
                     <div className="h-[400px] sm:h-[450px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative">
                         <ContactMap />
@@ -509,11 +509,11 @@ export default function Contact() {
                                         <MapPin className="w-5 h-5 text-navy-900" />
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                        <h4 className="font-display font-bold text-navy-800">Royal Grandeur Banquet</h4>
-                                        <p className="text-sm text-gray-500">Near Gandhi Maidan, Patna, Bihar</p>
+                                        <h4 className="font-display font-bold text-navy-800">Alba Banquet Hall</h4>
+                                        <p className="text-sm text-gray-500">Alba Colony, Phulwari Sharif, Patna - 05</p>
                                     </div>
                                     <a
-                                        href="https://maps.google.com/?q=Royal+Grandeur+Banquet+Patna"
+                                        href="https://maps.google.com/?q=Alba+Catering+Services+Phulwari+Sharif+Patna"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-navy-900 text-white text-sm font-medium rounded-xl hover:bg-navy-800 transition-colors"
@@ -523,7 +523,7 @@ export default function Contact() {
                                 </div>
                                 {/* Mobile directions button */}
                                 <a
-                                    href="https://maps.google.com/?q=Royal+Grandeur+Banquet+Patna"
+                                    href="https://maps.google.com/?q=Alba+Catering+Services+Phulwari+Sharif+Patna"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="sm:hidden mt-3 flex items-center justify-center gap-2 w-full py-2.5 bg-navy-900 text-white text-sm font-medium rounded-xl hover:bg-navy-800 transition-colors"
@@ -557,7 +557,7 @@ export default function Contact() {
                                 </div>
                             </div>
                             <a
-                                href="https://wa.me/916205708606?text=Hi!%20I%27m%20interested%20in%20booking%20Royal%20Grandeur%20for%20my%20event."
+                                href="https://wa.me/919234953085?text=Hi!%20I%27m%20interested%20in%20Alba%20Catering%20Services%20for%20my%20event."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full sm:w-auto px-8 py-4 bg-white text-green-600 font-bold rounded-xl hover:bg-green-50 transition-colors text-center shadow-lg"
