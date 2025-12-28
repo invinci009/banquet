@@ -3,7 +3,7 @@ import HomeClient from "./HomeClient";
 
 export const metadata: Metadata = {
     title: "Alba Banquet Hall Patna | #1 Luxury Wedding Venue & Event Hall in Bihar",
-    description: "Alba Banquet Hall is Patna's most prestigious venue in Phulwari Sharif. Perfect for weddings, receptions, engagements & corporate events. AC halls for 50-1000+ guests with premium catering, stunning decor & parking. ⭐ Top Rated | Book today! Call: +91-9234953085",
+    description: "Alba Banquet Hall: Patna's premier AC venue for weddings & corporate events in Phulwari Sharif. 50-1000+ guest capacity, premium catering & decor. Book now!",
     keywords: [
         // High-volume primary keywords
         "banquet hall patna",
