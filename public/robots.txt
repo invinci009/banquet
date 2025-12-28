@@ -1,5 +1,5 @@
-# Royal Grandeur Banquet Hall - robots.txt
-# https://royalgrandeurpatna.com
+# Alba Banquet Hall - robots.txt
+# https://albacatering.com
 
 # Allow all search engines
 User-agent: *
@@ -29,7 +29,7 @@ Allow: /
 Crawl-delay: 2
 
 # Sitemap location
-Sitemap: https://royalgrandeurpatna.com/sitemap.xml
+Sitemap: https://albacatering.com/sitemap.xml
 
 # Host preference
-Host: https://royalgrandeurpatna.com
+Host: https://albacatering.com
