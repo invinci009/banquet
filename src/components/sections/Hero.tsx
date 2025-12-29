@@ -12,15 +12,14 @@ export default function Hero() {
             className="relative min-h-screen flex items-center justify-center overflow-hidden"
         >
             {/* Background Image with Overlay */}
-            {/* Background Image with Overlay */}
             <div className="absolute inset-0">
                 <Image
-                    src="https://images-pw.pixieset.com/page/YLq0O6/SD_AllWedding-338_websize-a89308b0-1500.jpg"
+                    src="/gallery/hall-wide-view.webp"
                     alt="Alba Banquet Hall Patna luxury wedding venue with crystal chandeliers and floral decor"
                     fill
                     priority
                     sizes="100vw"
-                    className="object-cover object-center scale-105"
+                    className="object-cover object-center"
                 />
             </div>
 
