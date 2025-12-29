@@ -198,9 +198,10 @@ const structuredData = {
                 "longitude": 85.0734818,
             },
             "sameAs": [
-                "https://www.facebook.com/albacatering",
-                "https://www.instagram.com/albacatering",
-                "https://www.youtube.com/@albacatering",
+                "https://www.facebook.com/albabanquethall",
+                "https://www.instagram.com/albabanquethall",
+                "https://www.youtube.com/@albabanquethall",
+                "https://www.justdial.com/Patna/Alba-Banquet-Hall-Alba-Colony-Phulwarisharif/0612PX612-X612-181113174509-G2J3_BZDET",
             ],
             "contactPoint": [
                 {
@@ -221,7 +222,7 @@ const structuredData = {
         },
         // LocalBusiness Schema (Important for Local SEO)
         {
-            "@type": ["LocalBusiness", "FoodService", "CateringService"],
+            "@type": ["LocalBusiness", "EventVenue", "WeddingVenue", "CateringService"],
             "@id": "https://albacatering.com/#localbusiness",
             "name": "Alba Banquet Hall",
             "image": [
@@ -257,11 +258,31 @@ const structuredData = {
             ],
             "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "347",
+                "ratingValue": "4.2",
+                "reviewCount": "124",
                 "bestRating": "5",
                 "worstRating": "1",
             },
+            "amenityFeature": [
+                { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Changing Rooms", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Outdoor Lawn", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Catering", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Decoration", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "DJ & Sound System", "value": true },
+            ],
+            "maximumAttendeeCapacity": 3000,
+            "isAccessibleForFree": false,
+            "publicAccess": true,
+            "smokingAllowed": false,
+            "foundingDate": "2012",
+            "founder": {
+                "@type": "Person",
+                "name": "Alba Family",
+            },
+            "slogan": "Be a Guest on Your Party!",
+            "keywords": "banquet hall, wedding venue, marriage hall, patna wedding, reception hall, event venue",
             "review": [
                 {
                     "@type": "Review",
