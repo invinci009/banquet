@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -57,15 +58,19 @@ export default function Footer() {
                         className="lg:col-span-1"
                     >
                         <Link href="/" className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 rounded-full bg-gold-gradient flex items-center justify-center shadow-gold">
-                                <Sparkles className="w-6 h-6 text-navy-900" />
-                            </div>
+                            <Image
+                                src="/logo.png"
+                                alt="Alba Banquet Logo"
+                                width={60}
+                                height={60}
+                                className="w-16 h-16 object-contain"
+                            />
                             <div>
                                 <span className="font-display text-xl font-bold text-white">
-                                    Alba Banquet
+                                    Alba Banquet Hall
                                 </span>
                                 <span className="block text-xs text-gold-400 uppercase tracking-widest">
-                                    Hall
+                                    Banquet Hall in Phulwari Sharif
                                 </span>
                             </div>
                         </Link>

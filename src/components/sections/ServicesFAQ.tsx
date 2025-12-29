@@ -76,8 +76,8 @@ export default function ServicesFAQ() {
                                     <MessageCircle className="w-7 h-7 text-gold-400" />
                                 </div>
                                 <div>
-                                    <h3 className="font-display text-xl font-bold">Still have questions?</h3>
-                                    <p className="text-gray-400 text-sm">We&apos;d love to hear from you</p>
+                                    <h3 className="font-display text-xl font-bold text-white">Still have questions?</h3>
+                                    <p className="text-gray-200 text-sm">We&apos;d love to hear from you</p>
                                 </div>
                             </div>
 

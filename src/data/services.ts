@@ -53,7 +53,7 @@ export const services: Service[] = [
             "/gallery/floral-gate.webp"
         ],
         highlight: "500+ Menu Options",
-        pricing: "Starting ₹600/plate",
+        pricing: "Veg ₹600 | Non-veg ₹900 per person",
         duration: "Full Event Coverage"
     },
     {
@@ -73,7 +73,7 @@ export const services: Service[] = [
             "/gallery/buffet-staff.webp"
         ],
         highlight: "Timely Delivery",
-        pricing: "Starting ₹350/person",
+        pricing: "Veg ₹600 | Non-veg ₹900 per person",
         duration: "Flexible Hours"
     },
     {
@@ -93,7 +93,7 @@ export const services: Service[] = [
             "/gallery/buffet-staff.webp"
         ],
         highlight: "50+ Dishes",
-        pricing: "Starting ₹500/plate",
+        pricing: "Veg ₹600 | Non-veg ₹900 per person",
         duration: "Full Event Service"
     },
     {
@@ -113,7 +113,7 @@ export const services: Service[] = [
             "/gallery/indoor-hall.webp"
         ],
         highlight: "Fine Dining",
-        pricing: "Starting ₹700/plate",
+        pricing: "Veg ₹600 | Non-veg ₹900 per person",
         duration: "Evening Service"
     },
     {
@@ -133,7 +133,7 @@ export const services: Service[] = [
             "/gallery/buffet-service.webp"
         ],
         highlight: "Fresh & Tasty",
-        pricing: "Starting ₹150/person",
+        pricing: "Veg ₹600 | Non-veg ₹900 per person",
         duration: "2-4 Hours"
     },
     {
@@ -153,7 +153,7 @@ export const services: Service[] = [
             "/gallery/night-lawn-view.webp"
         ],
         highlight: "Home Delivery",
-        pricing: "Starting ₹400/person",
+        pricing: "Veg ₹600 | Non-veg ₹900 per person",
         duration: "Flexible Timing"
     }
 ];
