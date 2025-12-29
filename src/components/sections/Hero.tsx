@@ -45,7 +45,7 @@ export default function Hero() {
                 >
                     <Star className="w-4 h-4 text-gold-300 fill-gold-300" />
                     <span className="text-gold-100 text-sm font-medium">
-                        4.9★ Rated on JustDial | Trusted Since 2012
+                        4.2★ on JustDial | Serving Patna Since 2012
                     </span>
                 </motion.div>
 
@@ -104,7 +104,7 @@ export default function Hero() {
                         { number: "3000+", label: "Guest Capacity" },
                         { number: "4.2★", label: "JustDial Rating" },
                         { number: "124+", label: "Reviews" },
-                        { number: "10+", label: "Years Experience" },
+                        { number: "12+", label: "Years Experience" },
                     ].map((stat, index) => (
                         <div key={index} className="text-center">
                             <div className="text-3xl md:text-4xl font-bold text-gold-300 mb-1">

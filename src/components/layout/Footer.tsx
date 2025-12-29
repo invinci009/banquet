@@ -262,14 +262,11 @@ export default function Footer() {
                         </a>
                     </p>
                     <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm text-gray-500">
+                        <a href="tel:+919234953085" className="hover:text-gold-400 transition-colors">
+                            +91 92349 53085
+                        </a>
                         <Link href="/contact" className="hover:text-gold-400 transition-colors">
-                            Privacy Policy
-                        </Link>
-                        <Link href="/contact" className="hover:text-gold-400 transition-colors">
-                            Terms of Service
-                        </Link>
-                        <Link href="/contact" className="hover:text-gold-400 transition-colors">
-                            Contact
+                            Contact Us
                         </Link>
                     </div>
                 </motion.div>

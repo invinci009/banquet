@@ -7,8 +7,8 @@ import { Award, Users, CalendarCheck, Gem } from "lucide-react";
 const highlights = [
     {
         icon: Award,
-        title: "Award Winning",
-        description: "Recognized as the best banquet hall in Bihar",
+        title: "Trusted Venue",
+        description: "Chosen by families across Patna for over a decade",
     },
     {
         icon: Users,

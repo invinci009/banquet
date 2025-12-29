@@ -98,7 +98,7 @@ export default function CTA() {
                     className="mt-12 flex items-center justify-center gap-2 text-white/60 text-sm"
                 >
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    Open for bookings — Limited dates available for 2026
+                    Open for bookings — Limited dates available for 2025
                 </motion.div>
             </div>
         </section>

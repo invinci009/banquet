@@ -7,35 +7,35 @@ const reviews = [
     {
         name: "Ali Imran",
         rating: 5,
-        date: "4 years ago",
+        date: "Local Guide",
         text: "Located in a beautiful surrounding, the hall was very impressive. Space, facilities, decoration, everything screams high quality. I was a guest there and was mighty impressed with the amenities. Have heard the cost is affordable too. Overall I would highly recommend the hall for functions.",
         avatar: "AI",
     },
     {
         name: "Azra Aftab",
         rating: 5,
-        date: "5 years ago",
+        date: "Via Google",
         text: "Visited this hall for my relatives wedding, liked the ambience. Newly build marriage hall. Very spacious with dedicated parking. There are very few halls in the area with such a large open space. The best thing I liked was that there are separate halls for ladies and gents.",
         avatar: "AA",
     },
     {
         name: "Zurqua Fatima",
         rating: 5,
-        date: "5 years ago",
+        date: "Via Google",
         text: "Booked for my brother's wedding. Very reasonable charges for such huge halls and open ground. Highly recommended for people residing in or near Alba colony, Federal colony, Haroon Colony, etc.",
         avatar: "ZF",
     },
     {
         name: "Himanshu Goel",
         rating: 5,
-        date: "5 years ago",
+        date: "Local Guide",
         text: "This place is just marvellous. It is really spacious and a good venue for any kind of event. If you are thinking about choosing a banquet hall for marriage or parties, this is the right choice.",
         avatar: "HG",
     },
     {
         name: "Ankit Anand",
         rating: 4,
-        date: "3 years ago",
+        date: "Via Google",
         text: "Place is best for marriage and birthday party and meetings. Big place that good for big arrangement. Staff behaviour is good. So you can consider it for party and big meetings.",
         avatar: "AA",
     },
@@ -74,7 +74,7 @@ export default function GoogleReviews() {
                             <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                         </svg>
                         <div className="flex items-center gap-1">
-                            <span className="text-white font-bold text-xl">4.8</span>
+                            <span className="text-white font-bold text-xl">4.2</span>
                             <div className="flex">
                                 {[...Array(5)].map((_, i) => (
                                     <Star key={i} className="w-4 h-4 fill-gold-400 text-gold-400" />
