@@ -14,6 +14,7 @@ const Services = dynamic(() => import("@/components/sections/Services"), { ssr: 
 const Events = dynamic(() => import("@/components/sections/Events"), { ssr: false });
 const Gallery = dynamic(() => import("@/components/sections/Gallery"), { ssr: false });
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials"), { ssr: false });
+const InstagramFeed = dynamic(() => import("@/components/sections/InstagramFeed"), { ssr: false });
 const GoogleReviews = dynamic(() => import("@/components/sections/GoogleReviews"), { ssr: false });
 const FAQ = dynamic(() => import("@/components/sections/FAQ"), { ssr: false });
 const Contact = dynamic(() => import("@/components/sections/Contact"), { ssr: false });
@@ -41,6 +42,7 @@ export default function HomeClient() {
 
                 <Events />
                 <Gallery limit={4} showFilter={false} />
+                <InstagramFeed />
                 <Testimonials />
                 <GoogleReviews />
                 <FAQ />

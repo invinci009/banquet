@@ -14,7 +14,7 @@ export default function Hero() {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0">
                 <Image
-                    src="/gallery/hall-wide-view.webp"
+                    src="/gallery/wedding-stage-roses.webp"
                     alt="Alba Banquet Hall Patna luxury wedding venue with crystal chandeliers and floral decor"
                     fill
                     priority
