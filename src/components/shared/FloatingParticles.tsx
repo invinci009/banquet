@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 
-const particles = Array.from({ length: 12 }, (_, i) => ({
+const particles = Array.from({ length: 6 }, (_, i) => ({
     id: i,
-    size: Math.random() * 8 + 4,
+    size: Math.random() * 6 + 4,
     x: Math.random() * 100,
-    delay: Math.random() * 5,
-    duration: Math.random() * 10 + 15,
+    delay: Math.random() * 3,
+    duration: Math.random() * 8 + 20,
 }));
 
 export default function FloatingParticles() {
