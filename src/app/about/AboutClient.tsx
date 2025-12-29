@@ -4,436 +4,301 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Crown, Heart, Star, Users, Award, Calendar, Sparkles, ChefHat, Music, Camera, Shield, Clock, ArrowRight } from "lucide-react";
-import { useRef } from "react";
-
-const stats = [
-    { number: "12+", label: "Years of Excellence", icon: Calendar },
-    { number: "1500+", label: "Events Hosted", icon: Heart },
-    { number: "50+", label: "Hospitality Experts", icon: Users },
-    { number: "4.9", label: "Average Rating", icon: Star },
-];
-
-const timeline = [
-    { year: "2012", title: "The Beginning", description: "Alba Banquet Hall was established in Phulwari Sharif with a vision to create unforgettable celebrations." },
-    { year: "2016", title: "First Expansion", description: "Expanded our venue with a second grand hall and modern amenities to accommodate growing demand." },
-    { year: "2019", title: "Award Winning", description: "Recognized as one of Patna's Premier Wedding Venues for outstanding hospitality and service." },
-    { year: "2022", title: "Grand Renovation", description: "Complete renovation with state-of-the-art facilities, new interiors, and contemporary elegance." },
-    { year: "2024", title: "A Decade of Legacy", description: "Celebrating 10 years of successful events and creating countless happy memories for families." },
-];
-
-const values = [
-    { icon: Crown, title: "Royal Hospitality", description: "Treating every guest like royalty is our promise.", color: "from-amber-400 to-orange-500" },
-    { icon: Heart, title: "Family First", description: "We understand emotions, not just events.", color: "from-rose-400 to-pink-500" },
-    { icon: Shield, title: "Reliability", description: "What we promise is exactly what we deliver.", color: "from-emerald-400 to-teal-500" },
-    { icon: Star, title: "Quality", description: "No compromise on food, decor, or service.", color: "from-violet-400 to-purple-500" },
-];
-
-const services = [
-    { icon: ChefHat, title: "Gourmet Cuisine" },
-    { icon: Music, title: "Entertainment" },
-    { icon: Camera, title: "Photography" },
-    { icon: Sparkles, title: "Decoration" },
-    { icon: Clock, title: "Planning" },
-    { icon: Award, title: "Premium Service" },
-];
+import { motion } from "framer-motion";
+import { Crown, Heart, Star, Users, Award, Calendar, Sparkles, ArrowRight, Phone, Quote, MapPin, Shield, Utensils } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutClient() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
-    const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
-    const y2 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-
     return (
-        <main ref={containerRef} className="relative bg-white overflow-hidden">
+        <main className="bg-white">
             <Header />
 
-            {/* Animated Background Elements */}
-            <div className="fixed inset-0 pointer-events-none overflow-hidden">
-                <motion.div style={{ y: y1 }} className="absolute top-20 right-10 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" />
-                <motion.div style={{ y: y2 }} className="absolute bottom-40 left-10 w-[500px] h-[500px] bg-burgundy-700/5 rounded-full blur-3xl" />
-            </div>
+            {/* ==================== HERO ==================== */}
+            <section className="relative pt-32 pb-20 lg:pb-32 overflow-hidden">
+                {/* Background: Dark navy at top fading to champagne */}
+                <div className="absolute inset-0 bg-gradient-to-b from-navy-900 via-navy-800 to-champagne-50" />
 
-            {/* Hero Section */}
-            <section className="relative min-h-[100dvh] flex items-center justify-center bg-navy-900 overflow-hidden">
-                {/* Background Image */}
-                <div className="absolute inset-0">
-                    <img
-                        src="/gallery/reception-hall.webp"
-                        alt="Alba Banquet Hall Grand Reception"
-                        className="w-full h-full object-cover opacity-60"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-navy-900/50" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-navy-900/40" />
-                </div>
-
-                {/* Animated Pattern */}
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute inset-0 pattern-dots opacity-10" />
-                    {/* Floating Particles */}
-                    {[...Array(20)].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute w-1 h-1 bg-gold-400 rounded-full"
-                            style={{
-                                left: `${Math.random() * 100}%`,
-                                top: `${Math.random() * 100}%`,
-                            }}
-                            animate={{
-                                y: [0, -30, 0],
-                                opacity: [0.2, 1, 0.2],
-                                scale: [1, 1.5, 1],
-                            }}
-                            transition={{
-                                duration: 3 + Math.random() * 2,
-                                repeat: Infinity,
-                                delay: Math.random() * 2,
-                            }}
-                        />
-                    ))}
-                </div>
-
-                {/* Gradient Orbs */}
-                <motion.div
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-                    transition={{ duration: 8, repeat: Infinity }}
-                    className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-gold-500/20 to-transparent rounded-full blur-3xl"
-                />
-                <motion.div
-                    animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-                    transition={{ duration: 10, repeat: Infinity }}
-                    className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-burgundy-700/20 to-transparent rounded-full blur-3xl"
-                />
-
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16 sm:pt-32 sm:pb-20">
-                    {/* Animated Logo */}
-                    <motion.div
-                        initial={{ scale: 0, rotate: -180 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-                        className="relative inline-block mb-6 sm:mb-8"
-                    >
-                        <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-0 w-16 h-16 sm:w-24 sm:h-24 rounded-full border-2 border-dashed border-gold-400/30"
-                        />
-                        <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-gold-lg">
-                            <img
-                                src="/logo.png"
-                                alt="Alba Banquet Logo"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                    >
-                        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                            Crafting Unforgettable
-                            <br />
-                            <span className="text-gold-400">
-                                Memories in Patna
-                            </span>
-                        </h1>
-                    </motion.div>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                        className="text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-12 px-2"
-                    >
-                        Located in the heart of Phulwari Sharif, Alba Banquet Hall has been Patna&apos;s most trusted destination
-                        for luxury weddings, celebrations, and unforgettable moments for over a decade.
-                    </motion.p>
-
-                    {/* Animated Stats */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
-                    >
-                        {stats.map((stat, index) => (
-                            <motion.div
-                                key={stat.label}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.7 + index * 0.1 }}
-                                whileHover={{ scale: 1.05, y: -5 }}
-                                className="relative group"
-                            >
-                                <div className="absolute inset-0 bg-gradient-to-br from-gold-500/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                                <div className="relative bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/10 group-hover:border-gold-500/50 transition-colors">
-                                    <motion.div
-                                        whileHover={{ rotate: 360 }}
-                                        transition={{ duration: 0.5 }}
-                                    >
-                                        <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-gold-400 mx-auto mb-2 sm:mb-3" />
-                                    </motion.div>
-                                    <div className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">{stat.number}</div>
-                                    <div className="text-gray-400 text-xs sm:text-sm mt-1">{stat.label}</div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-
-                    {/* Scroll Indicator */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.5 }}
-                        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 hidden sm:block"
-                    >
-                        <motion.div
-                            animate={{ y: [0, 10, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
-                            className="w-6 h-10 rounded-full border-2 border-gold-400/50 flex items-start justify-center p-2"
-                        >
-                            <motion.div
-                                animate={{ y: [0, 8, 0] }}
-                                transition={{ duration: 1.5, repeat: Infinity }}
-                                className="w-1.5 h-3 bg-gold-400 rounded-full"
-                            />
-                        </motion.div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Timeline Section */}
-            <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-champagne-50 to-white relative">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-12 sm:mb-20"
-                    >
-                        <motion.span
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="inline-block text-gold-600 font-medium text-sm uppercase tracking-widest bg-gold-100 px-4 py-2 rounded-full mb-4"
-                        >
-                            Our Journey
-                        </motion.span>
-                        <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-navy-800">
-                            A Legacy of <span className="text-gold-600">Excellence</span>
-                        </h2>
-                    </motion.div>
-
-                    <div className="relative">
-                        {/* Animated Timeline Line */}
-                        <motion.div
-                            initial={{ scaleY: 0 }}
-                            whileInView={{ scaleY: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1.5 }}
-                            className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gold-400 via-gold-500 to-gold-400 origin-top hidden md:block"
-                        />
-
-                        {timeline.map((item, index) => (
-                            <motion.div
-                                key={item.year}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.15 }}
-                                className={`relative flex items-center mb-16 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                            >
-                                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8 lg:pr-16 md:text-right' : 'md:pl-8 lg:pl-16'}`}>
-                                    <motion.div
-                                        whileHover={{ scale: 1.02, y: -5 }}
-                                        className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all"
-                                    >
-                                        <span className="inline-block text-gold-500 font-display text-xl sm:text-3xl font-bold bg-gold-50 px-3 sm:px-4 py-1 rounded-lg">{item.year}</span>
-                                        <h3 className="text-navy-800 font-bold text-lg sm:text-2xl mt-3 sm:mt-4">{item.title}</h3>
-                                        <p className="text-gray-600 mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed">{item.description}</p>
-                                    </motion.div>
-                                </div>
-
-                                {/* Animated Dot */}
-                                <motion.div
-                                    initial={{ scale: 0 }}
-                                    whileInView={{ scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.15 + 0.3, type: "spring" }}
-                                    className="absolute left-1/2 transform -translate-x-1/2 hidden md:block"
-                                >
-                                    <div className="w-8 h-8 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full border-4 border-white shadow-lg flex items-center justify-center">
-                                        <Sparkles className="w-4 h-4 text-white" />
-                                    </div>
-                                </motion.div>
-
-                                <div className="hidden md:block w-5/12" />
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Values Section */}
-            <section className="py-16 sm:py-24 lg:py-32 bg-navy-900 relative overflow-hidden">
-                {/* Animated Background */}
-                <div className="absolute inset-0">
-                    <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                        className="absolute -top-1/2 -right-1/2 w-full h-full border border-gold-500/10 rounded-full"
-                    />
-                    <motion.div
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-                        className="absolute -bottom-1/2 -left-1/2 w-full h-full border border-gold-500/10 rounded-full"
-                    />
-                </div>
+                {/* Decorative */}
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gold-100/30 to-transparent pointer-events-none" />
+                <div className="absolute -left-20 top-1/3 w-80 h-80 bg-gold-200/40 rounded-full blur-3xl pointer-events-none" />
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-10 sm:mb-16"
-                    >
-                        <span className="inline-block text-gold-400 font-medium text-sm uppercase tracking-widest bg-gold-500/10 px-4 py-2 rounded-full mb-4">
-                            What Drives Us
-                        </span>
-                        <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white">
-                            Our Core Values
-                        </h2>
-                    </motion.div>
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        {/* Text */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <span className="inline-flex items-center gap-2 text-gold-400 font-medium text-sm uppercase tracking-widest mb-4">
+                                <Crown className="w-4 h-4" /> About Alba Banquet
+                            </span>
+                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                                Where Every Celebration <br />
+                                <span className="text-gold-400">Becomes a Legacy</span>
+                            </h1>
+                            <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-lg">
+                                For over a decade, Alba Banquet Hall has been the heart of Patna's most cherished celebrations.
+                                We don't just host events — we create memories that last generations.
+                            </p>
+                            <div className="flex flex-wrap gap-4">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-6 py-3 rounded-full transition-all shadow-gold hover:shadow-gold-lg"
+                                >
+                                    Plan Your Event <ArrowRight className="w-4 h-4" />
+                                </Link>
+                                <a
+                                    href="tel:+919234953085"
+                                    className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-gold-400 text-white font-semibold px-6 py-3 rounded-full transition-all"
+                                >
+                                    <Phone className="w-4 h-4" /> Call Us
+                                </a>
+                            </div>
+                        </motion.div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-                        {values.map((value, index) => (
+                        {/* Image */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="relative"
+                        >
+                            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                                <Image
+                                    src="/gallery/building-front-lights.webp"
+                                    alt="Alba Banquet Hall"
+                                    width={600}
+                                    height={500}
+                                    className="object-cover w-full h-[400px] lg:h-[500px]"
+                                    priority
+                                />
+                            </div>
+                            {/* Floating Badge */}
                             <motion.div
-                                key={value.title}
-                                initial={{ opacity: 0, y: 50, rotateY: -30 }}
-                                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.6 }}
-                                whileHover={{ y: -10, scale: 1.02 }}
-                                className="group relative"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.6 }}
+                                className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5 border border-gold-100"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity rounded-3xl blur-xl" style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }} />
-                                <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-white/10 group-hover:border-gold-500/50 transition-all h-full">
-                                    <motion.div
-                                        whileHover={{ rotate: 360, scale: 1.1 }}
-                                        transition={{ duration: 0.5 }}
-                                        className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-4 sm:mb-6 shadow-lg`}
-                                    >
-                                        <value.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                                    </motion.div>
-                                    <h3 className="text-white font-bold text-base sm:text-xl mb-2 sm:mb-3">{value.title}</h3>
-                                    <p className="text-gray-400 text-xs sm:text-base">{value.description}</p>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-14 h-14 rounded-full bg-gold-100 flex items-center justify-center">
+                                        <span className="font-display text-2xl font-bold text-gold-600">12+</span>
+                                    </div>
+                                    <div>
+                                        <p className="text-navy-900 font-bold">Years of Trust</p>
+                                        <p className="text-gray-500 text-sm">Serving Patna</p>
+                                    </div>
                                 </div>
                             </motion.div>
-                        ))}
+                        </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* Services Grid */}
-            <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-champagne-50">
+            {/* ==================== TRUST STATS ==================== */}
+            <section className="py-10 md:py-16 bg-navy-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-10 sm:mb-16"
-                    >
-                        <span className="inline-block text-gold-600 font-medium text-sm uppercase tracking-widest bg-gold-100 px-4 py-2 rounded-full mb-4">
-                            Complete Solutions
-                        </span>
-                        <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-navy-800">
-                            Everything Under One Roof
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                        {services.map((service, index) => (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
+                        {[
+                            { icon: Calendar, value: "12+", label: "Years of Excellence" },
+                            { icon: Heart, value: "1500+", label: "Events Hosted" },
+                            { icon: Users, value: "50K+", label: "Happy Guests" },
+                            { icon: Star, value: "4.9", label: "Google Rating" },
+                        ].map((stat, i) => (
                             <motion.div
-                                key={service.title}
-                                initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.05, type: "spring" }}
-                                whileHover={{ y: -10, scale: 1.05 }}
-                                className="group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-gold-300 transition-all text-center"
+                                transition={{ delay: i * 0.1 }}
                             >
-                                <motion.div
-                                    whileHover={{ rotate: 360 }}
-                                    transition={{ duration: 0.5 }}
-                                    className="w-10 h-10 sm:w-14 sm:h-14 mx-auto rounded-lg sm:rounded-xl bg-gradient-to-br from-gold-100 to-gold-200 flex items-center justify-center mb-3 sm:mb-4 group-hover:from-gold-400 group-hover:to-gold-600 transition-all"
-                                >
-                                    <service.icon className="w-5 h-5 sm:w-7 sm:h-7 text-gold-600 group-hover:text-white transition-colors" />
-                                </motion.div>
-                                <h3 className="text-navy-800 font-bold text-xs sm:text-sm">{service.title}</h3>
+                                <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-gold-400 mx-auto mb-2 md:mb-3" />
+                                <div className="font-display text-2xl md:text-4xl font-bold text-white">{stat.value}</div>
+                                <p className="text-gray-400 text-xs md:text-sm mt-1">{stat.label}</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-16 sm:py-24 bg-navy-900 relative overflow-hidden">
-                <div className="absolute inset-0 pattern-dots opacity-20" />
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
+            {/* ==================== WHO WE ARE ==================== */}
+            <section className="py-12 lg:py-28 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                        {/* Image Grid */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="grid grid-cols-2 gap-4"
+                        >
+                            <div className="space-y-4">
+                                <div className="rounded-2xl overflow-hidden shadow-lg">
+                                    <Image src="/gallery/stage-decor.webp" alt="Stage Decor at Alba Banquet Hall" width={300} height={200} sizes="(max-width: 768px) 45vw, 300px" loading="lazy" className="object-cover w-full h-[150px] md:h-[200px]" />
+                                </div>
+                                <div className="rounded-2xl overflow-hidden shadow-lg">
+                                    <Image src="/gallery/reception-hall.webp" alt="Reception Hall" width={300} height={180} sizes="(max-width: 768px) 45vw, 300px" loading="lazy" className="object-cover w-full h-[130px] md:h-[180px]" />
+                                </div>
+                            </div>
+                            <div className="pt-4 md:pt-8">
+                                <div className="rounded-2xl overflow-hidden shadow-lg">
+                                    <Image src="/gallery/building-night-lights.webp" alt="Alba Banquet Hall at Night" width={300} height={350} sizes="(max-width: 768px) 45vw, 300px" loading="lazy" className="object-cover w-full h-[250px] md:h-[350px]" />
+                                </div>
+                            </div>
+                        </motion.div>
 
-                {/* Animated Rings */}
-                <motion.div
-                    animate={{ scale: [1, 1.5, 1], opacity: [0.1, 0.2, 0.1] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gold-500/20 rounded-full"
-                />
-                <motion.div
-                    animate={{ scale: [1.5, 1, 1.5], opacity: [0.1, 0.2, 0.1] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-gold-500/20 rounded-full"
-                />
+                        {/* Text */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <span className="text-gold-600 font-semibold text-sm uppercase tracking-widest">Who We Are</span>
+                            <h2 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mt-3 mb-6">
+                                Patna's Most Trusted <br />Celebration Destination
+                            </h2>
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
+                                <p>
+                                    <strong className="text-navy-900">Alba Banquet Hall</strong> is more than a venue — it's where families come together to celebrate life's most precious moments. Located in the heart of Phulwari Sharif, we've been privileged to host weddings, receptions, and milestone events for thousands of families across Bihar.
+                                </p>
+                                <p>
+                                    Our philosophy is simple: treat every guest like family, and every event like our own. From our award-winning catering to our stunning décor, every detail is crafted with love and precision.
+                                </p>
+                            </div>
+
+                            {/* USPs */}
+                            <div className="grid grid-cols-2 gap-4 mt-8">
+                                {[
+                                    { icon: MapPin, text: "Prime Location" },
+                                    { icon: Utensils, text: "In-House Catering" },
+                                    { icon: Shield, text: "Trusted by 1500+ Families" },
+                                    { icon: Award, text: "Award-Winning Service" },
+                                ].map((item, i) => (
+                                    <div key={i} className="flex items-center gap-2 text-navy-800">
+                                        <div className="w-8 h-8 rounded-lg bg-gold-100 flex items-center justify-center">
+                                            <item.icon className="w-4 h-4 text-gold-600" />
+                                        </div>
+                                        <span className="text-sm font-medium">{item.text}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ==================== FOUNDER'S MESSAGE ==================== */}
+            <section className="py-12 lg:py-28 bg-champagne-50 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-20">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gold-400/30 rounded-full" />
+                </div>
 
                 <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <motion.div
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="inline-block mb-8"
-                        >
-                            <Sparkles className="w-8 h-8 sm:w-12 sm:h-12 text-gold-400" />
-                        </motion.div>
-
-                        <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-                            Ready to Create Your <br className="hidden sm:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">Perfect Celebration</span>?
+                        <Quote className="w-12 h-12 text-gold-400 mx-auto mb-6" />
+                        <h2 className="font-display text-xl md:text-3xl lg:text-4xl text-navy-900 leading-relaxed mb-6 md:mb-8">
+                            "When we started Alba in 2012, we had one dream — to give every family in Patna a venue where their celebrations feel <span className="text-gold-600">truly royal</span>. Today, seeing thousands of happy faces walk through our doors, I can say that dream has become our reality."
                         </h2>
-                        <p className="text-gray-300 text-sm sm:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto">
-                            Let us help you plan an event that will be remembered for generations.
-                        </p>
+                        <div className="flex items-center justify-center gap-4">
+                            <div className="w-16 h-16 rounded-full bg-gold-200 flex items-center justify-center">
+                                <Crown className="w-8 h-8 text-gold-600" />
+                            </div>
+                            <div className="text-left">
+                                <p className="font-display text-lg font-bold text-navy-900">The Alba Family</p>
+                                <p className="text-gold-700 text-sm">Founders, Alba Banquet Hall</p>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
 
+            {/* ==================== WHY CHOOSE US ==================== */}
+            <section className="py-12 lg:py-28 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-8 md:mb-14">
+                        <span className="text-gold-600 font-semibold text-sm uppercase tracking-widest">Our Promise</span>
+                        <h2 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mt-3">Why Families Trust Alba</h2>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-4 md:gap-8">
+                        {[
+                            {
+                                icon: Crown,
+                                title: "Royal Hospitality",
+                                desc: "Every guest is treated like royalty. Our dedicated team ensures your event is flawless from start to finish.",
+                                color: "from-amber-100 to-gold-200"
+                            },
+                            {
+                                icon: Heart,
+                                title: "Personal Touch",
+                                desc: "We understand the emotions behind every celebration. Your joy is our priority, and we plan every detail around it.",
+                                color: "from-rose-100 to-pink-200"
+                            },
+                            {
+                                icon: Sparkles,
+                                title: "Premium Quality",
+                                desc: "From our gourmet cuisine to elegant décor, we never compromise. Only the best for your special day.",
+                                color: "from-violet-100 to-purple-200"
+                            },
+                        ].map((val, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl border border-gray-100 hover:border-gold-200 hover:shadow-xl transition-all duration-300"
+                            >
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${val.color} flex items-center justify-center mb-5`}>
+                                    <val.icon className="w-7 h-7 text-navy-800" />
+                                </div>
+                                <h3 className="font-display text-xl font-bold text-navy-900 mb-3">{val.title}</h3>
+                                <p className="text-gray-600 leading-relaxed">{val.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ==================== CTA ==================== */}
+            <section className="relative py-16 md:py-24 bg-navy-900 overflow-hidden">
+                <div className="absolute inset-0">
+                    <Image src="/gallery/hall-seating.webp" alt="Hall Seating" fill sizes="100vw" loading="lazy" className="object-cover opacity-20" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/90 to-navy-900" />
+                </div>
+
+                <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <Sparkles className="w-10 h-10 text-gold-400 mx-auto mb-6" />
+                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                            Ready to Start Planning <br />Your Special Day?
+                        </h2>
+                        <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
+                            Let's turn your vision into reality. Schedule a visit to experience Alba Banquet Hall in person.
+                        </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link
                                 href="/contact"
-                                className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-900 font-bold rounded-lg sm:rounded-xl transition-all flex items-center gap-2 shadow-gold text-sm sm:text-base hover:scale-105 active:scale-95"
+                                className="group px-8 py-4 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-full transition-all flex items-center gap-2 shadow-gold"
                             >
-                                Schedule a Tour
+                                Schedule a Visit
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <motion.a
+                            <a
                                 href="tel:+919234953085"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/30 hover:border-gold-400 hover:bg-gold-400/10 text-white font-semibold rounded-lg sm:rounded-xl transition-all text-sm sm:text-base"
+                                className="px-8 py-4 border-2 border-white/20 hover:border-gold-400 text-white font-semibold rounded-full transition-all"
                             >
-                                Call Us
-                            </motion.a>
+                                Call +91 92349 53085
+                            </a>
                         </div>
                     </motion.div>
                 </div>
