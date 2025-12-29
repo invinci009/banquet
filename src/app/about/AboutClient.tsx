@@ -14,87 +14,186 @@ export default function AboutClient() {
             <Header />
 
             {/* ==================== HERO ==================== */}
-            <section className="relative pt-32 pb-20 lg:pb-32 overflow-hidden">
-                {/* Background: Dark navy at top fading to champagne */}
-                <div className="absolute inset-0 bg-gradient-to-b from-navy-900 via-navy-800 to-champagne-50" />
+            <section className="relative min-h-screen flex items-center overflow-hidden">
+                {/* Background */}
+                <div className="absolute inset-0 bg-navy-900" />
 
-                {/* Decorative */}
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gold-100/30 to-transparent pointer-events-none" />
-                <div className="absolute -left-20 top-1/3 w-80 h-80 bg-gold-200/40 rounded-full blur-3xl pointer-events-none" />
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0">
+                    <Image
+                        src="/gallery/building-front-lights.webp"
+                        alt="Alba Banquet Hall"
+                        fill
+                        priority
+                        className="object-cover opacity-40"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-navy-900/60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-navy-900/50" />
+                </div>
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {/* Decorative Elements */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
+                    <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gold-400/5 rounded-full blur-3xl" />
+
+                    {/* Floating Sparkles */}
+                    {[...Array(5)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            className="absolute w-1 h-1 bg-gold-400 rounded-full"
+                            style={{
+                                top: `${20 + i * 15}%`,
+                                left: `${10 + i * 20}%`,
+                            }}
+                            animate={{
+                                y: [0, -20, 0],
+                                opacity: [0.3, 1, 0.3],
+                            }}
+                            transition={{
+                                duration: 3 + i,
+                                repeat: Infinity,
+                                delay: i * 0.5,
+                            }}
+                        />
+                    ))}
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         {/* Text */}
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
+                            className="text-center lg:text-left"
                         >
-                            <span className="inline-flex items-center gap-2 text-gold-400 font-medium text-sm uppercase tracking-widest mb-4">
-                                <Crown className="w-4 h-4" /> About Alba Banquet
-                            </span>
-                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                                Where Every Celebration <br />
-                                <span className="text-gold-400">Becomes a Legacy</span>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.2 }}
+                                className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+                            >
+                                <Sparkles className="w-4 h-4 text-gold-400" />
+                                <span className="text-gold-300 text-sm font-medium">Since 2012 • Phulwari Sharif</span>
+                            </motion.div>
+
+                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6">
+                                Where Every
+                                <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500">
+                                    Celebration
+                                </span>
+                                <br />
+                                Becomes a Legacy
                             </h1>
-                            <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-lg">
-                                For over a decade, Alba Banquet Hall has been the heart of Patna's most cherished celebrations.
-                                We don't just host events — we create memories that last generations.
+
+                            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+                                For over a decade, we've been the canvas for Patna's most treasured moments — weddings, receptions, and celebrations that become lifelong memories.
                             </p>
-                            <div className="flex flex-wrap gap-4">
+
+                            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                                 <Link
                                     href="/contact"
-                                    className="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-6 py-3 rounded-full transition-all shadow-gold hover:shadow-gold-lg"
+                                    className="group inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold px-8 py-4 rounded-full transition-all shadow-gold hover:shadow-gold-lg"
                                 >
-                                    Plan Your Event <ArrowRight className="w-4 h-4" />
+                                    Plan Your Event
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                                 <a
                                     href="tel:+919234953085"
-                                    className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-gold-400 text-white font-semibold px-6 py-3 rounded-full transition-all"
+                                    className="inline-flex items-center gap-2 border-2 border-white/20 hover:border-gold-400 hover:bg-white/5 text-white font-semibold px-8 py-4 rounded-full transition-all"
                                 >
-                                    <Phone className="w-4 h-4" /> Call Us
+                                    <Phone className="w-5 h-5" /> Call Us
                                 </a>
                             </div>
+
+                            {/* Trust Indicators */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.8 }}
+                                className="flex flex-wrap justify-center lg:justify-start gap-6 mt-10 pt-10 border-t border-white/10"
+                            >
+                                {[
+                                    { value: "12+", label: "Years" },
+                                    { value: "1500+", label: "Events" },
+                                    { value: "4.9★", label: "Rating" },
+                                ].map((item, i) => (
+                                    <div key={i} className="text-center">
+                                        <div className="font-display text-2xl font-bold text-gold-400">{item.value}</div>
+                                        <div className="text-gray-400 text-sm">{item.label}</div>
+                                    </div>
+                                ))}
+                            </motion.div>
                         </motion.div>
 
-                        {/* Image */}
+                        {/* Image with Frame */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="relative"
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                            className="relative hidden lg:block"
                         >
+                            {/* Gold Frame */}
+                            <div className="absolute -inset-4 bg-gradient-to-br from-gold-400/20 via-gold-500/10 to-gold-400/20 rounded-3xl blur-sm" />
+                            <div className="absolute -inset-px bg-gradient-to-br from-gold-400/40 to-gold-600/20 rounded-3xl" />
+
                             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                                 <Image
-                                    src="/gallery/building-front-lights.webp"
-                                    alt="Alba Banquet Hall"
+                                    src="/gallery/building-exterior.webp"
+                                    alt="Alba Banquet Hall Exterior"
                                     width={600}
                                     height={500}
-                                    className="object-cover w-full h-[400px] lg:h-[500px]"
+                                    className="object-cover w-full h-[500px]"
                                     priority
                                 />
+                                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 to-transparent" />
                             </div>
+
                             {/* Floating Badge */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.6 }}
-                                className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5 border border-gold-100"
+                                transition={{ delay: 0.8 }}
+                                className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-gold-100"
                             >
                                 <div className="flex items-center gap-3">
-                                    <div className="w-14 h-14 rounded-full bg-gold-100 flex items-center justify-center">
-                                        <span className="font-display text-2xl font-bold text-gold-600">12+</span>
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
+                                        <Crown className="w-6 h-6 text-white" />
                                     </div>
                                     <div>
-                                        <p className="text-navy-900 font-bold">Years of Trust</p>
-                                        <p className="text-gray-500 text-sm">Serving Patna</p>
+                                        <p className="text-navy-900 font-bold text-sm">Premium Venue</p>
+                                        <p className="text-gray-500 text-xs">Trusted by Families</p>
                                     </div>
                                 </div>
                             </motion.div>
                         </motion.div>
                     </div>
                 </div>
+
+                {/* Scroll Indicator */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.2 }}
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center text-white/50"
+                >
+                    <span className="text-xs tracking-widest uppercase mb-2">Scroll</span>
+                    <motion.div
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ repeat: Infinity, duration: 1.5 }}
+                        className="w-5 h-8 border-2 border-white/30 rounded-full flex justify-center pt-1"
+                    >
+                        <motion.div
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{ repeat: Infinity, duration: 1.5 }}
+                            className="w-1 h-2 bg-gold-400 rounded-full"
+                        />
+                    </motion.div>
+                </motion.div>
             </section>
+
 
             {/* ==================== TRUST STATS ==================== */}
             <section className="py-10 md:py-16 bg-navy-900">
