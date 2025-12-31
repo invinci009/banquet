@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ServicesHero from "@/components/sections/ServicesHero";
 import EnhancedServices from "@/components/sections/EnhancedServices";
+import CateringPromo from "@/components/sections/CateringPromo";
 import ServiceProcess from "@/components/sections/ServiceProcess";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ServiceTestimonials from "@/components/sections/ServiceTestimonials";
@@ -18,6 +19,9 @@ export default function ServicesClient() {
 
             {/* Hero Section with Stats */}
             <ServicesHero />
+
+            {/* Catering Promotional Banner */}
+            <CateringPromo />
 
             {/* Comprehensive Services Grid */}
             <EnhancedServices />

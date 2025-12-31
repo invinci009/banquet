@@ -128,7 +128,7 @@ export default function ServicesHero() {
                             href="/contact"
                             className="btn-primary group"
                         >
-                            <span className="relative z-10">Get Free Consultation</span>
+                            <span className="relative z-10">Contact Us</span>
                         </a>
                         <a
                             href="tel:+919234953085"

@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useCallback, useEffect, useRef } from "react";
-import { X, ZoomIn, ChevronLeft, ChevronRight, Heart, Download, Share2, Sparkles, Camera, Star, Play, Pause } from "lucide-react";
+import { X, ZoomIn, ChevronLeft, ChevronRight, Heart, Download, Share2, Sparkles, Camera, Star } from "lucide-react";
 import Image from "next/image";
 
 // ... (lines 8-164 remain unchanged, handled by matching context or assuming file hasn't shifted much)
@@ -16,161 +16,311 @@ import Image from "next/image";
 // (Removed duplicate imports)
 
 const categories = [
-    { id: "all", label: "All Events", icon: "✨" },
-    { id: "venue", label: "Venue", icon: "🏛️" },
-    { id: "hall", label: "Hall", icon: "�" },
-    { id: "entrance", label: "Entrance", icon: "�" },
-    { id: "decor", label: "Decorations", icon: "🌸" },
-    { id: "catering", label: "Catering", icon: "🍽️" },
+    { id: "all", label: "All Events", icon: "" },
+    { id: "venue", label: "Venue", icon: "" },
+    { id: "hall", label: "Hall", icon: "" },
+    { id: "entrance", label: "Entrance", icon: "" },
+    { id: "decor", label: "Decorations", icon: "" },
+    { id: "catering", label: "Catering", icon: "" },
 ];
 
 const galleryImages = [
     {
         src: "/gallery/night-lawn-view.webp",
-        alt: "Alba Banquet Hall Night View with Fairy Lights and Lawn",
+        alt: "Alba Banquet Hall Patna Night View - Open Lawn with Fairy Lights for Wedding Reception",
+        title: "Night Lawn View at Alba Banquet",
         category: "venue",
         span: "col-span-2 row-span-2",
         featured: true,
     },
     {
         src: "/gallery/wedding-stage-roses.webp",
-        alt: "Beautiful Wedding Stage with Red Rose Decorations",
+        alt: "Wedding Stage Decoration with Red Roses at Alba Banquet Hall Patna Bihar",
+        title: "Rose Wedding Stage Decor",
         category: "decor",
         span: "col-span-2 row-span-1",
         featured: true,
     },
     {
         src: "/gallery/building-exterior.webp",
-        alt: "Alba Banquet Hall Building with Fairy Light Decoration",
+        alt: "Alba Banquet Hall Building Exterior with LED Lights - Best Wedding Venue in Patna",
+        title: "Alba Banquet Building",
         category: "venue",
         span: "col-span-1 row-span-2",
     },
     {
         src: "/gallery/hall-seating.webp",
-        alt: "AC Indoor Hall with Seating and Stage View",
+        alt: "AC Indoor Hall with 500+ Seating Capacity at Alba Banquet Hall Patna",
+        title: "AC Indoor Hall Seating",
         category: "hall",
         span: "col-span-1 row-span-1",
         featured: true,
     },
     {
         src: "/gallery/haldi-stage.webp",
-        alt: "Haldi/Mehendi Stage Setup with Yellow Decor",
+        alt: "Haldi Mehendi Ceremony Stage Setup with Yellow Flower Decoration Patna",
+        title: "Haldi Stage Setup",
         category: "decor",
         span: "col-span-1 row-span-1",
     },
     {
         src: "/gallery/building-entrance.webp",
-        alt: "Grand Building Entrance with Arch Design",
+        alt: "Grand Entrance Gate of Alba Banquet Hall - Wedding Venue Bailey Road Patna",
+        title: "Building Entrance",
         category: "venue",
         span: "col-span-1 row-span-1",
     },
     {
         src: "/gallery/changing-room.webp",
-        alt: "Complimentary Changing Room for Bride/Groom",
+        alt: "Complimentary Bride Groom Changing Room at Alba Banquet Hall Patna",
+        title: "Changing Room Facility",
         category: "hall",
         span: "col-span-1 row-span-1",
     },
     {
         src: "/gallery/entrance-decor.webp",
-        alt: "Traditional Red & Gold Marigold Entrance Decor",
+        alt: "Traditional Indian Wedding Entrance with Marigold Flowers at Alba Banquet Patna",
+        title: "Marigold Entrance Decor",
         category: "entrance",
         span: "col-span-2 row-span-1",
     },
     {
         src: "/gallery/indoor-hall.webp",
-        alt: "AC Indoor Hall with Stage and Seating",
+        alt: "Fully Air Conditioned Wedding Hall with Stage at Alba Banquet Patna Bihar",
+        title: "AC Indoor Wedding Hall",
         category: "hall",
         span: "col-span-1 row-span-2",
         featured: true,
     },
     {
         src: "/gallery/floral-gate.webp",
-        alt: "Colorful Floral Welcome Gate",
+        alt: "Colorful Floral Welcome Gate for Wedding Entry at Alba Banquet Hall",
+        title: "Floral Welcome Gate",
         category: "entrance",
         span: "col-span-1 row-span-1",
     },
     {
         src: "/gallery/mocktail-counter.webp",
-        alt: "Premium Mocktail Counter Setup",
+        alt: "Live Mocktail Counter Setup for Wedding Catering at Alba Banquet Patna",
+        title: "Mocktail Counter",
         category: "catering",
         span: "col-span-1 row-span-1",
     },
     {
         src: "/gallery/lawn-area.webp",
-        alt: "Spacious Open Lawn with Fairy Lights",
+        alt: "3000+ Capacity Open Lawn Area with Fairy Lights at Alba Banquet Hall Patna",
+        title: "Open Lawn Area",
         category: "venue",
         span: "col-span-2 row-span-1",
     },
     {
         src: "/gallery/food-counter.webp",
-        alt: "Elegant Food Counter with Hanging Lamps",
+        alt: "Elegant Food Counter with Premium Catering Service at Alba Banquet Hall Patna",
+        title: "Food Counter Setup",
         category: "catering",
         span: "col-span-2 row-span-1",
         featured: true,
     },
     {
         src: "/gallery/entrance-gate.webp",
-        alt: "Pink & White Entrance Gate with Flowers",
+        alt: "Pink White Flower Decoration Entrance Gate for Wedding at Alba Banquet Patna",
+        title: "Flower Entrance Gate",
         category: "entrance",
         span: "col-span-1 row-span-1",
     },
     {
         src: "/gallery/stage-decor.webp",
-        alt: "Wedding Stage with Floral Decorations",
+        alt: "Luxury Wedding Stage Decoration with Flowers at Alba Banquet Hall Patna Bihar",
+        title: "Luxury Stage Decor",
         category: "decor",
         span: "col-span-1 row-span-1",
     },
     {
         src: "/gallery/building-front-lights.webp",
-        alt: "Building Front with Beautiful LED Lights and Green Lawn",
+        alt: "Alba Banquet Hall Building Front View with LED Decoration - Wedding Venue Patna",
+        title: "Building Front Night View",
         category: "venue",
         span: "col-span-2 row-span-2",
         featured: true,
     },
     {
         src: "/gallery/hall-stage-view.webp",
-        alt: "AC Hall with Stage and Maroon Chair Setup",
+        alt: "AC Indoor Hall with Stage View and Chair Setup at Alba Banquet Patna",
+        title: "Hall Stage View",
         category: "hall",
         span: "col-span-2 row-span-1",
         featured: true,
     },
     {
         src: "/gallery/hall-wide-view.webp",
-        alt: "Wide View of AC Hall with Seating Arrangement",
+        alt: "Wide View of Air Conditioned Indoor Hall at Alba Banquet Hall Patna Bihar",
+        title: "AC Hall Panorama",
         category: "hall",
         span: "col-span-1 row-span-1",
     },
     {
         src: "/gallery/building-night-lights.webp",
-        alt: "Stunning Night View with Fairy Light Decoration",
+        alt: "Alba Banquet Hall Night View with Fairy Light Decoration - Best Caterers Patna",
+        title: "Night Light Decoration",
         category: "venue",
         span: "col-span-1 row-span-2",
     },
     {
         src: "/gallery/buffet-service.webp",
-        alt: "Live Buffet Service at Wedding Event",
+        alt: "Live Buffet Catering Service at Wedding Event - Alba Banquet Hall Patna",
+        title: "Live Buffet Service",
         category: "catering",
         span: "col-span-2 row-span-1",
         featured: true,
     },
     {
         src: "/gallery/catering-service.webp",
-        alt: "Professional Catering Service with Elegant Lamps",
+        alt: "Professional Wedding Catering Service Veg Non-Veg at Alba Banquet Patna",
+        title: "Catering Service",
         category: "catering",
         span: "col-span-1 row-span-1",
     },
     {
         src: "/gallery/reception-hall.webp",
-        alt: "Grand Reception Hall with Red Rose Stage Decoration",
+        alt: "Grand Wedding Reception Hall with Rose Stage at Alba Banquet Hall Patna Bihar",
+        title: "Reception Hall",
         category: "hall",
         span: "col-span-2 row-span-2",
         featured: true,
     },
     {
         src: "/gallery/buffet-staff.webp",
-        alt: "Professional Catering Staff at Buffet Counter",
+        alt: "Professional Catering Staff at Buffet Counter - Alba Banquet Hall Patna",
+        title: "Buffet Staff",
         category: "catering",
         span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/wedding-entrance-gate.jpg",
+        alt: "Colorful Wedding Entrance Gate Decoration at Alba Banquet Hall Bailey Road Patna",
+        title: "Wedding Entrance Gate",
+        category: "entrance",
+        span: "col-span-2 row-span-1",
+        featured: true,
+    },
+    {
+        src: "/gallery/decorated-corridor.jpg",
+        alt: "Beautifully Decorated Wedding Corridor at Alba Banquet Hall Patna Bihar",
+        title: "Decorated Corridor",
+        category: "entrance",
+        span: "col-span-1 row-span-2",
+    },
+    {
+        src: "/gallery/outdoor-seating-lights.jpg",
+        alt: "Outdoor Wedding Seating with Fairy Light Decoration at Alba Banquet Patna",
+        title: "Outdoor Seating",
+        category: "venue",
+        span: "col-span-2 row-span-1",
+    },
+    {
+        src: "/gallery/building-night-decor.jpg",
+        alt: "Alba Banquet Hall Night Event Decoration - Wedding Reception Venue Patna",
+        title: "Night Event Decor",
+        category: "venue",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/lawn-buffet-setup.jpg",
+        alt: "Open Lawn Buffet Setup for Wedding Reception at Alba Banquet Hall Patna",
+        title: "Lawn Buffet Setup",
+        category: "catering",
+        span: "col-span-2 row-span-1",
+        featured: true,
+    },
+    {
+        src: "/gallery/kitchen-cooking.png",
+        alt: "Live Kitchen Cooking Fresh Food for Wedding Catering at Alba Banquet Patna",
+        title: "Live Kitchen",
+        category: "catering",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/event-buffet-guests.jpg",
+        alt: "Wedding Guests Enjoying Buffet Service at Alba Banquet Hall Patna Bihar",
+        title: "Guest Buffet",
+        category: "catering",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/indoor-hall-event.png",
+        alt: "Indoor AC Hall Wedding Ceremony at Alba Banquet Hall Patna - 500 Capacity",
+        title: "Wedding Ceremony Hall",
+        category: "hall",
+        span: "col-span-2 row-span-1",
+        featured: true,
+    },
+    {
+        src: "/gallery/wedding-stage-floral.jpg",
+        alt: "Elegant Wedding Stage Red White Floral Decoration at Alba Banquet Hall Patna",
+        title: "Floral Stage Decor",
+        category: "decor",
+        span: "col-span-2 row-span-2",
+        featured: true,
+    },
+    {
+        src: "/gallery/lawn-aerial-view.jpg",
+        alt: "Aerial View of Decorated Open Lawn Night Event at Alba Banquet Hall Patna",
+        title: "Lawn Aerial View",
+        category: "venue",
+        span: "col-span-2 row-span-1",
+        featured: true,
+    },
+    {
+        src: "/gallery/wedding-stage-decorated.jpg",
+        alt: "Premium Wedding Stage with Luxury Floral Decoration at Alba Banquet Patna",
+        title: "Premium Stage",
+        category: "decor",
+        span: "col-span-1 row-span-2",
+    },
+    {
+        src: "/gallery/outdoor-seating-night.jpg",
+        alt: "Outdoor Night Seating with Colorful Lights at Alba Banquet Hall Patna Bihar",
+        title: "Night Seating",
+        category: "venue",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/buffet-guests-serving.jpg",
+        alt: "Guests Being Served at Outdoor Buffet - Alba Banquet Hall Catering Patna",
+        title: "Buffet Serving",
+        category: "catering",
+        span: "col-span-1 row-span-1",
+    },
+    {
+        src: "/gallery/buffet-queue.jpg",
+        alt: "Wedding Buffet Queue at Alba Banquet Hall - Best Caterers in Patna Bihar",
+        title: "Buffet Queue",
+        category: "catering",
+        span: "col-span-2 row-span-1",
+    },
+    {
+        src: "/gallery/catering-staff-serving.jpg",
+        alt: "Professional Catering Staff Serving Guests at Alba Banquet Hall Patna",
+        title: "Staff Serving",
+        category: "catering",
+        span: "col-span-1 row-span-1",
+        featured: true,
+    },
+    {
+        src: "/gallery/building-night-event.jpg",
+        alt: "Alba Banquet Hall Night Wedding Reception - Best Venue Bailey Road Patna",
+        title: "Night Wedding Reception",
+        category: "venue",
+        span: "col-span-2 row-span-2",
+        featured: true,
+    },
+    {
+        src: "/gallery/alba-building-lights.png",
+        alt: "Alba Banquet Hall Building with Beautiful Fairy Lights - Wedding Venue Patna",
+        title: "Building Fairy Lights",
+        category: "venue",
+        span: "col-span-2 row-span-1",
+        featured: true,
     },
 ];
 
@@ -183,7 +333,6 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
     const [activeCategory, setActiveCategory] = useState("all");
     const [likedImages, setLikedImages] = useState<Set<number>>(new Set());
-    const [isPlaying, setIsPlaying] = useState(false);
     const thumbnailScrollRef = useRef<HTMLDivElement>(null);
 
     const allFilteredImages = activeCategory === "all"
@@ -215,16 +364,7 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
         }
     }, [selectedImage, filteredImages]);
 
-    // Auto-advance for slideshow
-    useEffect(() => {
-        let interval: NodeJS.Timeout;
-        if (isPlaying && selectedImage !== null) {
-            interval = setInterval(() => {
-                navigateImage('next');
-            }, 3000);
-        }
-        return () => clearInterval(interval);
-    }, [isPlaying, selectedImage, navigateImage]);
+
 
     // Keyboard Navigation
     useEffect(() => {
@@ -244,11 +384,6 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
                     break;
                 case 'Escape':
                     setSelectedImage(null);
-                    setIsPlaying(false);
-                    break;
-                case ' ': // Spacebar to toggle play/pause
-                    e.preventDefault();
-                    setIsPlaying(prev => !prev);
                     break;
             }
         };
@@ -257,17 +392,17 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedImage, navigateImage]);
 
-    // Scroll active thumbnail into view
+    // Scroll active thumbnail to center
     useEffect(() => {
         if (selectedImage !== null && thumbnailScrollRef.current) {
-            const activeThumbnail = thumbnailScrollRef.current.children[selectedImage] as HTMLElement;
-            if (activeThumbnail) {
-                activeThumbnail.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                    inline: 'center'
-                });
-            }
+            const container = thumbnailScrollRef.current;
+            const thumbnailWidth = 64; // w-16 = 64px
+            const gap = 12; // gap-3 = 12px
+            const scrollPosition = selectedImage * (thumbnailWidth + gap) - (container.clientWidth / 2) + (thumbnailWidth / 2);
+            container.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
         }
     }, [selectedImage]);
 
@@ -327,7 +462,7 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
                                         }`}
                                 >
                                     <span>{cat.icon}</span>
-                                    <span className="hidden sm:inline">{cat.label}</span>
+                                    <span>{cat.label}</span>
                                 </motion.button>
                             ))}
                         </motion.div>
@@ -366,36 +501,38 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.4 }}
-                            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[200px] sm:auto-rows-[200px] md:auto-rows-[220px] gap-3 sm:gap-4"
+                            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 auto-rows-[140px] sm:auto-rows-[180px] md:auto-rows-[220px] gap-2 sm:gap-3 md:gap-4"
                         >
                             {filteredImages.map((image, index) => {
                                 // Smart Bento Grid for Limited View
                                 const limitedSpans = [
-                                    "sm:col-span-2 sm:row-span-2", // Large Main
-                                    "sm:col-span-2 sm:row-span-1", // Wide Top
-                                    "sm:col-span-1 sm:row-span-1", // Small Bottom
-                                    "sm:col-span-1 sm:row-span-1", // Small Bottom
+                                    "col-span-2 row-span-2 sm:col-span-2 sm:row-span-2", // Large Main
+                                    "col-span-2 row-span-1 sm:col-span-2 sm:row-span-1", // Wide Top
+                                    "col-span-1 row-span-1 sm:col-span-1 sm:row-span-1", // Small Bottom
+                                    "col-span-1 row-span-1 sm:col-span-1 sm:row-span-1", // Small Bottom
                                 ];
 
                                 const spanClass = limit && index < 4
                                     ? limitedSpans[index]
-                                    : `sm:${image.span}`;
+                                    : `col-span-1 sm:${image.span}`;
 
                                 return (
                                     <motion.div
                                         key={`${activeCategory}-${index}`}
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: index * 0.05, duration: 0.4 }}
-                                        className={`${spanClass} rounded-2xl sm:rounded-3xl overflow-hidden relative group cursor-pointer`}
+                                        transition={{ delay: index * 0.03, duration: 0.3 }}
+                                        className={`${spanClass} rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative group cursor-pointer`}
                                         onClick={() => setSelectedImage(index)}
                                     >
                                         <Image
                                             src={image.src}
                                             alt={image.alt}
+                                            title={image.title}
                                             fill
-                                            sizes="(max-width: 768px) 50vw, 25vw"
-                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 25vw"
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            loading={index < 8 ? "eager" : "lazy"}
                                         />
 
                                         {/* Gradient Overlay */}
@@ -477,133 +614,141 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 bg-navy-900/98 backdrop-blur-xl flex items-center justify-center"
+                        className="fixed inset-0 z-[100] bg-black"
                         onClick={() => setSelectedImage(null)}
                     >
-                        {/* Close Button */}
-                        <motion.button
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            onClick={() => setSelectedImage(null)}
-                            className="absolute top-4 right-4 sm:top-6 sm:right-6 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
-                        >
-                            <X className="w-6 h-6" />
-                        </motion.button>
+                        {/* Top Bar with Close Button */}
+                        <div className="absolute top-0 left-0 right-0 h-14 sm:h-16 bg-gradient-to-b from-black/90 to-transparent z-10 flex items-center justify-between px-2 sm:px-4">
+                            <p className="text-white text-xs sm:text-sm max-w-[45%] sm:max-w-[50%] truncate">
+                                {filteredImages[selectedImage]?.title || 'Gallery'}
+                            </p>
+                            <div className="flex items-center gap-2 sm:gap-3">
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); toggleLike(selectedImage, e); }}
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
+                                    title="Like this photo"
+                                >
+                                    <Heart className={`w-5 h-5 ${likedImages.has(selectedImage) ? 'fill-red-500 text-red-500' : ''}`} />
+                                </button>
+                                <button
+                                    onClick={async (e) => {
+                                        e.stopPropagation();
+                                        const imageTitle = filteredImages[selectedImage]?.alt || 'Alba Banquet Hall Photo';
+                                        const shareText = `✨ ${imageTitle}
 
-                        {/* Navigation Arrows */}
-                        <motion.button
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            onClick={(e) => { e.stopPropagation(); navigateImage('prev'); }}
-                            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                        >
-                            <ChevronLeft className="w-6 h-6" />
-                        </motion.button>
-                        <motion.button
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            onClick={(e) => { e.stopPropagation(); navigateImage('next'); }}
-                            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                        >
-                            <ChevronRight className="w-6 h-6" />
-                        </motion.button>
+🏛️ Alba Banquet Hall - Best Caterers in Patna
+📍 Opposite Taramandal, Bailey Road, Patna, Bihar 801503
 
-                        {/* Image Container */}
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            className="relative max-w-5xl max-h-[80vh] mx-4 rounded-2xl overflow-hidden shadow-2xl"
+⭐ 3000+ Capacity | 4.2★ Rating | 124+ Reviews
+
+🍽️ Premium Catering Services:
+• Veg Menu: ₹600/Person
+• Non-Veg Menu: ₹900/Person
+
+📞 Book Now: +91-8809-000-200
+
+🌐 Visit: ${typeof window !== 'undefined' ? window.location.origin : 'https://albabanquet.com'}`;
+
+                                        const shareData = {
+                                            title: 'Alba Banquet Hall - ' + imageTitle,
+                                            text: shareText,
+                                            url: typeof window !== 'undefined' ? window.location.href : 'https://albabanquet.com/gallery'
+                                        };
+
+                                        try {
+                                            if (navigator.share) {
+                                                await navigator.share(shareData);
+                                            } else {
+                                                await navigator.clipboard.writeText(shareText + '\n\n' + shareData.url);
+                                                alert('📋 Details copied to clipboard!');
+                                            }
+                                        } catch (err) {
+                                            console.log('Share cancelled or failed');
+                                        }
+                                    }}
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
+                                    title="Share this photo"
+                                >
+                                    <Share2 className="w-5 h-5" />
+                                </button>
+                                <button
+                                    onClick={() => setSelectedImage(null)}
+                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
+                                    title="Close"
+                                >
+                                    <X className="w-6 h-6" />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Main Image - Centered */}
+                        <div
+                            className="absolute inset-0 flex items-center justify-center p-2 sm:p-4 pt-16 sm:pt-20 pb-24 sm:pb-28"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <img
+                            <motion.img
+                                key={selectedImage}
                                 src={filteredImages[selectedImage]?.src}
                                 alt={filteredImages[selectedImage]?.alt}
-                                className="max-w-full max-h-[80vh] object-contain"
+                                title={filteredImages[selectedImage]?.title}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.2 }}
+                                className="max-w-full max-h-full object-contain rounded-lg"
+                                style={{ maxHeight: 'calc(100vh - 160px)' }}
                             />
+                        </div>
 
-                            {/* Bottom Info Bar */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy-900/90 via-navy-900/60 to-transparent p-4 sm:p-6"
-                            >
-                                <div className="flex items-center justify-between">
-                                    <div>
-                                        <p className="text-white font-medium text-sm sm:text-base mb-1">
-                                            {filteredImages[selectedImage]?.alt}
-                                        </p>
-                                        <p className="text-gray-400 text-xs sm:text-sm">
-                                            {selectedImage + 1} of {filteredImages.length} photos
-                                        </p>
-                                    </div>
-                                    <div className="flex items-center gap-2 sm:gap-3">
-                                        <motion.button
-                                            whileHover={{ scale: 1.1 }}
-                                            whileTap={{ scale: 0.9 }}
-                                            onClick={(e) => { e.stopPropagation(); setIsPlaying(!isPlaying); }}
-                                            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                                            title={isPlaying ? "Pause Slideshow" : "Play Slideshow"}
-                                        >
-                                            {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
-                                        </motion.button>
-                                        <motion.button
-                                            whileHover={{ scale: 1.1 }}
-                                            whileTap={{ scale: 0.9 }}
-                                            onClick={(e) => toggleLike(selectedImage, e)}
-                                            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                                        >
-                                            <Heart
-                                                className={`w-5 h-5 ${likedImages.has(selectedImage)
-                                                    ? 'fill-red-500 text-red-500'
-                                                    : ''
-                                                    }`}
-                                            />
-                                        </motion.button>
-                                        <motion.button
-                                            whileHover={{ scale: 1.1 }}
-                                            whileTap={{ scale: 0.9 }}
-                                            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                                        >
-                                            <Share2 className="w-5 h-5" />
-                                        </motion.button>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </motion.div>
-
-                        {/* Thumbnail Strip */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full max-w-[90vw] flex justify-center"
+                        {/* Navigation Arrows - Touch Friendly */}
+                        <button
+                            onClick={(e) => { e.stopPropagation(); navigateImage('prev'); }}
+                            className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 flex items-center justify-center text-white active:bg-black/80 z-10"
+                            aria-label="Previous image"
                         >
+                            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </button>
+                        <button
+                            onClick={(e) => { e.stopPropagation(); navigateImage('next'); }}
+                            className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 flex items-center justify-center text-white active:bg-black/80 z-10"
+                            aria-label="Next image"
+                        >
+                            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </button>
+
+                        {/* Counter */}
+                        <div className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 text-white text-xs sm:text-sm bg-black/60 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">
+                            {selectedImage + 1} / {filteredImages.length}
+                        </div>
+
+                        {/* Thumbnail Strip - Center Active */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/95 py-2 sm:py-3">
                             <div
                                 ref={thumbnailScrollRef}
-                                className="flex gap-2 overflow-x-auto pb-2 px-4 scrollbar-hide max-w-full"
+                                className="flex gap-2 sm:gap-3 overflow-x-auto scrollbar-hide px-[calc(50%-28px)] sm:px-[calc(50%-32px)]"
+                                style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth' }}
                             >
                                 {filteredImages.map((img, idx) => (
-                                    <motion.button
+                                    <button
                                         key={idx}
                                         onClick={(e) => { e.stopPropagation(); setSelectedImage(idx); }}
-                                        whileHover={{ scale: 1.1 }}
-                                        className={`flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-lg overflow-hidden transition-all ${selectedImage === idx
-                                            ? 'ring-2 ring-gold-400 ring-offset-2 ring-offset-navy-900 scale-110'
-                                            : 'opacity-50 hover:opacity-100'
+                                        data-index={idx}
+                                        aria-label={`View image ${idx + 1}`}
+                                        className={`flex-shrink-0 w-14 h-10 sm:w-16 sm:h-12 rounded overflow-hidden transition-all duration-300 ${selectedImage === idx
+                                            ? 'ring-2 ring-gold-400 opacity-100 scale-105'
+                                            : 'opacity-40 hover:opacity-70 scale-100'
                                             }`}
+                                        style={{ scrollSnapAlign: 'center' }}
                                     >
                                         <img
                                             src={img.src}
-                                            alt={img.alt}
+                                            alt=""
                                             className="w-full h-full object-cover"
+                                            loading="lazy"
                                         />
-                                    </motion.button>
+                                    </button>
                                 ))}
                             </div>
-                        </motion.div>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
