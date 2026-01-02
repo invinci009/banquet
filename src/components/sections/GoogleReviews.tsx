@@ -9,7 +9,7 @@ const reviews = [
         rating: 5,
         date: "Local Guide",
         text: "Located in a beautiful surrounding, the hall was very impressive. Space, facilities, decoration, everything screams high quality. I was a guest there and was mighty impressed with the amenities. Have heard the cost is affordable too. Overall I would highly recommend the hall for functions.",
-        avatar: "AI",
+        avatar: "AL",
     },
     {
         name: "Azra Aftab",

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 
 export default function WhatsAppButton() {
-    const phoneNumber = "917488151950"; // Alba Banquet Hall
+    const phoneNumber = "919234953085"; // Alba Banquet Hall
     const message = encodeURIComponent(
         "Hello! I would like to inquire about Alba Banquet Hall for my event."
     );

@@ -58,22 +58,23 @@ export default function CateringPromo() {
                             {/* Glow Effect */}
                             <div className="absolute -inset-4 bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 rounded-3xl opacity-15 blur-xl group-hover:opacity-25 transition-opacity duration-500" />
 
-                            {/* Image with proper rotation handling */}
-                            <div className="relative bg-white rounded-2xl shadow-2xl border border-gold-200/50 overflow-hidden p-4">
-                                <div
-                                    className="relative w-full overflow-hidden rounded-xl"
+                            {/* Image display with rotation */}
+                            <div
+                                className="relative rounded-2xl shadow-2xl overflow-hidden"
+                                style={{ aspectRatio: '16/12' }}
+                            >
+                                <img
+                                    src="/gallery/catering-promo.png"
+                                    alt="Alba Catering Services - Premium Catering in Patna"
                                     style={{
-                                        aspectRatio: '4/3'
+                                        position: 'absolute',
+                                        top: '50%',
+                                        left: '50%',
+                                        transform: 'translate(-50%, -50%) rotate(-90deg)',
+                                        height: '140%',
+                                        width: 'auto'
                                     }}
-                                >
-                                    <Image
-                                        src="/gallery/catering-promo.png"
-                                        alt="Alba Catering Services - Premium Catering in Patna"
-                                        fill
-                                        className="object-contain -rotate-90 scale-[1.35]"
-                                        priority
-                                    />
-                                </div>
+                                />
                             </div>
 
                             {/* Floating Badge */}

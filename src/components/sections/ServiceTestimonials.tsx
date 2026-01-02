@@ -11,7 +11,7 @@ const testimonials = [
         event: "Wedding Function",
         date: "Google Review",
         rating: 5,
-        avatar: "AI",
+        avatar: "AL",
         text: "Located in a beautiful surrounding, the hall was very impressive. Space, facilities, decoration, everything screams high quality. I was a guest there and was mighty impressed with the amenities. Have heard the cost is affordable too. Overall I would highly recommend the hall for functions.",
         highlight: "Impressive Facilities"
     },

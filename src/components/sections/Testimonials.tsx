@@ -21,7 +21,7 @@ const testimonials = [
     {
         name: "Ali Imran",
         role: "Wedding Function",
-        avatar: "AI",
+        avatar: "AL",
         quote: "Located in a beautiful surrounding, the hall was very impressive. Space, facilities, decoration, everything screams high quality. Overall I would highly recommend the hall for functions.",
         rating: 5,
     },
