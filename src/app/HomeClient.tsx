@@ -11,6 +11,7 @@ const WeddingJourney = dynamic(() => import("@/components/sections/WeddingJourne
 const VideoShowcase = dynamic(() => import("@/components/sections/VideoShowcase"), { ssr: false });
 const Features = dynamic(() => import("@/components/sections/Features"), { ssr: true });
 const Services = dynamic(() => import("@/components/sections/Services"), { ssr: true });
+const AvailabilitySection = dynamic(() => import("@/components/sections/AvailabilitySection"), { ssr: false });
 const Events = dynamic(() => import("@/components/sections/Events"), { ssr: false });
 const Gallery = dynamic(() => import("@/components/sections/Gallery"), { ssr: false });
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials"), { ssr: false });
@@ -39,6 +40,7 @@ export default function HomeClient() {
                 <VideoShowcase />
                 <Features />
                 <Services />
+                <AvailabilitySection />
 
                 <Events />
                 <Gallery limit={4} showFilter={false} />
