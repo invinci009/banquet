@@ -48,7 +48,6 @@ export default function HomeClient() {
                 <Testimonials />
                 <GoogleReviews />
                 <FAQ />
-                <Contact />
                 <CTA />
                 <Footer />
                 <WhatsAppButton />
