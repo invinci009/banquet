@@ -368,12 +368,16 @@ export default function DateAvailabilityChecker({
                         <div>
                             <p className="font-semibold text-green-800">Date Selected!</p>
                             <p className="text-sm text-green-600">
-                                {new Date(selectedDate).toLocaleDateString('en-IN', {
-                                    weekday: 'long',
-                                    day: 'numeric',
-                                    month: 'long',
-                                    year: 'numeric'
-                                })}
+                                {(() => {
+                                    const [year, month, day] = selectedDate.split('-').map(Number);
+                                    const date = new Date(year, month - 1, day);
+                                    return date.toLocaleDateString('en-IN', {
+                                        weekday: 'long',
+                                        day: 'numeric',
+                                        month: 'long',
+                                        year: 'numeric'
+                                    });
+                                })()}
                             </p>
                         </div>
                     </motion.div>
