@@ -369,7 +369,13 @@ export default function DateAvailabilityChecker({
                             <p className="font-semibold text-green-800">Date Selected!</p>
                             <p className="text-sm text-green-600">
                                 {(() => {
-                                    const [year, month, day] = selectedDate.split('-').map(Number);
+                                    // Handle both YYYY-MM-DD and DD/MM/YYYY formats
+                                    let year, month, day;
+                                    if (selectedDate.includes('/')) {
+                                        [day, month, year] = selectedDate.split('/').map(Number);
+                                    } else {
+                                        [year, month, day] = selectedDate.split('-').map(Number);
+                                    }
                                     const date = new Date(year, month - 1, day);
                                     return date.toLocaleDateString('en-IN', {
                                         weekday: 'long',
