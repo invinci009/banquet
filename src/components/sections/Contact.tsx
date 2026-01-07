@@ -17,6 +17,15 @@ const ContactMap = dynamic(() => import("./ContactMap"), {
     )
 });
 
+const DateAvailabilityChecker = dynamic(() => import("./DateAvailabilityChecker"), {
+    ssr: false,
+    loading: () => (
+        <div className="w-full h-64 bg-gray-50 rounded-2xl animate-pulse flex items-center justify-center">
+            <div className="text-gray-400">Loading Calendar...</div>
+        </div>
+    )
+});
+
 const contactInfo = [
     { icon: MapPin, title: "Visit Us", details: "Alba Colony, Phulwari Sharif, Patna - 05", highlight: "Premium Location" },
     { icon: Phone, title: "Call Us", details: "+91 92349 53085", link: "tel:+919234953085", highlight: "24/7 Available" },
@@ -217,11 +226,33 @@ export default function Contact() {
                     ))}
                 </motion.div>
 
-                <div className="max-w-4xl mx-auto">
+                {/* Calendar + Form Grid */}
+                <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    {/* Date Availability Checker */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <DateAvailabilityChecker
+                            selectedDate={formData.eventDate}
+                            onDateSelect={(date, dateString) => {
+                                // Format to DD/MM/YYYY for display
+                                const formatted = date.toLocaleDateString('en-IN', {
+                                    day: '2-digit',
+                                    month: '2-digit',
+                                    year: 'numeric'
+                                }).replace(/\//g, '/');
+                                setFormData({ ...formData, eventDate: formatted });
+                                setFieldErrors({ ...fieldErrors, eventDate: "" });
+                            }}
+                        />
+                    </motion.div>
+
                     {/* Form */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
                         <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
