@@ -51,7 +51,7 @@ const services = [
 
 export default function Services() {
     return (
-        <section id="services" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+        <section id="services" className="py-16 lg:py-20 bg-white relative overflow-hidden">
             {/* Background Decorations */}
             <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-gold-50 to-transparent" />
             <div className="absolute -right-40 top-1/2 w-80 h-80 bg-gold-200/30 rounded-full blur-3xl" />
@@ -63,7 +63,7 @@ export default function Services() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center max-w-3xl mx-auto mb-16"
+                    className="text-center max-w-3xl mx-auto mb-10"
                 >
                     <span className="section-subheading">Our Expertise</span>
                     <h2 className="section-heading mb-6">
@@ -91,35 +91,30 @@ export default function Services() {
                                 <div className="h-2 bg-gold-gradient" />
 
                                 {/* Content */}
-                                <div className="p-8">
-                                    {/* Icon */}
-                                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-100 to-gold-200 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                        <service.icon className="w-8 h-8 text-gold-600" />
+                                <div className="p-6">
+                                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-gold-100 to-gold-200 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <service.icon className="w-6 h-6 text-gold-600" />
                                     </div>
 
-                                    {/* Title */}
-                                    <h3 className="font-display text-2xl font-bold text-gold-900 mb-4">
+                                    <h3 className="font-display text-xl font-bold text-gold-900 mb-3">
                                         {service.title}
                                     </h3>
 
-                                    {/* Description */}
-                                    <p className="text-gold-700/70 leading-relaxed mb-6">
+                                    <p className="text-gold-700/70 text-sm leading-relaxed mb-4">
                                         {service.description}
                                     </p>
 
-                                    {/* Features List */}
-                                    <ul className="space-y-3 mb-8">
-                                        {service.features.map((feature) => (
-                                            <li key={feature} className="flex items-center gap-3">
-                                                <div className="w-5 h-5 rounded-full bg-gold-gradient flex items-center justify-center">
-                                                    <Check className="w-3 h-3 text-white" />
+                                    <ul className="space-y-2 mb-6">
+                                        {service.features.slice(0, 2).map((feature) => (
+                                            <li key={feature} className="flex items-center gap-2">
+                                                <div className="w-4 h-4 rounded-full bg-gold-gradient flex items-center justify-center">
+                                                    <Check className="w-2.5 h-2.5 text-white" />
                                                 </div>
                                                 <span className="text-gold-800 text-sm font-medium">
                                                     {feature}
                                                 </span>
                                             </li>
-                                        ))}
-                                    </ul>
+                                        ))}                                    </ul>
 
                                     {/* CTA */}
                                     <Link

@@ -16,7 +16,7 @@ const highlights = [
 
 export default function CateringPromo() {
     return (
-        <section className="py-16 lg:py-24 bg-gradient-to-b from-gold-50 via-white to-white relative overflow-hidden">
+        <section className="py-20 lg:py-28 bg-gradient-to-b from-gold-50 via-white to-white relative overflow-hidden">
             {/* Background Decorations */}
             <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-80 h-80 bg-gold-200/30 rounded-full blur-3xl" />
             <div className="absolute -right-40 bottom-0 w-96 h-96 bg-gold-100/40 rounded-full blur-3xl" />
@@ -142,7 +142,7 @@ export default function CateringPromo() {
                             </Link>
 
                             <Link
-                                href="#services-grid"
+                                href="/services"
                                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-gold-300 text-gold-700 font-bold rounded-full hover:bg-gold-50 hover:border-gold-400 transition-all duration-300 group"
                             >
                                 <span>View Services</span>

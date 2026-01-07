@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import { MapPin, Phone, Mail, Clock, Send, User, MessageSquare, Calendar, Sparkles, Star, CheckCircle, Heart } from "lucide-react";
+import { isDateBookable, formatDateString } from "@/data/availability";
 
 const ContactMap = dynamic(() => import("./ContactMap"), {
     ssr: false,
@@ -52,6 +53,7 @@ export default function Contact() {
     const [error, setError] = useState("");
     const [focusedField, setFocusedField] = useState<string | null>(null);
     const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+    const [bookedDates, setBookedDates] = useState<Set<string>>(new Set());
 
     const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "2d0784b3-e96c-4ac7-8ef0-94a2d85a576d";
 
@@ -78,6 +80,36 @@ export default function Contact() {
 
         if (!formData.eventType) {
             errors.eventType = "Please select an event type";
+        }
+
+        if (formData.eventDate) {
+            const [day, month, year] = formData.eventDate.split('/').map(Number);
+
+            // Basic format check
+            if (!day || !month || !year) {
+                errors.eventDate = "Invalid date format";
+            } else {
+                // Strict date validity check
+                const date = new Date(year, month - 1, day);
+                if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
+                    errors.eventDate = "Please enter a valid date";
+                } else {
+                    // Availability Checks
+                    if (!isDateBookable(date)) {
+                        const today = new Date();
+                        if (date < today) {
+                            errors.eventDate = "Date cannot be in the past";
+                        } else {
+                            errors.eventDate = "Date not available (too soon or too far)";
+                        }
+                    } else {
+                        const dateString = formatDateString(date);
+                        if (bookedDates.has(dateString)) {
+                            errors.eventDate = "This date is already booked. Please choose another.";
+                        }
+                    }
+                }
+            }
         }
 
         setFieldErrors(errors);
@@ -131,6 +163,34 @@ export default function Contact() {
         if (fieldErrors[name]) {
             setFieldErrors({ ...fieldErrors, [name]: "" });
         }
+
+        // Real-time validation for date
+        if (name === "eventDate" && value.length === 10) { // DD/MM/YYYY is 10 chars
+            const [day, month, year] = value.split('/').map(Number);
+            if (!day || !month || !year) {
+                // partial input or invalid
+            } else {
+                const date = new Date(year, month - 1, day);
+
+                if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
+                    setFieldErrors(prev => ({ ...prev, eventDate: "Invalid date" }));
+                } else if (!isDateBookable(date)) {
+                    const today = new Date();
+                    if (date < today) {
+                        setFieldErrors(prev => ({ ...prev, eventDate: "Date cannot be in the past" }));
+                    } else {
+                        setFieldErrors(prev => ({ ...prev, eventDate: "Date not available (too soon or too far)" }));
+                    }
+                } else {
+                    const dateString = formatDateString(date);
+                    if (bookedDates.has(dateString)) {
+                        setFieldErrors(prev => ({ ...prev, eventDate: "This date is already booked" }));
+                    } else {
+                        setFieldErrors(prev => ({ ...prev, eventDate: "" }));
+                    }
+                }
+            }
+        }
     };
 
     return (
@@ -145,16 +205,7 @@ export default function Contact() {
                 </div>
             </div>
 
-            {/* Floating Sparkles */}
-            {[...Array(5)].map((_, i) => (
-                <motion.div
-                    key={i}
-                    className="absolute w-2 h-2 bg-gold-400 rounded-full hidden lg:block"
-                    style={{ top: `${15 + i * 15}%`, left: `${5 + i * 20}%` }}
-                    animate={{ y: [0, -20, 0], opacity: [0.3, 0.8, 0.3], scale: [1, 1.3, 1] }}
-                    transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.3 }}
-                />
-            ))}
+
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -235,7 +286,15 @@ export default function Contact() {
                         viewport={{ once: true }}
                     >
                         <DateAvailabilityChecker
-                            selectedDate={formData.eventDate}
+                            selectedDate={(() => {
+                                if (!formData.eventDate) return "";
+                                const [day, month, year] = formData.eventDate.split('/');
+                                if (day && month && year) {
+                                    return `${year}-${month}-${day}`;
+                                }
+                                return formData.eventDate;
+                            })()}
+                            onBookedDatesChange={setBookedDates}
                             onDateSelect={(date, dateString) => {
                                 // Format to DD/MM/YYYY for display
                                 const formatted = date.toLocaleDateString('en-IN', {
@@ -387,8 +446,11 @@ export default function Contact() {
                                                         onBlur={() => setFocusedField(null)}
                                                         placeholder=""
                                                         pattern="\d{2}/\d{2}/\d{4}"
-                                                        className="w-full pl-14 pr-4 pt-6 pb-3 border-2 border-gray-100 rounded-xl focus:outline-none focus:border-gold-400 focus:ring-4 focus:ring-gold-100 transition-all text-navy-800 font-medium"
+                                                        className={`w-full pl-14 pr-4 pt-6 pb-3 border-2 rounded-xl focus:outline-none focus:border-gold-400 focus:ring-4 focus:ring-gold-100 transition-all text-navy-800 font-medium ${fieldErrors.eventDate ? 'border-red-400 bg-red-50 text-red-600' : 'border-gray-100'}`}
                                                     />
+                                                    {fieldErrors.eventDate && (
+                                                        <p className="text-red-500 text-xs mt-1 ml-2">{fieldErrors.eventDate}</p>
+                                                    )}
                                                 </div>
                                                 <div className="relative">
                                                     <label className={`absolute left-12 top-1 text-xs text-gold-600 font-medium pointer-events-none`}>

@@ -30,52 +30,18 @@ export default function ContactClient() {
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute inset-0 pattern-dots opacity-10" />
 
-                    {/* Animated Rings */}
-                    <motion.div
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-10"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                    >
+                    {/* Static Rings */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-5">
                         <div className="w-full h-full border border-gold-400 rounded-full" />
                         <div className="absolute inset-12 border border-gold-300 rounded-full" />
                         <div className="absolute inset-24 border border-gold-200 rounded-full" />
-                    </motion.div>
+                    </div>
 
-                    {/* Floating Orbs */}
-                    <motion.div
-                        className="absolute top-20 right-10 sm:right-20 w-64 sm:w-96 h-64 sm:h-96 bg-gold-500/15 rounded-full blur-3xl"
-                        animate={{ y: [0, 30, 0], x: [0, 15, 0] }}
-                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                    <motion.div
-                        className="absolute bottom-10 left-10 sm:left-20 w-48 sm:w-72 h-48 sm:h-72 bg-burgundy-500/10 rounded-full blur-3xl"
-                        animate={{ y: [0, -20, 0], x: [0, -10, 0] }}
-                        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                    />
+                    {/* Gradient Orbs (Static) */}
+                    <div className="absolute top-20 right-10 sm:right-20 w-64 sm:w-96 h-64 sm:h-96 bg-gold-500/5 rounded-full blur-3xl" />
+                    <div className="absolute bottom-10 left-10 sm:left-20 w-48 sm:w-72 h-48 sm:h-72 bg-burgundy-500/5 rounded-full blur-3xl" />
 
-                    {/* Floating Sparkles */}
-                    {[...Array(8)].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute hidden sm:block"
-                            style={{
-                                top: `${15 + Math.random() * 70}%`,
-                                left: `${5 + Math.random() * 90}%`,
-                            }}
-                            animate={{
-                                y: [0, -30, 0],
-                                opacity: [0.2, 0.8, 0.2],
-                                scale: [1, 1.5, 1],
-                            }}
-                            transition={{
-                                duration: 3 + Math.random() * 2,
-                                repeat: Infinity,
-                                delay: Math.random() * 2,
-                            }}
-                        >
-                            <Sparkles className="w-3 h-3 text-gold-400" />
-                        </motion.div>
-                    ))}
+
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

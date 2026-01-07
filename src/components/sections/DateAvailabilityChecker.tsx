@@ -14,6 +14,7 @@ import { fetchCalendarEvents, getBookedDatesFromEvents } from "@/lib/googleCalen
 interface DateAvailabilityCheckerProps {
     onDateSelect?: (date: Date, dateString: string) => void;
     selectedDate?: string;
+    onBookedDatesChange?: (dates: Set<string>) => void;
 }
 
 const MONTHS = [
@@ -25,7 +26,8 @@ const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default function DateAvailabilityChecker({
     onDateSelect,
-    selectedDate
+    selectedDate,
+    onBookedDatesChange
 }: DateAvailabilityCheckerProps) {
     const today = new Date();
     const [currentMonth, setCurrentMonth] = useState(today.getMonth());
@@ -62,6 +64,11 @@ export default function DateAvailabilityChecker({
         const staticDates = staticBookedDates.map(d => d.date);
         return new Set([...staticDates, ...calendarBookedDates]);
     }, [calendarBookedDates]);
+
+    // Notify parent of booked dates
+    useEffect(() => {
+        onBookedDatesChange?.(allBookedDates);
+    }, [allBookedDates, onBookedDatesChange]);
 
     // Check if a date is booked
     const isDateBooked = (date: Date): boolean => {

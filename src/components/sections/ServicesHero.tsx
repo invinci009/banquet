@@ -46,37 +46,6 @@ export default function ServicesHero() {
                     style={{ y: useTransform(scrollYProgress, [0, 1], [0, 100]) }}
                     className="absolute bottom-20 left-20 w-80 h-80 bg-burgundy-700/10 rounded-full blur-3xl"
                 />
-                <motion.div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-5"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                >
-                    <div className="w-full h-full border border-gold-500/30 rounded-full" />
-                    <div className="absolute inset-10 border border-gold-500/20 rounded-full" />
-                    <div className="absolute inset-20 border border-gold-500/10 rounded-full" />
-                </motion.div>
-
-                {/* Floating Sparkles */}
-                {[...Array(6)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-2 h-2 bg-gold-400 rounded-full"
-                        style={{
-                            top: `${20 + Math.random() * 60}%`,
-                            left: `${10 + Math.random() * 80}%`,
-                        }}
-                        animate={{
-                            y: [0, -30, 0],
-                            opacity: [0.3, 1, 0.3],
-                            scale: [1, 1.5, 1],
-                        }}
-                        transition={{
-                            duration: 3 + Math.random() * 2,
-                            repeat: Infinity,
-                            delay: Math.random() * 2,
-                        }}
-                    />
-                ))}
             </div>
 
             <motion.div style={{ opacity }} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

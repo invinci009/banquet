@@ -85,7 +85,7 @@ export default function WeddingJourney() {
     }));
 
     return (
-        <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-champagne-50 to-white relative overflow-hidden">
+        <section className="py-24 sm:py-32 lg:py-32 bg-gradient-to-b from-champagne-50 to-white relative overflow-hidden">
             {/* Decorative Background Elements */}
             <div className="absolute top-20 left-10 text-gold-200 opacity-20 hidden sm:block">
                 <Heart className="w-32 h-32 fill-current" />
@@ -101,7 +101,7 @@ export default function WeddingJourney() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center max-w-3xl mx-auto mb-12 sm:mb-20"
+                    className="text-center max-w-3xl mx-auto mb-8 sm:mb-12"
                 >
                     <div className="inline-flex items-center gap-2 bg-burgundy-50 text-burgundy-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                         <Heart className="w-3 h-3 sm:w-4 sm:h-4 fill-burgundy-500" />
@@ -158,7 +158,7 @@ export default function WeddingJourney() {
                         </motion.div>
 
                         {/* Journey Steps */}
-                        <div className="space-y-8 sm:space-y-16 lg:space-y-32">
+                        <div className="space-y-16 sm:space-y-24 lg:space-y-32">
                             {journeySteps.map((step, index) => (
                                 <motion.div
                                     key={step.title}
@@ -180,14 +180,14 @@ export default function WeddingJourney() {
                                     </div>
 
                                     {/* Content Card - Adjusted padding for mobile timeline */}
-                                    <div className={`pl-10 sm:pl-20 lg:pl-0 ${index % 2 === 0 ? "lg:text-right lg:pr-24" : "lg:col-start-2 lg:pl-24"}`}>
+                                    <div className={`pl-10 sm:pl-20 lg:pl-0 ${index % 2 === 0 ? "lg:text-right lg:pr-16" : "lg:col-start-2 lg:pl-16"}`}>
                                         <motion.div
                                             whileHover={{ scale: 1.02, y: -5 }}
                                             transition={{ duration: 0.3 }}
-                                            className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg sm:shadow-xl border border-gold-100 hover:shadow-gold hover:border-gold-300 transition-all duration-500"
+                                            className="bg-white rounded-xl sm:rounded-2xl lg:rounded-2xl p-3 sm:p-5 lg:p-5 shadow-lg sm:shadow-xl border border-gold-100 hover:shadow-gold hover:border-gold-300 transition-all duration-500"
                                         >
                                             {/* Step Header */}
-                                            <div className={`flex items-center gap-2.5 sm:gap-4 mb-3 sm:mb-5 ${index % 2 === 0 ? "lg:flex-row-reverse" : ""}`}>
+                                            <div className={`flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-3 ${index % 2 === 0 ? "lg:flex-row-reverse" : ""}`}>
                                                 <motion.div
                                                     whileHover={{ rotate: 360 }}
                                                     whileInView={{
@@ -196,9 +196,9 @@ export default function WeddingJourney() {
                                                     }}
                                                     viewport={{ once: true }}
                                                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                                                    className="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl lg:rounded-2xl bg-gradient-to-br from-gold-400 to-burgundy-500 flex items-center justify-center shadow-gold flex-shrink-0"
+                                                    className="w-10 h-10 sm:w-12 sm:h-12 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl lg:rounded-xl bg-gradient-to-br from-gold-400 to-burgundy-500 flex items-center justify-center shadow-gold flex-shrink-0"
                                                 >
-                                                    <step.icon className="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
+                                                    <step.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-6 lg:h-6 text-white" />
                                                 </motion.div>
                                                 <div className={`${index % 2 === 0 ? "lg:text-right" : ""} min-w-0 flex-1`}>
                                                     <motion.span
@@ -210,7 +210,7 @@ export default function WeddingJourney() {
                                                     >
                                                         Step {index + 1}
                                                     </motion.span>
-                                                    <h3 className="font-display text-base sm:text-xl lg:text-2xl font-bold text-gold-900 leading-tight">
+                                                    <h3 className="font-display text-base sm:text-lg lg:text-lg font-bold text-gold-900 leading-tight">
                                                         {step.title}
                                                     </h3>
                                                 </div>
@@ -222,7 +222,7 @@ export default function WeddingJourney() {
                                                 whileInView={{ opacity: 1 }}
                                                 viewport={{ once: true }}
                                                 transition={{ delay: 0.4 }}
-                                                className={`text-gold-700/80 mb-3 sm:mb-6 leading-relaxed text-xs sm:text-sm lg:text-lg ${index % 2 === 0 ? "lg:text-right" : ""}`}
+                                                className={`text-gold-700/80 mb-2 sm:mb-3 leading-relaxed text-xs sm:text-sm lg:text-sm ${index % 2 === 0 ? "lg:text-right" : ""}`}
                                             >
                                                 {step.description}
                                             </motion.p>
@@ -236,7 +236,7 @@ export default function WeddingJourney() {
                                                         whileInView={{ opacity: 1, scale: 1, y: 0 }}
                                                         viewport={{ once: true }}
                                                         transition={{ delay: 0.5 + i * 0.1, type: "spring", stiffness: 200 }}
-                                                        className="px-2 sm:px-3 lg:px-4 py-0.5 sm:py-1 lg:py-1.5 bg-gradient-to-r from-gold-50 to-champagne-100 text-gold-700 text-[10px] sm:text-xs lg:text-sm font-medium rounded-full border border-gold-200 hover:border-gold-400 transition-colors"
+                                                        className="px-2 sm:px-3 lg:px-3 py-0.5 sm:py-1 lg:py-1 bg-gradient-to-r from-gold-50 to-champagne-100 text-gold-700 text-[10px] sm:text-xs lg:text-xs font-medium rounded-full border border-gold-200 hover:border-gold-400 transition-colors"
                                                     >
                                                         {feature}
                                                     </motion.span>
@@ -269,7 +269,7 @@ export default function WeddingJourney() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, type: "spring" }}
-                        className="flex flex-col items-center mt-12 sm:mt-20 relative z-30"
+                        className="flex flex-col items-center mt-8 sm:mt-12 relative z-30"
                     >
                         {/* CONFETTI BURST - Shows when reaching end */}
                         {showBurst && (

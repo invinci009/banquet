@@ -16,7 +16,7 @@ export default function FloatingParticles() {
             {particles.map((particle) => (
                 <motion.div
                     key={particle.id}
-                    className="absolute text-gold-400/20"
+                    className="absolute text-gold-400/5"
                     style={{
                         left: `${particle.x}%`,
                         width: particle.size,

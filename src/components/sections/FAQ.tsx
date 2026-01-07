@@ -2,16 +2,12 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, HelpCircle, Sparkles } from "lucide-react";
+import { ChevronDown, HelpCircle, Sparkles, MessageCircle } from "lucide-react";
 
 const faqs = [
     {
         question: "What is the capacity of Alba Banquet Hall?",
         answer: "Our venue can accommodate 115 to 3,000 guests effortlessly. We have intimate spaces for small gatherings and a sprawling lawn for large weddings and grand celebrations.",
-    },
-    {
-        question: "What types of events can be hosted here?",
-        answer: "Alba Banquet Hall is ideal for Weddings, Receptions, Engagement ceremonies, Sangeet, Mehndi ceremonies, Baby Showers, Birthday parties, Corporate events, and other celebrations.",
     },
     {
         question: "Do you provide catering services?",
@@ -26,14 +22,6 @@ const faqs = [
         answer: "Yes, we have dedicated parking space available for vehicles. The venue provides convenient parking for your guests to ensure a hassle-free experience.",
     },
     {
-        question: "Are there changing rooms available?",
-        answer: "Yes, we provide 2 complimentary air-conditioned changing rooms for the bride and groom to prepare for their special day in comfort.",
-    },
-    {
-        question: "Is non-veg food and hawan allowed?",
-        answer: "Yes, non-vegetarian food is allowed at the venue. Hawan and traditional ceremonies are permitted. Baarat and overnight weddings are also allowed.",
-    },
-    {
         question: "What is your booking policy?",
         answer: "We require a booking amount of ₹10,000 to confirm your date. F&B taxes of 18% apply. We accept cash, bank transfers, and UPI payments.",
     },
@@ -43,38 +31,50 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="py-16 lg:py-24 bg-gradient-to-b from-champagne-50 to-white relative overflow-hidden">
-            {/* Decorative elements */}
-            <div className="absolute top-0 left-0 w-72 h-72 bg-gold-200/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-burgundy-100/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        <section className="py-16 lg:py-20 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 relative overflow-hidden">
+            {/* Animated background elements */}
+            <div className="absolute inset-0">
+                <div className="absolute inset-0 pattern-dots opacity-5" />
+                <motion.div
+                    animate={{
+                        background: [
+                            "radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 50%)"
+                        ]
+                    }}
+                    transition={{ duration: 10, repeat: Infinity }}
+                    className="absolute inset-0"
+                />
+            </div>
 
-            <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-12"
+                    className="text-center mb-10"
                 >
                     <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 bg-gold-100 border border-gold-200 px-4 py-2 rounded-full mb-4"
+                        className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 backdrop-blur-sm px-4 py-2 rounded-full mb-4"
                     >
-                        <HelpCircle className="w-4 h-4 text-gold-600" />
-                        <span className="text-gold-700 font-medium text-sm">Have Questions?</span>
+                        <HelpCircle className="w-4 h-4 text-gold-400" />
+                        <span className="text-gold-300 font-medium text-sm">Have Questions?</span>
                     </motion.div>
-                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-navy-800 mb-4">
-                        Frequently Asked <span className="text-gold-600">Questions</span>
+                    <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
+                        Frequently Asked <span className="text-gold-400">Questions</span>
                     </h2>
-                    <p className="text-gold-700/70 text-lg max-w-2xl mx-auto">
+                    <p className="text-gray-400 text-base max-w-xl mx-auto">
                         Everything you need to know about hosting your event at Alba Banquet Hall
                     </p>
                 </motion.div>
 
-                {/* FAQ Accordion */}
-                <div className="space-y-4">
+                {/* FAQ Grid - Split layout for desktop */}
+                <div className="grid lg:grid-cols-2 gap-4">
                     {faqs.map((faq, index) => (
                         <motion.div
                             key={index}
@@ -82,31 +82,46 @@ export default function FAQ() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05 }}
+                            className={index === faqs.length - 1 && faqs.length % 2 !== 0 ? "lg:col-span-2 lg:max-w-[calc(50%-0.5rem)]" : ""}
                         >
                             <div
-                                className={`bg-white rounded-2xl border-2 transition-all duration-300 overflow-hidden ${openIndex === index
-                                    ? "border-gold-400 shadow-gold"
-                                    : "border-gray-100 hover:border-gold-200 shadow-lg"
+                                className={`relative bg-white/5 backdrop-blur-sm rounded-xl border transition-all duration-300 overflow-hidden group ${openIndex === index
+                                        ? "border-gold-500/50 shadow-lg shadow-gold-500/10"
+                                        : "border-white/10 hover:border-gold-500/30"
                                     }`}
                             >
+                                {/* Gradient accent line */}
+                                <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-gold-400 to-gold-600 transition-opacity duration-300 ${openIndex === index ? "opacity-100" : "opacity-0"
+                                    }`} />
+
                                 <button
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                    className="w-full flex items-center justify-between p-5 sm:p-6 text-left"
+                                    className="w-full flex items-center gap-4 p-5 text-left"
                                 >
-                                    <span className="font-semibold text-navy-800 pr-4 text-sm sm:text-base">
+                                    {/* Number badge */}
+                                    <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm transition-all duration-300 ${openIndex === index
+                                            ? "bg-gold-gradient text-navy-900"
+                                            : "bg-white/10 text-gold-400"
+                                        }`}>
+                                        {String(index + 1).padStart(2, '0')}
+                                    </div>
+
+                                    <span className="flex-1 font-medium text-white text-sm sm:text-base pr-2">
                                         {faq.question}
                                     </span>
+
                                     <motion.div
                                         animate={{ rotate: openIndex === index ? 180 : 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index
-                                            ? "bg-gold-500 text-white"
-                                            : "bg-gold-100 text-gold-600"
+                                        className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors ${openIndex === index
+                                                ? "bg-gold-500 text-navy-900"
+                                                : "bg-white/10 text-gold-400"
                                             }`}
                                     >
                                         <ChevronDown className="w-4 h-4" />
                                     </motion.div>
                                 </button>
+
                                 <AnimatePresence>
                                     {openIndex === index && (
                                         <motion.div
@@ -115,12 +130,10 @@ export default function FAQ() {
                                             exit={{ height: 0, opacity: 0 }}
                                             transition={{ duration: 0.3 }}
                                         >
-                                            <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0">
-                                                <div className="pt-4 border-t border-gold-100">
-                                                    <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                                                        {faq.answer}
-                                                    </p>
-                                                </div>
+                                            <div className="px-5 pb-5 pl-[4.25rem]">
+                                                <p className="text-gray-300 leading-relaxed text-sm">
+                                                    {faq.answer}
+                                                </p>
                                             </div>
                                         </motion.div>
                                     )}
@@ -135,15 +148,16 @@ export default function FAQ() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-12 text-center"
+                    className="mt-10 flex justify-center"
                 >
-                    <div className="inline-flex items-center gap-2 bg-navy-900 text-white px-6 py-4 rounded-2xl">
-                        <Sparkles className="w-5 h-5 text-gold-400" />
-                        <span className="text-sm sm:text-base">Still have questions?</span>
-                        <a href="/contact" className="font-semibold text-gold-400 hover:text-gold-300 underline underline-offset-2">
-                            Contact Us
-                        </a>
-                    </div>
+                    <a
+                        href="/contact"
+                        className="group inline-flex items-center gap-3 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 px-6 py-3 rounded-full font-semibold shadow-lg shadow-gold-500/20 hover:shadow-xl hover:shadow-gold-500/30 hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                        <MessageCircle className="w-5 h-5" />
+                        <span>Still have questions? Contact Us</span>
+                        <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                    </a>
                 </motion.div>
             </div>
         </section>

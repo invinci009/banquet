@@ -36,26 +36,7 @@ export default function AboutClient() {
                     <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
                     <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gold-400/5 rounded-full blur-3xl" />
 
-                    {/* Floating Sparkles */}
-                    {[...Array(5)].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute w-1 h-1 bg-gold-400 rounded-full"
-                            style={{
-                                top: `${20 + i * 15}%`,
-                                left: `${10 + i * 20}%`,
-                            }}
-                            animate={{
-                                y: [0, -20, 0],
-                                opacity: [0.3, 1, 0.3],
-                            }}
-                            transition={{
-                                duration: 3 + i,
-                                repeat: Infinity,
-                                delay: i * 0.5,
-                            }}
-                        />
-                    ))}
+
                 </div>
 
                 {/* Content */}
