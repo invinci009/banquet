@@ -352,11 +352,7 @@ export default function DateAvailabilityChecker({
                         </div>
                     </div>
                     {/* Sync status */}
-                    {lastSynced && (
-                        <p className="text-center text-xs text-gray-400 mt-2">
-                            Synced with Google Calendar • {lastSynced.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
-                        </p>
-                    )}
+
                 </div>
             </div>
 

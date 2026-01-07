@@ -95,6 +95,26 @@ export default function WeddingJourney() {
             </div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                {/* Transition Explanation */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col items-center justify-center text-center mb-16 lg:mb-24"
+                >
+                    <motion.div
+                        initial={{ height: 0 }}
+                        whileInView={{ height: 64 }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        className="w-px bg-gold-300 mb-6"
+                    />
+                    <h3 className="text-gold-600 font-display text-xl sm:text-2xl mb-3">~ Planning Made Simple ~</h3>
+                    <p className="text-navy-600 max-w-xl leading-relaxed">
+                        Wondering how it all comes together? We&apos;ve curated a seamless timeline to ensure every moment of your celebration is perfectly orchestrated.
+                    </p>
+                </motion.div>
+
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
