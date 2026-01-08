@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Inter, Playfair_Display } from "next/font/google";
+import SmoothScroll from "@/components/ui/SmoothScroll";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -531,6 +532,7 @@ export default function RootLayout({
                 <meta name="DC.language" content="en-IN" />
             </head>
             <body className={`${inter.variable} ${playfair.variable} min-h-screen bg-champagne-50 text-navy-800 antialiased overflow-x-hidden`}>
+                <SmoothScroll />
                 {children}
             </body>
         </html>

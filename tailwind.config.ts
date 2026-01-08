@@ -61,6 +61,7 @@ const config: Config = {
                     700: "#1a1a2e", // Primary Navy
                     800: "#141424",
                     900: "#0E0E1A",
+                    950: "#05050A",
                 },
             },
             fontFamily: {

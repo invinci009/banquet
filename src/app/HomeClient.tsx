@@ -3,9 +3,9 @@
 import dynamic from "next/dynamic";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import HeroEditorial from "@/components/sections/HeroEditorial"; // The New High-End Slider Hero
 
 // Lazy load all below-the-fold components for faster LCP
+const HeroCinematic = dynamic(() => import("@/components/sections/HeroCinematic"), { ssr: true }); // New Editorial About
 const AboutLuxury = dynamic(() => import("@/components/sections/AboutLuxury"), { ssr: true }); // New Editorial About
 const FeaturesInteractive = dynamic(() => import("@/components/sections/FeaturesInteractive"), { ssr: true }); // Refined Interactive Features
 const WeddingJourney = dynamic(() => import("@/components/sections/WeddingJourney"), { ssr: false });
@@ -30,9 +30,8 @@ export default function HomeClient() {
     return (
         <InitialLoader>
             <main className="relative bg-white">
-                <FloatingParticles />
                 <Header />
-                <HeroEditorial />
+                <HeroCinematic />
 
                 <AboutLuxury />
                 <FeaturesInteractive />
