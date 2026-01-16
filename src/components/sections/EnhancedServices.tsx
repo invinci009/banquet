@@ -30,8 +30,8 @@ export default function EnhancedServices() {
                 >
                     <span className="section-subheading">Our Expertise</span>
                     <h2 className="section-heading mb-6">
-                        Premium{" "}
-                        <span className="text-gold-600">Catering Services</span>
+                        Explore Our{" "}
+                        <span className="text-gold-600">Services</span>
                     </h2>
                     <p className="text-gold-800/70 text-lg">
                         Be a guest on your party! We offer a complete range of catering services

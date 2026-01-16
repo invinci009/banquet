@@ -29,17 +29,20 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/images/services-og.jpg",
+                url: "/gallery/catering-service.webp",
                 width: 1200,
                 height: 630,
-                alt: "Alba Banquet Hall"
+                alt: "Alba Banquet Hall Premium Catering Services in Patna"
             }
         ]
     },
     twitter: {
         card: "summary_large_image",
         title: "Premium Catering Services | Alba Banquet Hall",
-        description: "Wedding, Corporate, Buffet, Dinner & Snack Catering in Patna. Be a Guest on Your Party!"
+        description: "Wedding, Corporate, Buffet, Dinner & Snack Catering in Patna. Be a Guest on Your Party!",
+        images: ["/gallery/catering-service.webp"],
+        creator: "@albacatering",
+        site: "@albacatering",
     },
     robots: {
         index: true,
