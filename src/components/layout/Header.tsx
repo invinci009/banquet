@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronDown, Sparkles } from "lucide-react";
 
@@ -40,10 +41,13 @@ export default function Header() {
                         <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
                             <div className="relative">
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-gold group-hover:shadow-gold-lg transition-shadow duration-300">
-                                    <img
+                                    <Image
                                         src="/logo.png"
                                         alt="Alba Banquet Hall Logo"
+                                        width={48}
+                                        height={48}
                                         className="w-full h-full object-contain"
+                                        priority
                                     />
                                 </div>
                                 <div className="absolute -inset-1 bg-gold-gradient rounded-full blur opacity-30 group-hover:opacity-50 transition-opacity -z-10" />

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { Sparkles, Star, Award, Users, Calendar } from "lucide-react";
 import { useRef } from "react";
 
@@ -25,10 +26,13 @@ export default function ServicesHero() {
         <section ref={containerRef} className="relative pt-32 pb-24 lg:pb-32 bg-navy-900 overflow-hidden min-h-[85vh] flex items-center">
             {/* Background Image */}
             <div className="absolute inset-0">
-                <img
+                <Image
                     src="/gallery/catering-service.webp"
                     alt="Premium Catering Service"
-                    className="w-full h-full object-cover opacity-70"
+                    fill
+                    sizes="100vw"
+                    className="object-cover opacity-70"
+                    priority
                 />
                 {/* Gradient Overlays for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-r from-navy-900/80 via-navy-900/50 to-transparent" />
