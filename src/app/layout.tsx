@@ -466,25 +466,6 @@ export default function RootLayout({
     return (
         <html lang="en-IN" className="scroll-smooth" dir="ltr">
             <head>
-                {/* Preconnect for performance */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link rel="preconnect" href="https://lh3.googleusercontent.com" />
-                <link rel="preconnect" href="https://images.unsplash.com" />
-                <link rel="preconnect" href="https://images.pexels.com" />
-
-                {/* DNS Prefetch */}
-                <link rel="dns-prefetch" href="https://api.web3forms.com" />
-                <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-                <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-
-                {/* Preload critical fonts */}
-                <link
-                    rel="preload"
-                    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
-                    as="style"
-                />
-
                 {/* Comprehensive Structured Data */}
                 <script
                     type="application/ld+json"

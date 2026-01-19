@@ -276,7 +276,7 @@ export default function Footer() {
                 </motion.div>
             </div>
 
-            {/* Scroll to Top Button - positioned above WhatsApp button on mobile */}
+            {/* Scroll to Top Button */}
             <button
                 onClick={scrollToTop}
                 className="fixed bottom-8 right-8 w-10 h-10 sm:w-12 sm:h-12 bg-gold-500 text-navy-900 rounded-full shadow-gold flex items-center justify-center hover:bg-gold-400 hover:shadow-gold-lg transition-all duration-300 z-40"

@@ -491,28 +491,16 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.4 }}
-                            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 auto-rows-[140px] sm:auto-rows-[180px] md:auto-rows-[220px] gap-2 sm:gap-3 md:gap-4"
+                            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4"
                         >
                             {filteredImages.map((image, index) => {
-                                // Smart Bento Grid for Limited View
-                                const limitedSpans = [
-                                    "col-span-2 row-span-2 sm:col-span-2 sm:row-span-2", // Large Main
-                                    "col-span-2 row-span-1 sm:col-span-2 sm:row-span-1", // Wide Top
-                                    "col-span-1 row-span-1 sm:col-span-1 sm:row-span-1", // Small Bottom
-                                    "col-span-1 row-span-1 sm:col-span-1 sm:row-span-1", // Small Bottom
-                                ];
-
-                                const spanClass = limit && index < 4
-                                    ? limitedSpans[index]
-                                    : `col-span-1 sm:${image.span}`;
-
                                 return (
                                     <motion.div
                                         key={`${activeCategory}-${index}`}
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ delay: index * 0.03, duration: 0.3 }}
-                                        className={`${spanClass} rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative group cursor-pointer`}
+                                        className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative group cursor-pointer aspect-[4/3]"
                                         onClick={() => setSelectedImage(index)}
                                     >
                                         <Image
@@ -520,7 +508,7 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
                                             alt={image.alt}
                                             title={image.title}
                                             fill
-                                            sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 25vw"
+                                            sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
                                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                                             loading={index < 8 ? "eager" : "lazy"}
                                         />
@@ -595,36 +583,37 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
                         </a>
                     </motion.div>
                 )}
-            </section>
+            </section >
 
             {/* Premium Lightbox */}
             <AnimatePresence>
-                {selectedImage !== null && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] bg-black"
-                        onClick={() => setSelectedImage(null)}
-                    >
-                        {/* Top Bar with Close Button */}
-                        <div className="absolute top-0 left-0 right-0 h-14 sm:h-16 bg-gradient-to-b from-black/90 to-transparent z-10 flex items-center justify-between px-2 sm:px-4">
-                            <p className="text-white text-xs sm:text-sm max-w-[45%] sm:max-w-[50%] truncate">
-                                {filteredImages[selectedImage]?.title || 'Gallery'}
-                            </p>
-                            <div className="flex items-center gap-2 sm:gap-3">
-                                <button
-                                    onClick={(e) => { e.stopPropagation(); toggleLike(selectedImage, e); }}
-                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
-                                    title="Like this photo"
-                                >
-                                    <Heart className={`w-5 h-5 ${likedImages.has(selectedImage) ? 'fill-red-500 text-red-500' : ''}`} />
-                                </button>
-                                <button
-                                    onClick={async (e) => {
-                                        e.stopPropagation();
-                                        const imageTitle = filteredImages[selectedImage]?.alt || 'Alba Banquet Hall Photo';
-                                        const shareText = `✨ ${imageTitle}
+                {
+                    selectedImage !== null && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[100] bg-black"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            {/* Top Bar with Close Button */}
+                            <div className="absolute top-0 left-0 right-0 h-14 sm:h-16 bg-gradient-to-b from-black/90 to-transparent z-10 flex items-center justify-between px-2 sm:px-4">
+                                <p className="text-white text-xs sm:text-sm max-w-[45%] sm:max-w-[50%] truncate">
+                                    {filteredImages[selectedImage]?.title || 'Gallery'}
+                                </p>
+                                <div className="flex items-center gap-2 sm:gap-3">
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); toggleLike(selectedImage, e); }}
+                                        className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
+                                        title="Like this photo"
+                                    >
+                                        <Heart className={`w-5 h-5 ${likedImages.has(selectedImage) ? 'fill-red-500 text-red-500' : ''}`} />
+                                    </button>
+                                    <button
+                                        onClick={async (e) => {
+                                            e.stopPropagation();
+                                            const imageTitle = filteredImages[selectedImage]?.alt || 'Alba Banquet Hall Photo';
+                                            const shareText = `✨ ${imageTitle}
 
 🏛️ Alba Banquet Hall - Best Caterers in Patna
 📍 Opposite Taramandal, Bailey Road, Patna, Bihar 801503
@@ -639,109 +628,110 @@ export default function Gallery({ limit, showFilter = true }: GalleryProps) {
 
 🌐 Visit: ${typeof window !== 'undefined' ? window.location.origin : 'https://albabanquet.com'}`;
 
-                                        const shareData = {
-                                            title: 'Alba Banquet Hall - ' + imageTitle,
-                                            text: shareText,
-                                            url: typeof window !== 'undefined' ? window.location.href : 'https://albabanquet.com/gallery'
-                                        };
+                                            const shareData = {
+                                                title: 'Alba Banquet Hall - ' + imageTitle,
+                                                text: shareText,
+                                                url: typeof window !== 'undefined' ? window.location.href : 'https://albabanquet.com/gallery'
+                                            };
 
-                                        try {
-                                            if (navigator.share) {
-                                                await navigator.share(shareData);
-                                            } else {
-                                                await navigator.clipboard.writeText(shareText + '\n\n' + shareData.url);
-                                                alert('📋 Details copied to clipboard!');
+                                            try {
+                                                if (navigator.share) {
+                                                    await navigator.share(shareData);
+                                                } else {
+                                                    await navigator.clipboard.writeText(shareText + '\n\n' + shareData.url);
+                                                    alert('📋 Details copied to clipboard!');
+                                                }
+                                            } catch (err) {
+                                                console.log('Share cancelled or failed');
                                             }
-                                        } catch (err) {
-                                            console.log('Share cancelled or failed');
-                                        }
-                                    }}
-                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
-                                    title="Share this photo"
-                                >
-                                    <Share2 className="w-5 h-5" />
-                                </button>
-                                <button
-                                    onClick={() => setSelectedImage(null)}
-                                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
-                                    title="Close"
-                                >
-                                    <X className="w-6 h-6" />
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* Main Image - Centered */}
-                        <div
-                            className="absolute inset-0 flex items-center justify-center p-2 sm:p-4 pt-16 sm:pt-20 pb-24 sm:pb-28"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <motion.img
-                                key={selectedImage}
-                                src={filteredImages[selectedImage]?.src}
-                                alt={filteredImages[selectedImage]?.alt}
-                                title={filteredImages[selectedImage]?.title}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.2 }}
-                                className="max-w-full max-h-full object-contain rounded-lg"
-                                style={{ maxHeight: 'calc(100vh - 160px)' }}
-                            />
-                        </div>
-
-                        {/* Navigation Arrows - Touch Friendly */}
-                        <button
-                            onClick={(e) => { e.stopPropagation(); navigateImage('prev'); }}
-                            className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 flex items-center justify-center text-white active:bg-black/80 z-10"
-                            aria-label="Previous image"
-                        >
-                            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-                        </button>
-                        <button
-                            onClick={(e) => { e.stopPropagation(); navigateImage('next'); }}
-                            className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 flex items-center justify-center text-white active:bg-black/80 z-10"
-                            aria-label="Next image"
-                        >
-                            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-                        </button>
-
-                        {/* Counter */}
-                        <div className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 text-white text-xs sm:text-sm bg-black/60 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">
-                            {selectedImage + 1} / {filteredImages.length}
-                        </div>
-
-                        {/* Thumbnail Strip - Center Active */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/95 py-2 sm:py-3">
-                            <div
-                                ref={thumbnailScrollRef}
-                                className="flex gap-2 sm:gap-3 overflow-x-auto scrollbar-hide px-[calc(50%-28px)] sm:px-[calc(50%-32px)]"
-                                style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth' }}
-                            >
-                                {filteredImages.map((img, idx) => (
-                                    <button
-                                        key={idx}
-                                        onClick={(e) => { e.stopPropagation(); setSelectedImage(idx); }}
-                                        data-index={idx}
-                                        aria-label={`View image ${idx + 1}`}
-                                        className={`flex-shrink-0 w-14 h-10 sm:w-16 sm:h-12 rounded overflow-hidden transition-all duration-300 ${selectedImage === idx
-                                            ? 'ring-2 ring-gold-400 opacity-100 scale-105'
-                                            : 'opacity-40 hover:opacity-70 scale-100'
-                                            }`}
-                                        style={{ scrollSnapAlign: 'center' }}
+                                        }}
+                                        className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
+                                        title="Share this photo"
                                     >
-                                        <img
-                                            src={img.src}
-                                            alt=""
-                                            className="w-full h-full object-cover"
-                                            loading="lazy"
-                                        />
+                                        <Share2 className="w-5 h-5" />
                                     </button>
-                                ))}
+                                    <button
+                                        onClick={() => setSelectedImage(null)}
+                                        className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
+                                        title="Close"
+                                    >
+                                        <X className="w-6 h-6" />
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+
+                            {/* Main Image - Centered */}
+                            <div
+                                className="absolute inset-0 flex items-center justify-center p-2 sm:p-4 pt-16 sm:pt-20 pb-24 sm:pb-28"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <motion.img
+                                    key={selectedImage}
+                                    src={filteredImages[selectedImage]?.src}
+                                    alt={filteredImages[selectedImage]?.alt}
+                                    title={filteredImages[selectedImage]?.title}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="max-w-full max-h-full object-contain rounded-lg"
+                                    style={{ maxHeight: 'calc(100vh - 160px)' }}
+                                />
+                            </div>
+
+                            {/* Navigation Arrows - Touch Friendly */}
+                            <button
+                                onClick={(e) => { e.stopPropagation(); navigateImage('prev'); }}
+                                className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 flex items-center justify-center text-white active:bg-black/80 z-10"
+                                aria-label="Previous image"
+                            >
+                                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </button>
+                            <button
+                                onClick={(e) => { e.stopPropagation(); navigateImage('next'); }}
+                                className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 flex items-center justify-center text-white active:bg-black/80 z-10"
+                                aria-label="Next image"
+                            >
+                                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </button>
+
+                            {/* Counter */}
+                            <div className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 text-white text-xs sm:text-sm bg-black/60 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full">
+                                {selectedImage + 1} / {filteredImages.length}
+                            </div>
+
+                            {/* Thumbnail Strip - Center Active */}
+                            <div className="absolute bottom-0 left-0 right-0 bg-black/95 py-2 sm:py-3">
+                                <div
+                                    ref={thumbnailScrollRef}
+                                    className="flex gap-2 sm:gap-3 overflow-x-auto scrollbar-hide px-[calc(50%-28px)] sm:px-[calc(50%-32px)]"
+                                    style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth' }}
+                                >
+                                    {filteredImages.map((img, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={(e) => { e.stopPropagation(); setSelectedImage(idx); }}
+                                            data-index={idx}
+                                            aria-label={`View image ${idx + 1}`}
+                                            className={`flex-shrink-0 w-14 h-10 sm:w-16 sm:h-12 rounded overflow-hidden transition-all duration-300 ${selectedImage === idx
+                                                ? 'ring-2 ring-gold-400 opacity-100 scale-105'
+                                                : 'opacity-40 hover:opacity-70 scale-100'
+                                                }`}
+                                            style={{ scrollSnapAlign: 'center' }}
+                                        >
+                                            <img
+                                                src={img.src}
+                                                alt=""
+                                                className="w-full h-full object-cover"
+                                                loading="lazy"
+                                            />
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+                    )
+                }
+            </AnimatePresence >
         </>
     );
 }

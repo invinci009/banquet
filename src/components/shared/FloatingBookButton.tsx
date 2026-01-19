@@ -47,9 +47,6 @@ export default function FloatingBookButton() {
                                 <Calendar className="w-5 h-5" />
                             </motion.div>
                             <span className="relative z-10">Book Your Event</span>
-
-                            {/* Pulse ring */}
-                            <span className="absolute inset-0 rounded-2xl animate-ping bg-gold-400/30" style={{ animationDuration: "2s" }} />
                         </Link>
 
                         {/* Dismiss button - positioned outside the link */}

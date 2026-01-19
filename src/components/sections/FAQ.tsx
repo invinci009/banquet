@@ -25,6 +25,10 @@ const faqs = [
         question: "What is your booking policy?",
         answer: "We require a booking amount of ₹10,000 to confirm your date. F&B taxes of 18% apply. We accept cash, bank transfers, and UPI payments.",
     },
+    {
+        question: "What types of events can be hosted here?",
+        answer: "We host all types of celebrations including weddings, receptions, engagement ceremonies, birthday parties, corporate events, social gatherings, and religious functions like puja and satyanarayan katha.",
+    },
 ];
 
 export default function FAQ() {
@@ -86,8 +90,8 @@ export default function FAQ() {
                         >
                             <div
                                 className={`relative bg-white/5 backdrop-blur-sm rounded-xl border transition-all duration-300 overflow-hidden group ${openIndex === index
-                                        ? "border-gold-500/50 shadow-lg shadow-gold-500/10"
-                                        : "border-white/10 hover:border-gold-500/30"
+                                    ? "border-gold-500/50 shadow-lg shadow-gold-500/10"
+                                    : "border-white/10 hover:border-gold-500/30"
                                     }`}
                             >
                                 {/* Gradient accent line */}
@@ -100,8 +104,8 @@ export default function FAQ() {
                                 >
                                     {/* Number badge */}
                                     <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm transition-all duration-300 ${openIndex === index
-                                            ? "bg-gold-gradient text-navy-900"
-                                            : "bg-white/10 text-gold-400"
+                                        ? "bg-gold-gradient text-navy-900"
+                                        : "bg-white/10 text-gold-400"
                                         }`}>
                                         {String(index + 1).padStart(2, '0')}
                                     </div>
@@ -114,8 +118,8 @@ export default function FAQ() {
                                         animate={{ rotate: openIndex === index ? 180 : 0 }}
                                         transition={{ duration: 0.3 }}
                                         className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors ${openIndex === index
-                                                ? "bg-gold-500 text-navy-900"
-                                                : "bg-white/10 text-gold-400"
+                                            ? "bg-gold-500 text-navy-900"
+                                            : "bg-white/10 text-gold-400"
                                             }`}
                                     >
                                         <ChevronDown className="w-4 h-4" />

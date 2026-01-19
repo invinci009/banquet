@@ -15,10 +15,10 @@ export default function InitialLoader({ children }: { children: React.ReactNode 
             setShowLoader(true);
             sessionStorage.setItem("hasVisitedRoyalGrandeur", "true");
 
-            // Show loader for 2 seconds on first visit
+            // Show loader for just 0.8s (aesthetic intro) instead of 2s to improve LCP
             const timer = setTimeout(() => {
                 setIsLoading(false);
-            }, 2000);
+            }, 800);
 
             return () => clearTimeout(timer);
         } else {
@@ -86,9 +86,9 @@ export default function InitialLoader({ children }: { children: React.ReactNode 
             </AnimatePresence>
 
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isLoading ? 0 : 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
+                className="relative z-0"
             >
                 {children}
             </motion.div>

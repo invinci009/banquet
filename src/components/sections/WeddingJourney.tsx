@@ -178,7 +178,7 @@ export default function WeddingJourney() {
                         </motion.div>
 
                         {/* Journey Steps */}
-                        <div className="space-y-16 sm:space-y-24 lg:space-y-32">
+                        <div className="space-y-8 sm:space-y-10 lg:space-y-12">
                             {journeySteps.map((step, index) => (
                                 <motion.div
                                     key={step.title}

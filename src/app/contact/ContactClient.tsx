@@ -129,21 +129,6 @@ export default function ContactClient() {
                             </Link>
                         </motion.div>
                     </motion.div>
-
-                    {/* Scroll Indicator */}
-                    <motion.div
-                        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:block"
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                    >
-                        <div className="w-6 h-10 border-2 border-gold-400/50 rounded-full flex items-start justify-center p-2">
-                            <motion.div
-                                className="w-1.5 h-3 bg-gold-400 rounded-full"
-                                animate={{ y: [0, 8, 0] }}
-                                transition={{ duration: 1.5, repeat: Infinity }}
-                            />
-                        </div>
-                    </motion.div>
                 </div>
             </section>
 

@@ -590,7 +590,7 @@ export default function Contact() {
                         <ContactMap />
 
                         {/* Overlay Card */}
-                        <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6">
+                        <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 z-[1000]">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
