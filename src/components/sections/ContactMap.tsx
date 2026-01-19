@@ -1,22 +1,78 @@
-"use client";
+'use client';
 
-export default function ContactMap() {
-    // Alba Banquet Hall / Alba Catering Services, Phulwari Sharif, Patna
-    // Using Google Maps embed for reliable map display
+import dynamic from 'next/dynamic';
+import { MapPin, Navigation, Phone, Clock } from 'lucide-react';
+
+// Dynamically import the map component to avoid SSR issues with Leaflet
+const LeafletMap = dynamic(() => import('./LeafletMap'), {
+    ssr: false,
+    loading: () => (
+        <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
+            <span className="text-gray-500">Loading map...</span>
+        </div>
+    ),
+});
+
+const ContactMap = () => {
+    // Alba Banquet Hall coordinates
+    const position: [number, number] = [25.5765, 85.0676];
+    const address = "Alba Banquet Hall, Near Pakori Factory, Phulwari Sharif, Patna, Bihar 801505";
+
+    const handleGetDirections = () => {
+        window.open(`https://www.google.com/maps/dir/?api=1&destination=${position[0]},${position[1]}`, '_blank');
+    };
 
     return (
-        <div className="h-full w-full relative bg-gray-100">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.4792686396913!2d85.07094017538461!3d25.569399515089037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57e3c4f7f67f%3A0x8b8f8f8f8f8f8f8f!2sAlba%20Catering%20Services!5e0!3m2!1sen!2sin!4v1705669100000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Alba Banquet Hall Location - Phulwari Sharif, Patna"
-                className="absolute inset-0"
-            />
-        </div>
+        <section className="py-20 bg-gray-50">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl font-bold text-gray-800 mb-4">Find Us Here</h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto">
+                        Conveniently located in the heart of Patna, Alba Banquet Hall is easily accessible from all major areas.
+                    </p>
+                </div>
+
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                    {/* Map Container */}
+                    <div className="h-[500px] w-full">
+                        <LeafletMap position={position} />
+                    </div>
+
+                    {/* Overlay Card */}
+                    <div className="absolute bottom-6 left-6 right-6 md:left-6 md:right-auto md:w-96 bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-xl">
+                        <div className="flex items-start gap-4 mb-4">
+                            <div className="bg-amber-500 p-3 rounded-full">
+                                <MapPin className="w-6 h-6 text-white" />
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-gray-800 text-lg">Alba Banquet Hall</h3>
+                                <p className="text-gray-600 text-sm mt-1">{address}</p>
+                            </div>
+                        </div>
+
+                        <div className="space-y-2 mb-4">
+                            <div className="flex items-center gap-3 text-gray-600">
+                                <Phone className="w-4 h-4" />
+                                <span className="text-sm">+91 98765 43210</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-gray-600">
+                                <Clock className="w-4 h-4" />
+                                <span className="text-sm">Open: 10:00 AM - 10:00 PM</span>
+                            </div>
+                        </div>
+
+                        <button
+                            onClick={handleGetDirections}
+                            className="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors"
+                        >
+                            <Navigation className="w-5 h-5" />
+                            Get Directions
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
-}
+};
+
+export default ContactMap;
