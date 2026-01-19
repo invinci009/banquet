@@ -5,16 +5,6 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { X, ZoomIn, ChevronLeft, ChevronRight, Heart, Download, Share2, Sparkles, Camera, Star } from "lucide-react";
 import Image from "next/image";
 
-// ... (lines 8-164 remain unchanged, handled by matching context or assuming file hasn't shifted much)
-
-// We need to re-declare the imports if we're replacing the top, but `replace_file_content` works on range. 
-// I'll target the import line specifically first to add useEffect.
-
-// Actually I'll just use MultiReplace to do it cleanly.
-
-
-// (Removed duplicate imports)
-
 const categories = [
     { id: "all", label: "All Events", icon: "" },
     { id: "venue", label: "Venue", icon: "" },
