@@ -46,16 +46,113 @@ const eventTypes = [
 
 export default function Contact() {
     const [formData, setFormData] = useState({
-        name: "", email: "", phone: "", eventDate: "", eventType: "", guests: "", message: "",
+        name: "", email: "", phone: "", startDate: "", endDate: "", eventType: "", guests: "", message: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isBooking, setIsBooking] = useState(false);
     const [error, setError] = useState("");
     const [focusedField, setFocusedField] = useState<string | null>(null);
     const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
     const [bookedDates, setBookedDates] = useState<Set<string>>(new Set());
 
     const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "2d0784b3-e96c-4ac7-8ef0-94a2d85a576d";
+    const RAZORPAY_KEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || process.env.RAZORPAY_KEY_ID || "rzp_test_YourTestKeyHere";
+
+    const handleBooking = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!validateForm()) {
+            setError("Please fix the errors above before booking");
+            return;
+        }
+
+        setIsBooking(true);
+        setError("");
+
+        try {
+            // 1. Check if Razorpay script is loaded
+            if (!(window as any).Razorpay) {
+                setError("Payment gateway failed to load. Please disable your adblocker and reload the page.");
+                setIsBooking(false);
+                return;
+            }
+
+            // 2. Create Order
+            const orderRes = await fetch("/api/razorpay/order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+            const orderData = await orderRes.json();
+
+            if (!orderData.success) {
+                setError("Could not initialize payment. Please try again.");
+                setIsBooking(false);
+                return;
+            }
+
+            // 3. Initialize Razorpay options
+            const options = {
+                key: RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
+                amount: orderData.order.amount,
+                currency: "INR",
+                name: "Alba Banquet Hall",
+                description: "Advance Booking Payment",
+                image: "https://albacatering.com/logo.png", // optionally use actual logo
+                order_id: orderData.order.id,
+                handler: async function (response: any) {
+                    try {
+                        const verifyRes = await fetch("/api/razorpay/verify", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                razorpay_payment_id: response.razorpay_payment_id,
+                                razorpay_order_id: response.razorpay_order_id,
+                                razorpay_signature: response.razorpay_signature,
+                                bookingDetails: formData
+                            }),
+                        });
+
+                        const verifyData = await verifyRes.json();
+                        if (verifyData.success) {
+                            setIsSubmitted(true);
+                            setFormData({ name: "", email: "", phone: "", startDate: "", endDate: "", eventType: "", guests: "", message: "" });
+                            setFieldErrors({});
+                            setTimeout(() => setIsSubmitted(false), 8000);
+                        } else {
+                            setError("Payment verification failed. Please contact us.");
+                            setIsBooking(false);
+                        }
+                    } catch (err) {
+                        setError("Verification error. If money was deducted, contact us.");
+                        setIsBooking(false);
+                    }
+                },
+                prefill: {
+                    name: formData.name,
+                    email: formData.email,
+                    contact: formData.phone,
+                },
+                theme: {
+                    color: "#0a192f", // navy-900
+                },
+            };
+
+            const paymentObject = new (window as any).Razorpay(options);
+            paymentObject.on("payment.failed", function (response: any) {
+                console.error("Payment failed", response.error);
+                setError(`Payment failed: ${response.error.description}`);
+                setIsBooking(false);
+            });
+            paymentObject.open();
+
+        } catch (err) {
+            setError("Failed to start booking. Please try again.");
+            console.error(err);
+            setIsBooking(false);
+        }
+    };
 
     const validateForm = () => {
         const errors: Record<string, string> = {};
@@ -82,33 +179,14 @@ export default function Contact() {
             errors.eventType = "Please select an event type";
         }
 
-        if (formData.eventDate) {
-            const [day, month, year] = formData.eventDate.split('/').map(Number);
-
-            // Basic format check
-            if (!day || !month || !year) {
-                errors.eventDate = "Invalid date format";
-            } else {
-                // Strict date validity check
-                const date = new Date(year, month - 1, day);
-                if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
-                    errors.eventDate = "Please enter a valid date";
-                } else {
-                    // Availability Checks
-                    if (!isDateBookable(date)) {
-                        const today = new Date();
-                        if (date < today) {
-                            errors.eventDate = "Date cannot be in the past";
-                        } else {
-                            errors.eventDate = "Date not available (too soon or too far)";
-                        }
-                    } else {
-                        const dateString = formatDateString(date);
-                        if (bookedDates.has(dateString)) {
-                            errors.eventDate = "This date is already booked. Please choose another.";
-                        }
-                    }
-                }
+        if (!formData.startDate || !formData.endDate) {
+            errors.dateRange = "Please select both start and end dates";
+        } else {
+            const [sDay, sMonth, sYear] = formData.startDate.split('/').map(Number);
+            const [eDay, eMonth, eYear] = formData.endDate.split('/').map(Number);
+            
+            if (!sDay || !sMonth || !sYear || !eDay || !eMonth || !eYear) {
+                errors.dateRange = "Invalid date format";
             }
         }
 
@@ -116,8 +194,8 @@ export default function Contact() {
         return Object.keys(errors).length === 0;
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmitInline = async (e?: React.FormEvent) => {
+        if (e) e.preventDefault();
 
         if (!validateForm()) {
             setError("Please fix the errors above before submitting");
@@ -143,7 +221,7 @@ export default function Contact() {
 
             if (result.success) {
                 setIsSubmitted(true);
-                setFormData({ name: "", email: "", phone: "", eventDate: "", eventType: "", guests: "", message: "" });
+                setFormData({ name: "", email: "", phone: "", startDate: "", endDate: "", eventType: "", guests: "", message: "" });
                 setFieldErrors({});
                 setTimeout(() => setIsSubmitted(false), 8000);
             } else {
@@ -164,33 +242,8 @@ export default function Contact() {
             setFieldErrors({ ...fieldErrors, [name]: "" });
         }
 
-        // Real-time validation for date
-        if (name === "eventDate" && value.length === 10) { // DD/MM/YYYY is 10 chars
-            const [day, month, year] = value.split('/').map(Number);
-            if (!day || !month || !year) {
-                // partial input or invalid
-            } else {
-                const date = new Date(year, month - 1, day);
-
-                if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
-                    setFieldErrors(prev => ({ ...prev, eventDate: "Invalid date" }));
-                } else if (!isDateBookable(date)) {
-                    const today = new Date();
-                    if (date < today) {
-                        setFieldErrors(prev => ({ ...prev, eventDate: "Date cannot be in the past" }));
-                    } else {
-                        setFieldErrors(prev => ({ ...prev, eventDate: "Date not available (too soon or too far)" }));
-                    }
-                } else {
-                    const dateString = formatDateString(date);
-                    if (bookedDates.has(dateString)) {
-                        setFieldErrors(prev => ({ ...prev, eventDate: "This date is already booked" }));
-                    } else {
-                        setFieldErrors(prev => ({ ...prev, eventDate: "" }));
-                    }
-                }
-            }
-        }
+        // Removed strict string validation since range is picked by DateAvailabilityChecker manually
+        // and cannot be typed directly easily
     };
 
     return (
@@ -286,24 +339,11 @@ export default function Contact() {
                         viewport={{ once: true }}
                     >
                         <DateAvailabilityChecker
-                            selectedDate={(() => {
-                                if (!formData.eventDate) return "";
-                                const [day, month, year] = formData.eventDate.split('/');
-                                if (day && month && year) {
-                                    return `${year}-${month}-${day}`;
-                                }
-                                return formData.eventDate;
-                            })()}
+                            selectedDateRange={{ start: formData.startDate, end: formData.endDate }}
                             onBookedDatesChange={setBookedDates}
-                            onDateSelect={(date, dateString) => {
-                                // Format to DD/MM/YYYY for display
-                                const formatted = date.toLocaleDateString('en-IN', {
-                                    day: '2-digit',
-                                    month: '2-digit',
-                                    year: 'numeric'
-                                }).replace(/\//g, '/');
-                                setFormData({ ...formData, eventDate: formatted });
-                                setFieldErrors({ ...fieldErrors, eventDate: "" });
+                            onDateRangeSelect={(start, end) => {
+                                setFormData({ ...formData, startDate: start || "", endDate: end || "" });
+                                setFieldErrors({ ...fieldErrors, dateRange: "" });
                             }}
                         />
                     </motion.div>
@@ -358,7 +398,6 @@ export default function Contact() {
                                         <motion.form
                                             initial={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
-                                            onSubmit={handleSubmit}
                                             className="space-y-5"
                                         >
                                             {/* Name & Phone Row */}
@@ -431,25 +470,24 @@ export default function Contact() {
 
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                 <div className="relative">
-                                                    <label className={`absolute left-12 transition-all duration-300 pointer-events-none ${focusedField === 'eventDate' || formData.eventDate ? 'top-1 text-xs text-gold-600 font-medium' : 'top-1/2 -translate-y-1/2 text-gray-400'}`}>
-                                                        Event Date (DD/MM/YYYY)
+                                                    <label className={`absolute left-12 transition-all duration-300 pointer-events-none ${(focusedField === 'dateRange' || formData.startDate) ? 'top-1 text-xs text-gold-600 font-medium' : 'top-1/2 -translate-y-1/2 text-gray-400'}`}>
+                                                        Event Dates
                                                     </label>
                                                     <div className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-gold-50 flex items-center justify-center">
                                                         <Calendar className="w-4 h-4 text-gold-600" />
                                                     </div>
                                                     <input
                                                         type="text"
-                                                        name="eventDate"
-                                                        value={formData.eventDate}
-                                                        onChange={handleChange}
-                                                        onFocus={() => setFocusedField('eventDate')}
+                                                        name="dateRange"
+                                                        value={formData.startDate ? `${formData.startDate}${formData.endDate ? ' - ' + formData.endDate : ''}` : ''}
+                                                        readOnly
+                                                        onFocus={() => setFocusedField('dateRange')}
                                                         onBlur={() => setFocusedField(null)}
                                                         placeholder=""
-                                                        pattern="\d{2}/\d{2}/\d{4}"
-                                                        className={`w-full pl-14 pr-4 pt-6 pb-3 border-2 rounded-xl focus:outline-none focus:border-gold-400 focus:ring-4 focus:ring-gold-100 transition-all text-navy-800 font-medium ${fieldErrors.eventDate ? 'border-red-400 bg-red-50 text-red-600' : 'border-gray-100'}`}
+                                                        className={`w-full pl-14 pr-4 pt-6 pb-3 border-2 rounded-xl focus:outline-none focus:border-gold-400 focus:ring-4 focus:ring-gold-100 transition-all text-navy-800 font-medium ${fieldErrors.dateRange ? 'border-red-400 bg-red-50 text-red-600' : 'border-gray-100'} cursor-default`}
                                                     />
-                                                    {fieldErrors.eventDate && (
-                                                        <p className="text-red-500 text-xs mt-1 ml-2">{fieldErrors.eventDate}</p>
+                                                    {fieldErrors.dateRange && (
+                                                        <p className="text-red-500 text-xs mt-1 ml-2">{fieldErrors.dateRange}</p>
                                                     )}
                                                 </div>
                                                 <div className="relative">
@@ -532,29 +570,55 @@ export default function Contact() {
                                                 </motion.div>
                                             )}
 
-                                            {/* Submit Button */}
-                                            <motion.button
-                                                type="submit"
-                                                disabled={isSubmitting}
-                                                whileHover={{ scale: 1.02 }}
-                                                whileTap={{ scale: 0.98 }}
-                                                className="w-full relative py-4 sm:py-5 bg-gold-gradient text-navy-900 font-bold text-lg rounded-xl shadow-gold hover:shadow-gold-lg transition-all overflow-hidden group"
-                                            >
-                                                <span className="absolute inset-0 bg-shimmer bg-[length:200%_100%] animate-shimmer" />
-                                                <span className="relative z-10 flex items-center justify-center gap-3">
-                                                    {isSubmitting ? (
-                                                        <>
-                                                            <div className="w-5 h-5 border-2 border-navy-900/30 border-t-navy-900 rounded-full animate-spin" />
-                                                            Sending Your Request...
-                                                        </>
-                                                    ) : (
-                                                        <>
-                                                            <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                                            Send Inquiry
-                                                        </>
-                                                    )}
-                                                </span>
-                                            </motion.button>
+                                            {/* Submit Buttons */}
+                                            <div className="flex flex-col sm:flex-row gap-4">
+                                                <motion.button
+                                                    type="button"
+                                                    onClick={handleSubmitInline}
+                                                    disabled={isSubmitting || isBooking}
+                                                    whileHover={{ scale: 1.02 }}
+                                                    whileTap={{ scale: 0.98 }}
+                                                    className="w-full relative py-4 sm:py-5 bg-white border-2 border-navy-900 text-navy-900 font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all overflow-hidden group"
+                                                >
+                                                    <span className="relative z-10 flex items-center justify-center gap-3">
+                                                        {isSubmitting ? (
+                                                            <>
+                                                                <div className="w-5 h-5 border-2 border-navy-900/30 border-t-navy-900 rounded-full animate-spin" />
+                                                                Sending...
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                                                Send Inquiry Only
+                                                            </>
+                                                        )}
+                                                    </span>
+                                                </motion.button>
+
+                                                <motion.button
+                                                    type="button"
+                                                    onClick={handleBooking}
+                                                    disabled={isSubmitting || isBooking}
+                                                    whileHover={{ scale: 1.02 }}
+                                                    whileTap={{ scale: 0.98 }}
+                                                    className="w-full relative py-4 sm:py-5 bg-gold-gradient text-navy-900 font-bold text-lg rounded-xl shadow-gold hover:shadow-gold-lg transition-all overflow-hidden group"
+                                                >
+                                                    <span className="absolute inset-0 bg-shimmer bg-[length:200%_100%] animate-shimmer" />
+                                                    <span className="relative z-10 flex items-center justify-center gap-3">
+                                                        {isBooking ? (
+                                                            <>
+                                                                <div className="w-5 h-5 border-2 border-navy-900/30 border-t-navy-900 rounded-full animate-spin" />
+                                                                Processing...
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                                                                Book & Pay Advance
+                                                            </>
+                                                        )}
+                                                    </span>
+                                                </motion.button>
+                                            </div>
 
                                             {/* Trust indicators */}
                                             <div className="flex items-center justify-center gap-6 pt-4 text-sm text-gray-500">

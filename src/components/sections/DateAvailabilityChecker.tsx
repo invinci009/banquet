@@ -12,8 +12,8 @@ import {
 import { fetchCalendarEvents, getBookedDatesFromEvents } from "@/lib/googleCalendar";
 
 interface DateAvailabilityCheckerProps {
-    onDateSelect?: (date: Date, dateString: string) => void;
-    selectedDate?: string;
+    onDateRangeSelect?: (startDate: string | null, endDate: string | null) => void;
+    selectedDateRange?: { start: string; end: string };
     onBookedDatesChange?: (dates: Set<string>) => void;
 }
 
@@ -25,8 +25,8 @@ const MONTHS = [
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default function DateAvailabilityChecker({
-    onDateSelect,
-    selectedDate,
+    onDateRangeSelect,
+    selectedDateRange,
     onBookedDatesChange
 }: DateAvailabilityCheckerProps) {
     const today = new Date();
@@ -48,8 +48,34 @@ export default function DateAvailabilityChecker({
     const loadCalendarEvents = async () => {
         setIsLoading(true);
         try {
+            // Fetch Google Calendar dates
             const events = await fetchCalendarEvents();
-            const bookedDates = getBookedDatesFromEvents(events);
+            let bookedDates = getBookedDatesFromEvents(events);
+            
+            // Fetch local database confirmed bookings
+            try {
+                const res = await fetch('/api/bookings/booked-dates');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.success && data.bookedDates) {
+                        for (const range of data.bookedDates) {
+                            if (!range.startDate || !range.endDate) continue;
+                            const [sD, sM, sY] = range.startDate.split('/').map(Number);
+                            const [eD, eM, eY] = range.endDate.split('/').map(Number);
+                            if (sY && sM && sD && eY && eM && eD) {
+                                const start = new Date(sY, sM - 1, sD);
+                                const end = new Date(eY, eM - 1, eD);
+                                for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+                                    bookedDates.push(formatDateString(d));
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (dbErr) {
+                console.warn('Failed to load local DB dates:', dbErr);
+            }
+
             setCalendarBookedDates(bookedDates);
             setLastSynced(new Date());
         } catch (error) {
@@ -116,8 +142,44 @@ export default function DateAvailabilityChecker({
     const handleDateClick = (date: Date) => {
         if (!isDateBookable(date) || isDateBooked(date)) return;
 
-        const dateString = formatDateString(date);
-        onDateSelect?.(date, dateString);
+        // Convert the clicked date to DD/MM/YYYY manually because DateLocales can be inconsistent
+        const d = String(date.getDate()).padStart(2, '0');
+        const m = String(date.getMonth() + 1).padStart(2, '0');
+        const y = date.getFullYear();
+        const dateString = `${d}/${m}/${y}`;
+
+        if (!selectedDateRange?.start || (selectedDateRange.start && selectedDateRange.end)) {
+            // Start new selection
+            onDateRangeSelect?.(dateString, null);
+        } else {
+            // End selection
+            const [sD, sM, sY] = selectedDateRange.start.split('/').map(Number);
+            const startDate = new Date(sY, sM - 1, sD);
+            startDate.setHours(0, 0, 0, 0);
+            
+            // Re-normalize 'date' to avoid timezone bugs
+            const clickedDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+            if (clickedDate < startDate) {
+                // Restart selection if clicked end is before start
+                onDateRangeSelect?.(dateString, null);
+            } else {
+                // Check if any booked dates fall in between
+                let isValidRange = true;
+                for (let dx = new Date(startDate); dx <= clickedDate; dx.setDate(dx.getDate() + 1)) {
+                    if (isDateBooked(dx)) {
+                        isValidRange = false;
+                        break;
+                    }
+                }
+                if (isValidRange) {
+                    onDateRangeSelect?.(selectedDateRange.start, dateString);
+                } else {
+                    // Reset to clicked date if blocking dates exist between start and end
+                    onDateRangeSelect?.(dateString, null);
+                }
+            }
+        }
     };
 
     const getDateStatus = (date: Date) => {
@@ -127,7 +189,43 @@ export default function DateAvailabilityChecker({
         if (isPast) return "past";
         if (!isDateBookable(date)) return "unavailable";
         if (isDateBooked(date)) return "booked";
-        if (dateStr === selectedDate) return "selected";
+        
+        let startStr = "";
+        let endStr = "";
+        
+        if (selectedDateRange?.start) {
+            const [sD, sM, sY] = selectedDateRange.start.split('/').map(Number);
+            const sDate = new Date(sY, sM - 1, sD);
+            startStr = formatDateString(sDate);
+        }
+        if (selectedDateRange?.end) {
+            const [eD, eM, eY] = selectedDateRange.end.split('/').map(Number);
+            const eDate = new Date(eY, eM - 1, eD);
+            endStr = formatDateString(eDate);
+        }
+
+        if (startStr === dateStr || endStr === dateStr) return "selected";
+        
+        if (startStr && endStr) {
+            const sDate = new Date(startStr);
+            const eDate = new Date(endStr);
+            const curDate = new Date(dateStr);
+            if (curDate > sDate && curDate < eDate) return "selected-range";
+        }
+        
+        if (selectedDateRange?.start && !selectedDateRange?.end && hoveredDate) {
+            const sDate = new Date(startStr);
+            const hDate = new Date(hoveredDate);
+            const curDate = new Date(dateStr);
+            if (curDate > sDate && curDate <= hDate) {
+                let isValid = true;
+                for(let check = new Date(sDate); check <= hDate; check.setDate(check.getDate() + 1)) {
+                    if(isDateBooked(check)) { isValid = false; break; }
+                }
+                if (isValid) return "hover-range";
+            }
+        }
+        
         if (isPopularDay(date)) return "popular";
         return "available";
     };
@@ -135,7 +233,10 @@ export default function DateAvailabilityChecker({
     const getStatusStyles = (status: string) => {
         switch (status) {
             case "selected":
-                return "bg-gold-500 text-navy-900 ring-4 ring-gold-300/50 font-bold scale-110";
+                return "bg-gold-500 text-navy-900 ring-4 ring-gold-300/50 font-bold scale-110 z-10";
+            case "selected-range":
+            case "hover-range":
+                return "bg-gold-100/80 text-navy-900 border-2 border-gold-300 font-semibold";
             case "booked":
                 return "bg-red-100 text-red-400 cursor-not-allowed line-through";
             case "available":
@@ -358,7 +459,7 @@ export default function DateAvailabilityChecker({
 
             {/* Selected Date Confirmation */}
             <AnimatePresence>
-                {selectedDate && (
+                {(selectedDateRange?.start || selectedDateRange?.end) && (
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -371,22 +472,8 @@ export default function DateAvailabilityChecker({
                         <div>
                             <p className="font-semibold text-green-800">Date Selected!</p>
                             <p className="text-sm text-green-600">
-                                {(() => {
-                                    // Handle both YYYY-MM-DD and DD/MM/YYYY formats
-                                    let year, month, day;
-                                    if (selectedDate.includes('/')) {
-                                        [day, month, year] = selectedDate.split('/').map(Number);
-                                    } else {
-                                        [year, month, day] = selectedDate.split('-').map(Number);
-                                    }
-                                    const date = new Date(year, month - 1, day);
-                                    return date.toLocaleDateString('en-IN', {
-                                        weekday: 'long',
-                                        day: 'numeric',
-                                        month: 'long',
-                                        year: 'numeric'
-                                    });
-                                })()}
+                                {selectedDateRange?.start ? selectedDateRange.start : "Select start date"}
+                                {selectedDateRange?.start && selectedDateRange?.end ? ` to ${selectedDateRange.end}` : (!selectedDateRange?.end && selectedDateRange?.start ? ` - Select end date` : '')}
                             </p>
                         </div>
                     </motion.div>

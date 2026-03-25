@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { Inter, Playfair_Display } from "next/font/google";
 import SmoothScroll from "@/components/ui/SmoothScroll";
@@ -515,6 +516,7 @@ export default function RootLayout({
             <body className={`${inter.variable} ${playfair.variable} min-h-screen bg-champagne-50 text-navy-800 antialiased overflow-x-hidden`}>
                 <SmoothScroll />
                 {children}
+                <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
             </body>
         </html>
     );
